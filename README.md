@@ -1,2 +1,2 @@
-# fiber-config-generator
-White matter fiber tracts configuration generator
+# Fiber Config Generator
+## White matter fiber tracts configuration generator
