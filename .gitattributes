@@ -18,7 +18,6 @@
 
 # MITK Diffusion, Simulation Generator
 *.json text eol=lf
-*.mitk text eol=lf
 *.bvecs text eol=lf
 *.bvals text eol=lf
 *.fib text eol=lf
