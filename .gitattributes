@@ -16,6 +16,17 @@
 # in Unix via a file share from Windows, the scripts will work.
 *.sh text eol=lf
 
+# MITK Diffusion, Simulation Generator
+*.json text eol=lf
+*.mitk text eol=lf
+*.bvecs text eol=lf
+*.bvals text eol=lf
+*.fib text eol=lf
+*.vtk text eol=lf
+*.ffp text eol=lf
+*.nrrd text eol=lf
+*.dwi text eol=lf
+
 
 ###############################
 # Git Large File System (LFS) #
