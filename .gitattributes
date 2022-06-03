@@ -23,8 +23,6 @@
 *.fib text eol=lf
 *.vtk text eol=lf
 *.ffp text eol=lf
-*.nrrd text eol=lf
-*.dwi text eol=lf
 
 
 ###############################
