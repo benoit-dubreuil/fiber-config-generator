@@ -25,6 +25,16 @@
 *.vtk text eol=lf
 *.ffp text eol=lf
 
+# Code files
+# They are going to be used by the Simulation Generator, which runs on Linux.
+*.py text eol=lf
+*.pyc text eol=lf
+*.txt text eol=lf
+*.c text eol=lf
+*.h text eol=lf
+*.cpp text eol=lf
+*.hpp text eol=lf
+
 
 ###############################
 # Git Large File System (LFS) #
