@@ -1,0 +1,33 @@
+# GitHub app "Create Issue Branch": https://github.com/robvanderleek/create-issue-branch#default-source-branch
+
+gitSafeReplacementChar: '-'
+branchName: 'issue-${issue.number}/${issue.title,}' # `,` for all lowercase
+
+# `issue-` is required for `autoCloseIssue`
+branches:
+  - label: bug
+    prefix: 'fix/'
+  - label: feature
+    prefix: 'feature/'
+  - label: doc
+    prefix: 'doc/'
+  - label: QA
+    prefix: 'qa/'
+  - label: '*'
+    skip: true
+
+defaultBranch: 'dev'
+
+# For an issue with multiple branches, there must be only one branch from where to create the PR (pull request).
+# The other branches are considered as used for organizing purposes.
+autoCloseIssue: true
+
+openDraftPR: true
+
+copyIssueDescriptionToPR: true
+copyIssueLabelsToPR: true
+copyIssueAssigneeToPR: true
+copyIssueProjectsToPR: false
+copyIssueMilestoneToPR: false
+
+commentMessage: 'Branch [`${branchName}`](${repository.html_url}/tree/${branchName}) created for issue #${issue.number}.'
