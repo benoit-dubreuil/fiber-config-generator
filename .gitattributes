@@ -17,6 +17,7 @@
 *.sh text eol=lf
 
 # MITK Diffusion, Simulation Generator
+# The simulation runs on Linux.
 *.json text eol=lf
 *.bvecs text eol=lf
 *.bvals text eol=lf
