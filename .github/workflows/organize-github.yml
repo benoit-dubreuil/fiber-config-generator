@@ -1,4 +1,4 @@
-name: Organize GitHub
+name: Create Issue Branch
 
 on:
   # The issues event below is only needed for the default (auto) mode, you can remove it otherwise.
