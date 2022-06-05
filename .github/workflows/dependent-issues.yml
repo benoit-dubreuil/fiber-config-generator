@@ -30,14 +30,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
         with:
-          # (Optional) The label to use to mark dependent issues
-          label: dependent
-
           # (Optional) Enable checking for dependencies in issues.
           # Enable by setting the value to "on".
           # Default "off"
           check_issues: on
-
-          # (Optional) A comma-separated list of keywords.
-          # Default "depends on, blocked by"
-          keywords: depends on, blocked by
