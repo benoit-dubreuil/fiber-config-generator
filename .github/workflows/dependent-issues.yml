@@ -49,11 +49,3 @@ jobs:
           # (Optional) A comma-separated list of keywords. Default
           # "depends on, blocked by"
           keywords: depends on, blocked by
-
-          # (Optional) A custom comment body. It supports `{{ dependencies }}` token.
-          comment: >
-            This PR/issue depends on:
-
-            {{ dependencies }}
-
-            By **[Dependent Issues](https://github.com/z0al/dependent-issues)** (🤖). Happy coding!
