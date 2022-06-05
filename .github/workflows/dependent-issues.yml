@@ -18,11 +18,6 @@ on:
       # Otherwise, it can be removed.
       - synchronize
 
-  # Schedule a daily check. Useful if you reference cross-repository
-  # issues or pull requests. Otherwise, it can be removed.
-  schedule:
-    - cron: '0 0 * * *'
-
 jobs:
   check:
     runs-on: ubuntu-latest
