@@ -1,5 +1,7 @@
 name: Dependent Issues
 
+# https://github.com/z0al/dependent-issues
+
 on:
   issues:
     types:
