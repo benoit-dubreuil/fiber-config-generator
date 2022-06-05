@@ -14,11 +14,11 @@ Développé par Benoît Dubreuil sous la supervision du professeur-superviseur J
 
 ### Dependent Issues
 
-The [Dependent Issues](https://github.com/z0al/dependent-issues) GitHub action and actual GitHub workflow allows issues and PRs dependency management through keywords in
+The [Dependent Issues](https://github.com/z0al/dependent-issues) GitHub Action and actual GitHub workflow allows issues and PRs dependency management through keywords in
 descriptions.
 
 Its workflow and configuration is located at `.github/workflows/dependent-issues.yml`.
 
 The keywords are `depends on` and `blocked by`, according to the configuration.
-Also, the Dependent Issues GitHub action labels issues and PRs that are dependent on others with the label `dependent`, according to the configuration.
-Finally, the GitHub action adds itself to the list of status checks required to pass before merging PRs.
+Also, the Dependent Issues GitHub Action labels issues and PRs that are dependent on others with the label `dependent`, according to the configuration.
+Finally, the GitHub Action adds itself to the list of status checks required to pass before merging PRs.
