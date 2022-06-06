@@ -1,4 +1,4 @@
-# GitHub app "Create Issue Branch": https://github.com/robvanderleek/create-issue-branch#default-source-branch
+# GitHub App/Action Create Issue Branch: https://github.com/robvanderleek/create-issue-branch
 
 gitSafeReplacementChar: '-'
 branchName: 'issue-${issue.number}/${issue.title,}' # `,` for all lowercase
