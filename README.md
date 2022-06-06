@@ -45,8 +45,16 @@ Also, the Dependent Issues GitHub Action labels issues and PRs that are dependen
 Finally, the GitHub Action adds itself to the list of status checks required to pass before merging PRs.
 
 
+## Tools
+
+### Simulation Generator
+
+[Simulation Generator](https://bitbucket.org/voxsim/simulation_generator) runs only on Linux due to its dependency to [Singularity](https://sylabs.io/singularity).
+
+
 ## References
 
 - [benoit-dubreuil / inf6200-h2022 / guides / outils.md](https://github.com/benoit-dubreuil/inf6200-h2022/blob/main/guides/outils.md)
 - [benoit-dubreuil / inf6200-h2022 / report / 2022_inf6200_benoit_dubreuil.pdf](https://github.com/benoit-dubreuil/inf6200-h2022/blob/main/report/2022_inf6200_benoit_dubreuil.pdf)
 - [Scilpy coding standards](https://scil-documentation.readthedocs.io/en/latest/coding/scilpy.html)
+- [Simulation Generator](https://bitbucket.org/voxsim/simulation_generator)
