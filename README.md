@@ -10,13 +10,6 @@
 Développé par Benoît Dubreuil sous la supervision du professeur-superviseur Joël Lefebvre du LINUM au cours de la session d'été 2022 à l'UQÀM pour un stage COOP (INM5803).
 
 
-## References
-
-- [benoit-dubreuil / inf6200-h2022 / guides / outils.md](https://github.com/benoit-dubreuil/inf6200-h2022/blob/main/guides/outils.md)
-- [benoit-dubreuil / inf6200-h2022 / report / 2022_inf6200_benoit_dubreuil.pdf](https://github.com/benoit-dubreuil/inf6200-h2022/blob/main/report/2022_inf6200_benoit_dubreuil.pdf)
-- [Scilpy coding standards](https://scil-documentation.readthedocs.io/en/latest/coding/scilpy.html)
-
-
 ## GitHub workflows
 
 ### Create Issue Branch
@@ -50,3 +43,18 @@ Its workflow and configuration is located at `.github/workflows/dependent-issues
 The keywords are `depends on` and `blocked by`, according to the configuration.
 Also, the Dependent Issues GitHub Action labels issues and PRs that are dependent on others with the label `dependent`, according to the configuration.
 Finally, the GitHub Action adds itself to the list of status checks required to pass before merging PRs.
+
+
+## Tools
+
+### Simulation Generator
+
+[Simulation Generator](https://bitbucket.org/voxsim/simulation_generator) runs only on Linux due to its dependency to [Singularity](https://sylabs.io/singularity).
+
+
+## References
+
+- [benoit-dubreuil / inf6200-h2022 / guides / outils.md](https://github.com/benoit-dubreuil/inf6200-h2022/blob/main/guides/outils.md)
+- [benoit-dubreuil / inf6200-h2022 / report / 2022_inf6200_benoit_dubreuil.pdf](https://github.com/benoit-dubreuil/inf6200-h2022/blob/main/report/2022_inf6200_benoit_dubreuil.pdf)
+- [Scilpy coding standards](https://scil-documentation.readthedocs.io/en/latest/coding/scilpy.html)
+- [Simulation Generator](https://bitbucket.org/voxsim/simulation_generator)
