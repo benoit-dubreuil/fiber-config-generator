@@ -2,6 +2,13 @@
 # -*- coding: utf-8 -*-
 
 
+"""
+Fiber Config Generator entry point.
+
+TODO
+"""
+
+
 def main():
     print("Hello, World!")
 
