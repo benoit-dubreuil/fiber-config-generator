@@ -21,3 +21,4 @@ git+ssh://git@bitbucket.org/voxsim/simulation_generator#egg=simulation_generator
 
 # Development
 pylint
+flake8
