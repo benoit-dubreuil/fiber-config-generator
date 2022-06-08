@@ -1,0 +1,8 @@
+name: Sync LINUM mirror repository
+
+on:
+  push:
+    branches:
+      - prod
+
+jobs:
