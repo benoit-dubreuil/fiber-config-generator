@@ -24,5 +24,5 @@ jobs:
       - uses: yesolutions/mirror-action@master
         with:
           REMOTE: 'ssh://git@github.com:linum-uqam/inm5803-ete2022-benoit-dubreuil.git'
-          GIT_SSH_PRIVATE_KEY: ${{ secrets.LINUM_DEPLOY_GIT_SSH_PRIVATE_KEY }}
+          GIT_SSH_PRIVATE_KEY: ${{ secrets.LINUM_DEPLOY_GIT_SSH_PRIVATE_KEY }}  # The public key is a deploy key on the remote repository
           GIT_SSH_KNOWN_HOSTS: ${{ secrets.GIT_SSH_KNOWN_HOSTS }}
