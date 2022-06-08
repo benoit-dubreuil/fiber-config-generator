@@ -1,5 +1,7 @@
 name: Sync LINUM mirror repository
 
+# GitHub App/Action mirror-repository: https://github.com/yesolutions/mirror-action
+
 on:
   push:
     branches:
