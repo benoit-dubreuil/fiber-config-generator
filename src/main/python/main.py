@@ -3,13 +3,18 @@
 
 
 """
-Fiber Config Generator entry point.
+Fiber Config Generator main module and entry point.
 
 TODO
 """
 
 
 def main():
+    """
+    Fiber Config Generator entry point.
+
+    TODO
+    """
     print("Hello, World!")
 
 
