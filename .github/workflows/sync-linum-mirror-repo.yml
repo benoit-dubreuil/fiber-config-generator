@@ -6,3 +6,5 @@ on:
       - prod
 
 jobs:
+  sync_mirror_repo:
+    runs-on: ubuntu-latest
