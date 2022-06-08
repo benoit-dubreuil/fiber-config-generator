@@ -23,6 +23,7 @@ on:
 jobs:
   manage_issues_and_prs_dependencies:
     runs-on: ubuntu-latest
+
     steps:
       - uses: z0al/dependent-issues@v1
         env:
