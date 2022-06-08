@@ -1,0 +1,28 @@
+name: Sync LINUM mirror repository
+
+# GitHub App/Action mirror-repository: https://github.com/yesolutions/mirror-action
+
+on:
+  push:
+    branches:
+      - prod
+
+jobs:
+  sync_mirror_repo:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: production
+      url: https://github.com/linum-uqam/inm5803-ete2022-benoit-dubreuil
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: 'prod'
+          fetch-depth: 0
+
+      - uses: yesolutions/mirror-action@master
+        with:
+          REMOTE: 'ssh://git@github.com:linum-uqam/inm5803-ete2022-benoit-dubreuil.git'
+          GIT_SSH_PRIVATE_KEY: ${{ secrets.LINUM_DEPLOY_GIT_SSH_PRIVATE_KEY }}  # The public key is a deploy key on the remote repository
+          GIT_SSH_KNOWN_HOSTS: ${{ secrets.GIT_SSH_KNOWN_HOSTS }}
