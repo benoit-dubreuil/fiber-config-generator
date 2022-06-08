@@ -45,6 +45,13 @@ Also, the Dependent Issues GitHub Action labels issues and PRs that are dependen
 Finally, the GitHub Action adds itself to the list of status checks required to pass before merging PRs.
 
 
+### Sync LINUM mirror repository
+
+When a _push_ event is triggered on the `prod` branch, the repository is synchronized with
+its [respective LINUM mirror repository](https://github.com/linum-uqam/inm5803-ete2022-benoit-dubreuil).
+Once the remote is synchronized, every git `refs`, `tags` and `branches` from that repository are pruned and replaced by the ones from this repository.
+
+
 ## Tools
 
 ### Simulation Generator
