@@ -17,3 +17,7 @@ wheel
 # sudo unlink /usr/local/bin/x86_64-linux-gnu-g++
 
 git+ssh://git@bitbucket.org/voxsim/simulation_generator#egg=simulation_generator
+
+
+# Development
+pylint
