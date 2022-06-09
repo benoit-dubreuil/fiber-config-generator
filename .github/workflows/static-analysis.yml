@@ -25,6 +25,11 @@ jobs:
           python -m pip install --upgrade 'pip ~= 20.0'
           pip install --upgrade --requirement requirements.txt
 
+      - name: Find Python files in scripts/ and tests/
+        id: find_python_files
+        run: |
+          echo "::set-output name=py_files::$(git ls-files 'scripts/*.py' 'tests/*.py')"
+
       - name: Linting with pylint
         run: |
-          pylint $(git ls-files 'scripts/*.py' 'tests/*.py')
+          pylint ${{ steps.find_python_files.outputs.py_files }}
