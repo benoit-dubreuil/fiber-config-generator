@@ -20,6 +20,11 @@ jobs:
           python-version: ${{ matrix.python-version }}
           cache: 'pip'
 
+      - name: Start ssh-agent and add SSH key
+        uses: webfactory/ssh-agent@v0.5.4
+        with:
+          ssh-private-key: ${{ secrets.SIMULATION_GENERATOR_PULL_GIT_SSH_PRIVATE_KEY }}
+
       - name: Install SSH key in order to pull Simulation Generator
         uses: shimataro/ssh-key-action@v2
         with:
