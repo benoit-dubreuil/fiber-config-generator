@@ -25,6 +25,6 @@ jobs:
           python -m pip install --upgrade 'pip ~= 20.0'
           pip install --upgrade --requirement requirements.txt
 
-      - name: Analysing the code with pylint
+      - name: Lint with pylint
         run: |
           pylint $(git ls-files 'scripts/' 'tests/')
