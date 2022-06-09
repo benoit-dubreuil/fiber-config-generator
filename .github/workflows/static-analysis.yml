@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ssh-key: ${{ SIMULATION_GENERATOR_PULL_GIT_SSH_PRIVATE_KEY }}
+          ssh-key: ${{ secrets.SIMULATION_GENERATOR_PULL_GIT_SSH_PRIVATE_KEY }}
           ssh-known-hosts: ${{ secrets.GIT_SSH_KNOWN_HOSTS }}
 
       - name: Set up Python ${{ matrix.python-version }}
