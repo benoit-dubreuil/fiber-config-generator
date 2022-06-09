@@ -25,12 +25,9 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SIMULATION_GENERATOR_PULL_GIT_SSH_PRIVATE_KEY }}
 
-      - name: Install SSH key in order to pull Simulation Generator
-        uses: shimataro/ssh-key-action@v2
-        with:
-          known_hosts: ${{ secrets.GIT_SSH_KNOWN_HOSTS }}
-          name: simulation_generator_bitbucket
-          key: ${{ secrets.SIMULATION_GENERATOR_PULL_GIT_SSH_PRIVATE_KEY }}
+      - name: Append Bitbucket SSH known host to known_hosts
+        run: |
+          cat "${GITHUB_WORKSPACE}/.github/workflows/config/.ssh/known_hosts.d/github.txt" >> ~/.ssh/known_hosts
 
       - name: Install dependencies
         run: |
