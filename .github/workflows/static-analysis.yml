@@ -4,11 +4,15 @@ on: [ push ]
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
+        os: [ ubuntu-latest ]
         python-version: [ '3.8' ]
+        include:
+          - os: ubuntu-latest
+            path: ~/.cache/pip
 
     steps:
       - uses: actions/checkout@v3
