@@ -43,7 +43,8 @@ jobs:
 
       - name: Linting with pylint
         run: |
-          pylint ${{ steps.find_python_files.outputs.fcg }} ${{ steps.find_python_files.outputs.scripts }} ${{ steps.find_python_files.outputs.tests }}
+          pylint ${{ steps.find_python_files.outputs.fcg }} ${{ steps.find_python_files.outputs.scripts }}
+          pylint --disable=missing-docstring,protected-access ${{ steps.find_python_files.outputs.tests }}
 
       - name: Linting with flake8
         run: |
