@@ -38,9 +38,9 @@ jobs:
         id: find_python_files
         # `git ls-files 'dir/*\*.py'` lists all Python files in 'dir' and its subdirectories.
         run: |
-          echo "::set-output name=fcg::$(git ls-files 'fcg/*\*.py')"
-          echo "::set-output name=scripts::$(git ls-files 'scripts/*\*.py')"
-          echo "::set-output name=tests::$(git ls-files 'tests/*\*.py')"
+          echo "::set-output name=fcg::$(git ls-files 'fcg/*\\*.py')"
+          echo "::set-output name=scripts::$(git ls-files 'scripts/*\\*.py')"
+          echo "::set-output name=tests::$(git ls-files 'tests/*\\*.py')"
 
       - name: Linting with pylint
         run: |
