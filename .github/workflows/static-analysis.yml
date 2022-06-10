@@ -4,10 +4,11 @@ on: [ push ]
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
+        os: [ ubuntu-latest ]
         python-version: [ '3.8' ]
 
     steps:
@@ -17,12 +18,32 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: ${{ matrix.python-version }}
+          cache: 'pip'
+
+      - name: Start ssh-agent and add SSH key
+        uses: webfactory/ssh-agent@v0.5.4
+        with:
+          ssh-private-key: ${{ secrets.SIMULATION_GENERATOR_PULL_GIT_SSH_PRIVATE_KEY }}
+
+      - name: Append Bitbucket SSH known host to known_hosts
+        run: |
+          cat "${GITHUB_WORKSPACE}/.github/workflows/config/.ssh/known_hosts.d/bitbucket.txt" >> ~/.ssh/known_hosts
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pylint
+          pip install -r requirements.txt
 
-      - name: Analysing the code with pylint
+      - name: Find Python files in scripts/ and tests/
+        id: find_python_files
         run: |
-          pylint $(git ls-files 'src/*.py')
+          echo "::set-output name=py_files::$(git ls-files 'scripts/*.py' 'tests/*.py')"
+
+      - name: Linting with pylint
+        run: |
+          pylint ${{ steps.find_python_files.outputs.py_files }}
+
+      - name: Linting with flake8
+        # 120 max line length is taken from linumpy
+        run: |
+          flake8 --max-line-length=120 ${{ steps.find_python_files.outputs.py_files }}

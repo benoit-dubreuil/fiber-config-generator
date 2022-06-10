@@ -1,6 +1,4 @@
-# Update pip by running `python3 -m pip install --upgrade pip`
-
-wheel
+wheel ~= 0.37.0
 
 
 # Simulation Generator
@@ -20,4 +18,5 @@ git+ssh://git@bitbucket.org/voxsim/simulation_generator#egg=simulation_generator
 
 
 # Development
-pylint
+pylint ~= 2.14.0
+flake8 ~= 4.0.0
