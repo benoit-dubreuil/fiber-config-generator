@@ -11,8 +11,11 @@ See [SCILPY coding standards](https://scil-documentation.readthedocs.io/en/lates
 
 NumPy style conventions
 
+See comprehensive examples : https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html
+
+
 ```python
-# NumPy style doc: https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html
+# Reference: https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html
 
 def module_level_function(param1, param2=None, *args, **kwargs):
     """This is an example of a module level function.
