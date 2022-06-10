@@ -29,6 +29,10 @@ jobs:
         run: |
           cat "${GITHUB_WORKSPACE}/.github/workflows/config/.ssh/known_hosts.d/github.txt" >> ~/.ssh/known_hosts
 
+      - name: Debug pip ssh key not working
+        run:
+          git clone git@bitbucket.org:voxsim/simulation_generator.git
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
