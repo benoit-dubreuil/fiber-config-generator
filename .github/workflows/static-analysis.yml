@@ -44,6 +44,9 @@ jobs:
           pylint ${{ steps.find_python_files.outputs.py_files }}
 
       - name: Linting with flake8
-        # 120 max line length is taken from linumpy
         run: |
-          flake8 --max-line-length=120 ${{ steps.find_python_files.outputs.py_files }}
+          flake8 ${{ steps.find_python_files.outputs.py_files }}
+
+      - name: Check static types with mypy
+        run: |
+          mypy ${{ steps.find_python_files.outputs.py_files }}

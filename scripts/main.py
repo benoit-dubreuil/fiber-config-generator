@@ -9,7 +9,7 @@ TODO
 """
 
 
-def main():
+def main() -> None:
     """
     Fiber Config Generator entry point.
 
