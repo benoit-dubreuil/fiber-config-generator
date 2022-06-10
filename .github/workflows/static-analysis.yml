@@ -37,9 +37,9 @@ jobs:
       - name: Find Python files in scripts/ and tests/
         id: find_python_files
         run: |
-          echo "::set-output name=fcg::$(git ls-files 'fcg/**.py')"
-          echo "::set-output name=scripts::$(git ls-files 'scripts/**.py')"
-          echo "::set-output name=tests::$(git ls-files 'tests/**.py')"
+          echo "::set-output name=fcg::$(git ls-files 'fcg/**.py' | xargs echo)"
+          echo "::set-output name=scripts::$(git ls-files 'scripts/**.py' | xargs echo)"
+          echo "::set-output name=tests::$(git ls-files 'tests/**.py' | xargs echo)"
 
       - name: Linting with pylint
         run: |
