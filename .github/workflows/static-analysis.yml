@@ -30,7 +30,7 @@ jobs:
           cat "${GITHUB_WORKSPACE}/.github/workflows/config/.ssh/known_hosts.d/github.txt" >> ~/.ssh/known_hosts
 
       - name: Debug pip ssh key not working
-        run:
+        run: |
           echo "::debug::'known_host path:' ${GITHUB_WORKSPACE}/.github/workflows/config/.ssh/known_hosts.d/github.txt"
           echo "::debug::'known_host path content:' cat ${GITHUB_WORKSPACE}/.github/workflows/config/.ssh/known_hosts.d/github.txt | xargs echo"
           echo "::debug::'ssh-add -L:' $(ssh0add -L)"
