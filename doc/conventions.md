@@ -2,6 +2,15 @@
 
 ## Coding conventions
 
+### Project folder structure
+
+- `/scripts` — executable scripts from the CLI
+- `/tests`
+- `/fcg` — _Fiber Config Generator_ source files
+- `/doc` — non-generated documation
+- `/apidoc` — generated documation
+
+
 ### Python scripts
 
 See [SCILPY coding standards](https://scil-documentation.readthedocs.io/en/latest/coding/scilpy.html)
