@@ -15,6 +15,9 @@
 
 See [SCILPY coding standards](https://scil-documentation.readthedocs.io/en/latest/coding/scilpy.html)
 
+Avoid `__all__` because the `_` prefix defines what is public and what is not.
+See [this post](https://stackoverflow.com/questions/44834/what-does-all-mean-in-python/35710527#35710527) explanation.
+
 
 ### Docstring
 
