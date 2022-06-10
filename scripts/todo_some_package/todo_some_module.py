@@ -22,6 +22,5 @@ def print_some_func_ret(arg1: int) -> None:
     print(_some_func())
 
 
-# TODO: Disable mandatory docstring for private functions
 def _some_func() -> str:
     return 'test'
