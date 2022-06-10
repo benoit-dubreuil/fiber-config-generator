@@ -4,4 +4,6 @@
 TODO
 """
 
-__all__ = []
+import typing
+
+__all__: typing.Sequence[str] = []
