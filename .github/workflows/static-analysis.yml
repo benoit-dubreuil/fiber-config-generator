@@ -50,3 +50,7 @@ jobs:
       - name: Check static types with mypy
         run: |
           mypy ${{ steps.find_python_files.outputs.py_files }}
+
+      - name: Test with pytest
+        run: |
+          pytest $(git ls-files 'tests/**/*.py')
