@@ -20,3 +20,4 @@ git+ssh://git@bitbucket.org/voxsim/simulation_generator#egg=simulation_generator
 # Development
 pylint ~= 2.14.0
 flake8 ~= 4.0.0
+mypy ~= 0.961
