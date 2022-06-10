@@ -27,7 +27,7 @@ jobs:
 
       - name: Append Bitbucket SSH known host to known_hosts
         run: |
-          cat "${GITHUB_WORKSPACE}/.github/workflows/config/.ssh/known_hosts.d/github.txt" >> ~/.ssh/known_hosts
+          cat "${GITHUB_WORKSPACE}/.github/workflows/config/.ssh/known_hosts.d/bitbucket.txt" >> ~/.ssh/known_hosts
 
       - name: Debug pip ssh key not working
         run: |
