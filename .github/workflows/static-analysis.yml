@@ -29,13 +29,6 @@ jobs:
         run: |
           cat "${GITHUB_WORKSPACE}/.github/workflows/config/.ssh/known_hosts.d/bitbucket.txt" >> ~/.ssh/known_hosts
 
-      - name: Debug pip ssh key not working
-        run: |
-          echo "::debug::'known_host path:' ${GITHUB_WORKSPACE}/.github/workflows/config/.ssh/known_hosts.d/github.txt"
-          echo "::debug::'known_host path content:' $(cat ${GITHUB_WORKSPACE}/.github/workflows/config/.ssh/known_hosts.d/github.txt | xargs echo)"
-          echo "::debug::'ssh-add -L:' $(ssh-add -L)"
-          git clone --filter=blob:none 'ssh://git@bitbucket.org/voxsim/simulation_generator'
-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
