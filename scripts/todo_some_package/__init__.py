@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
-"""
-TODO
-"""
+"""TODO"""
 
 import typing
 from .todo_some_module import print_some_func_ret
