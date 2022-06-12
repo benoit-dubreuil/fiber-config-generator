@@ -1,4 +1,4 @@
-# Conventions
+# Development conventions
 
 ## Coding conventions
 
