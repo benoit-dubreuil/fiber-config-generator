@@ -1,6 +1,9 @@
-# Conventions
+# Development conventions
 
 ## Coding conventions
+
+See [`setup.cfg`](../setup.cfg) for technical details.
+
 
 ### Project folder structure
 
@@ -16,7 +19,9 @@
 See [SCILPY coding standards](https://scil-documentation.readthedocs.io/en/latest/coding/scilpy.html)
 
 Avoid `__all__` because the `_` prefix defines what is public and what is not.
-See [this post](https://stackoverflow.com/questions/44834/what-does-all-mean-in-python/35710527#35710527) explanation.
+See [this post](https://stackoverflow.com/questions/44834/what-does-all-mean-in-python/35710527#35710527) for an explanation.
+
+The line length is `120`, just as [LiNumPy](https://github.com/linum-uqam/linumpy).
 
 
 ### Docstring

@@ -1,4 +1,4 @@
-name: Create Issue Branch
+name: 'Create Issue Branch'
 
 # GitHub App/Action Create Issue Branch: https://github.com/robvanderleek/create-issue-branch
 
@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Create Issue Branch
+      - name: 'Create Issue Branch'
         uses: robvanderleek/create-issue-branch@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
