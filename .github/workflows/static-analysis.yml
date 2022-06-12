@@ -29,7 +29,7 @@ jobs:
         run: |
           pip install --editable .
 
-      - name: Find Python files in scripts/ and tests/
+      - name: Find Python files in fcg/, scripts/ and tests/
         id: find_python_files
         run: |
           echo "::set-output name=fcg::$(git ls-files 'fcg/**.py' | xargs echo)"
