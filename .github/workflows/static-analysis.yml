@@ -20,15 +20,6 @@ jobs:
           python-version: ${{ matrix.python-version }}
           cache: 'pip'
 
-      - name: Start ssh-agent and add SSH key
-        uses: webfactory/ssh-agent@v0.5.4
-        with:
-          ssh-private-key: ${{ secrets.SIMULATION_GENERATOR_PULL_GIT_SSH_PRIVATE_KEY }}
-
-      - name: Append Bitbucket SSH known host to known_hosts
-        run: |
-          cat "${GITHUB_WORKSPACE}/.github/workflows/config/.ssh/known_hosts.d/bitbucket.txt" >> ~/.ssh/known_hosts
-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
