@@ -14,7 +14,7 @@ wheel ~= 0.37.0
 # sudo unlink /usr/local/bin/x86_64-linux-gnu-gcc
 # sudo unlink /usr/local/bin/x86_64-linux-gnu-g++
 
-git+ssh://git@github.com:AlexVCaron/voxsim#egg=simulation_generator
+git+ssh://git@github.com/AlexVCaron/voxsim#egg=simulation_generator
 
 
 # Development
