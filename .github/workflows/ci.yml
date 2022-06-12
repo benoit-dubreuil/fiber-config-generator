@@ -14,15 +14,24 @@ jobs:
         uses: ./.github/actions/setup-project
 
       - name: 'Format Python code with brunette and black'
-        id: format-python
         run: |
           brunette setup.py ${{ steps.setup-project.outputs.fcg }} ${{ steps.setup-project.outputs.scripts }} ${{ steps.setup-project.outputs.tests }}
 
-      - name: 'Commit changes made in format-python step'
+      - name: 'Commit changes made by brunette and black formatters'
         uses: EndBug/add-and-commit@v9
         with:
           default_author: github_actions
           message: "`${{ github.workflow }}.${{ github.job }}`: Formatted Python code with `brunette` and `black`"
+
+      - name: 'Sort Python imports with isort'
+        run: |
+          isort setup.py ${{ steps.setup-project.outputs.fcg }} ${{ steps.setup-project.outputs.scripts }} ${{ steps.setup-project.outputs.tests }}
+
+      - name: 'Commit changes made by isort'
+        uses: EndBug/add-and-commit@v9
+        with:
+          default_author: github_actions
+          message: "`${{ github.workflow }}.${{ github.job }}`: Sorted Python code with `isort`"
 
   static_analysis:
     runs-on: ubuntu-latest
