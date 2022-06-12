@@ -22,7 +22,7 @@ jobs:
         uses: EndBug/add-and-commit@v9
         with:
           default_author: github_actions
-          message: "`${{ github.GITHUB_WORKFLOW }}.${{ github.GITHUB_JOB }}`: Formatted Python code with `brunette` and `black`"
+          message: "`${{ github.workspace }}.${{ github.job }}`: Formatted Python code with `brunette` and `black`"
 
   static_analysis:
     runs-on: ubuntu-latest
