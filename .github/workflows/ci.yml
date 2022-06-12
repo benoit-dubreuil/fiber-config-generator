@@ -31,11 +31,11 @@ jobs:
 
       - name: 'Linting with flake8'
         run: |
-          flake8 ${{ steps.setup-project.outputs.fcg }} ${{ steps.setup-project.outputs.scripts }} ${{ steps.setup-project.outputs.tests }}
+          flake8 setup.py ${{ steps.setup-project.outputs.fcg }} ${{ steps.setup-project.outputs.scripts }} ${{ steps.setup-project.outputs.tests }}
 
       - name: 'Check static types with mypy'
         run: |
-          mypy ${{ steps.setup-project.outputs.fcg }} ${{ steps.setup-project.outputs.scripts }} ${{ steps.setup-project.outputs.tests }}
+          mypy setup.py ${{ steps.setup-project.outputs.fcg }} ${{ steps.setup-project.outputs.scripts }} ${{ steps.setup-project.outputs.tests }}
 
       - name: 'Test with pytest'
         run: |
