@@ -2,7 +2,8 @@
 
 ## Coding conventions
 
-See []()
+See [`setup.cfg`](../setup.cfg) for technical details.
+
 
 ### Project folder structure
 
