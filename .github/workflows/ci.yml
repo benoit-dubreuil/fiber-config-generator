@@ -4,11 +4,7 @@ on: [ push ]
 
 jobs:
   static_analysis:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ ubuntu-latest ]
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
