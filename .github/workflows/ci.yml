@@ -3,6 +3,16 @@ name: 'CI'
 on: [ push ]
 
 jobs:
+  clean_code:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: 'Setup the project'
+        id: setup-project
+        uses: ./.github/actions/setup-project
+
   static_analysis:
     runs-on: ubuntu-latest
 
