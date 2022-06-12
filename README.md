@@ -56,7 +56,8 @@ Once the remote is synchronized, every git `refs`, `tags` and `branches` from th
 
 ### Simulation Generator
 
-[Simulation Generator](https://bitbucket.org/voxsim/simulation_generator) runs only on Linux due to its dependency to [Singularity](https://sylabs.io/singularity).
+[Simulation Generator](https://github.com/AlexVCaron/voxsim) runs only on Linux due to its dependency to [Singularity](https://sylabs.io/singularity).
+See [benoit-dubreuil / inf6200-h2022 / guides / outils.md # simulation generator](https://github.com/benoit-dubreuil/inf6200-h2022/blob/main/guides/outils.md#simulation-generator).
 
 
 ## References
@@ -66,4 +67,4 @@ See [conventions](doc/conventions.md)
 - [benoit-dubreuil / inf6200-h2022 / guides / outils.md](https://github.com/benoit-dubreuil/inf6200-h2022/blob/main/guides/outils.md)
 - [benoit-dubreuil / inf6200-h2022 / report / 2022_inf6200_benoit_dubreuil.pdf](https://github.com/benoit-dubreuil/inf6200-h2022/blob/main/report/2022_inf6200_benoit_dubreuil.pdf)
 - [SCILPY coding standards](https://scil-documentation.readthedocs.io/en/latest/coding/scilpy.html)
-- [Simulation Generator](https://bitbucket.org/voxsim/simulation_generator)
+- [Simulation Generator](https://github.com/AlexVCaron/voxsim)
