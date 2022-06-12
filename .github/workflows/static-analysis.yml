@@ -43,9 +43,9 @@ jobs:
 
       - name: Linting with pylint
         run: |
-          pylint -j 0 ${{ steps.find_python_files.outputs.fcg }} ${{ steps.find_python_files.outputs.scripts }}
-          pylint -j 0 --disable=missing-docstring,protected-access ${{ steps.find_python_files.outputs.tests }}
-          pylint -j 0 --disable=missing-docstring setup.py
+          pylint --jobs 0 ${{ steps.find_python_files.outputs.fcg }} ${{ steps.find_python_files.outputs.scripts }}
+          pylint --jobs 0 --disable=missing-docstring,protected-access ${{ steps.find_python_files.outputs.tests }}
+          pylint --jobs 0 --disable=missing-docstring setup.py
 
       - name: Linting with flake8
         run: |
