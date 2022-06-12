@@ -1,5 +1,11 @@
 # Development
 
+
+## Configuration
+
+The version of Python is defined in the file [.python-version](../.python-version).
+
+
 ## Conventions
 
 See [conventions](doc/dev-conventions.md)
