@@ -1,9 +1,9 @@
-name: 'Static analysis'
+name: 'CI'
 
 on: [ push ]
 
 jobs:
-  lint:
+  static_analysis:
     runs-on: ${{ matrix.os }}
 
     strategy:
