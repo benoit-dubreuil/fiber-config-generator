@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: 'Setup the project'
         id: setup-project
-        uses: .github/actions/setup-project
+        uses: ./.github/actions/setup-project
 
       - name: 'Linting with pylint'
         run: |
