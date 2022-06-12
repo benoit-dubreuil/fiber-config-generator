@@ -27,10 +27,12 @@ runs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+      shell: bash
 
     - name: 'Install in develop mode'
       run: |
         pip install --editable .
+      shell: bash
 
     - name: 'Find Python files in fcg/, scripts/ and tests/'
       id: find-python-files
@@ -38,3 +40,4 @@ runs:
         echo "::set-output name=fcg::$(git ls-files 'fcg/**.py' | xargs echo)"
         echo "::set-output name=scripts::$(git ls-files 'scripts/**.py' | xargs echo)"
         echo "::set-output name=tests::$(git ls-files 'tests/**.py' | xargs echo)"
+      shell: bash
