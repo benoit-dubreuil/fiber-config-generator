@@ -14,7 +14,6 @@ jobs:
         uses: ./.github/actions/setup-project
 
       - name: 'Format Python code with brunette and black'
-        uses: ./.github/actions/setup-project
         run: |
           brunette setup.py ${{ steps.setup-project.outputs.fcg }} ${{ steps.setup-project.outputs.scripts }} ${{ steps.setup-project.outputs.tests }}
 
