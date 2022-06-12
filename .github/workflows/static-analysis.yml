@@ -11,6 +11,8 @@ jobs:
         os: [ ubuntu-latest ]
 
     steps:
+      - uses: actions/checkout@v3
+
       - name: 'Setup the project'
         id: setup-project
         uses: ./.github/actions/setup-project
