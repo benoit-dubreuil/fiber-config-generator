@@ -34,6 +34,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Install in develop mode
+        run: |
+          pip install --editable .
+
       - name: Find Python files in scripts/ and tests/
         id: find_python_files
         run: |
