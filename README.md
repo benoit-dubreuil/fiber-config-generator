@@ -57,6 +57,7 @@ Once the remote is synchronized, every git `refs`, `tags` and `branches` from th
 ### Simulation Generator
 
 [Simulation Generator](https://github.com/AlexVCaron/voxsim) runs only on Linux due to its dependency to [Singularity](https://sylabs.io/singularity).
+See [benoit-dubreuil / inf6200-h2022 / guides / outils.md # simulation generator](https://github.com/benoit-dubreuil/inf6200-h2022/blob/main/guides/outils.md#simulation-generator).
 
 
 ## References
