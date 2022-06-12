@@ -8,7 +8,7 @@ The version of Python is defined in the file [.python-version](../.python-versio
 
 ## Conventions
 
-See [conventions](doc/dev-conventions.md)
+See [conventions](dev-conventions.md)
 
 
 ## GitHub workflows
