@@ -1,0 +1,42 @@
+name: 'Setup Project'
+
+description: 'Sets up the project in order to be usable for development'
+
+outputs:
+  fcg:
+    description: "Python file in fcg/"
+    value: ${{ steps.find_python_files.outputs.fcg }}
+  scripts:
+    description: "Python file in scripts/"
+    value: ${{ steps.find_python_files.outputs.scripts }}
+  tests:
+    description: "Python file in tests/"
+    value: ${{ steps.find_python_files.outputs.tests }}
+
+runs:
+  using: 'composite'
+
+  steps:
+    - uses: actions/checkout@v3
+
+    - name: 'Set up Python'
+      uses: actions/setup-python@v4
+      with:
+        python-version-file: '.python-version'
+        cache: 'pip'
+
+    - name: 'Install dependencies'
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: 'Install in develop mode'
+      run: |
+        pip install --editable .
+
+    - name: 'Find Python files in fcg/, scripts/ and tests/'
+      id: find_python_files
+      run: |
+        echo "::set-output name=fcg::$(git ls-files 'fcg/**.py' | xargs echo)"
+        echo "::set-output name=scripts::$(git ls-files 'scripts/**.py' | xargs echo)"
+        echo "::set-output name=tests::$(git ls-files 'tests/**.py' | xargs echo)"
