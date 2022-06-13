@@ -16,7 +16,8 @@ See [`setup.cfg`](../setup.cfg) for technical details.
 
 ### Python scripts
 
-See [SCILPY coding standards](https://scil-documentation.readthedocs.io/en/latest/coding/scilpy.html)
+See [SCILPY coding standards](https://scil-documentation.readthedocs.io/en/latest/coding/scilpy.html) but keep in mind that since [PEP 3120](https://peps.python.org/pep-3120/),
+UTF-8 is the default encoding for Python source code.
 
 Avoid `__all__` because the `_` prefix defines what is public and what is not.
 See [this post](https://stackoverflow.com/questions/44834/what-does-all-mean-in-python/35710527#35710527) for an explanation.
