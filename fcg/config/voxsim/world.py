@@ -9,4 +9,5 @@ class World:
 
     See :py:func:`simulator.factory.geometry_factory.geometry_factory.GeometryFactory.get_geometry_handler`
     """
+
     resolution: typing.Tuple[int, int, int]
