@@ -1,5 +1,5 @@
-import typing
 import dataclasses
+import typing
 
 
 @dataclasses.dataclass(frozen=True)
@@ -9,4 +9,5 @@ class World:
 
     See :py:meth:`simulator.factory.geometry_factory.geometry_factory.GeometryFactory.get_geometry_handler`
     """
+
     resolution: typing.Tuple[int, int, int]
