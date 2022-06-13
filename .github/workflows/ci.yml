@@ -47,8 +47,10 @@ jobs:
 
       - name: 'Upgrade Python syntax in doc code blocks with `pyupgrade-docs`'
         # The `--py38-plus` harcoded option must match the Python version defined in the file `.python-version`.
+        # TODO: Remove the `true` statement when the `--exit-zero-even-if-changed` option is fixed. See https://github.com/verhovsky/pyupgrade-docs/issues/6.
         run: |
           git ls-files README.md 'doc/**.md' | xargs pyupgrade-docs --py38-plus --exit-zero-even-if-changed
+          true
 
       - name: 'Commit changes made by `pyupgrade-docs`'
         uses: EndBug/add-and-commit@v9
