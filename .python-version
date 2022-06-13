@@ -1,3 +1,1 @@
 3.8
-
-# The `pyupgrade` tool used in `.github/workflows/ci.yml` has an harcoded option which must match the Python version.

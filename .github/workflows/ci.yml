@@ -34,6 +34,7 @@ jobs:
           message: "`${{ github.workflow }}.${{ github.job }}`: Sorted Python code with `isort`"
 
       - name: 'Upgrade Python code syntax with `pyupgrade`'
+        # The `--py38-plus` harcoded option must match the Python version defined in the file `.python-version`.
         run: |
           pyupgrade --py38-plus setup.py ${{ steps.setup-project.outputs.fcg }} ${{ steps.setup-project.outputs.scripts }} ${{ steps.setup-project.outputs.tests }}
 
