@@ -36,7 +36,7 @@ See comprehensive examples : https://sphinxcontrib-napoleon.readthedocs.io/en/la
 # Reference: https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html
 
 def module_level_function(param1, param2=None, *args, **kwargs):
-    """This is an example of a module level function.
+    r"""This is an example of a module level function.
 
     Function parameters should be documented in the ``Parameters`` section.
     The name of each parameter is required. The type and description of each
