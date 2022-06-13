@@ -9,4 +9,5 @@ pylint ~= 2.14.0
 flake8 ~= 4.0.0
 mypy ~= 0.961
 pytest ~= 7.1.0
-brunette ~= 0.2.7
+brunette ~= 0.2.0
+isort ~= 5.10.0

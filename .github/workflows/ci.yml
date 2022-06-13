@@ -13,16 +13,25 @@ jobs:
         id: setup-project
         uses: ./.github/actions/setup-project
 
-      - name: 'Format Python code with brunette and black'
-        id: format-python
+      - name: 'Format Python code with `brunette` and `black`'
         run: |
           brunette setup.py ${{ steps.setup-project.outputs.fcg }} ${{ steps.setup-project.outputs.scripts }} ${{ steps.setup-project.outputs.tests }}
 
-      - name: 'Commit changes made in format-python step'
+      - name: 'Commit changes made by `brunette` and `black` formatters'
         uses: EndBug/add-and-commit@v9
         with:
           default_author: github_actions
           message: "`${{ github.workflow }}.${{ github.job }}`: Formatted Python code with `brunette` and `black`"
+
+      - name: 'Sort Python imports with `isort`'
+        run: |
+          isort --jobs 0 setup.py ${{ steps.setup-project.outputs.fcg }} ${{ steps.setup-project.outputs.scripts }} ${{ steps.setup-project.outputs.tests }}
+
+      - name: 'Commit changes made by `isort`'
+        uses: EndBug/add-and-commit@v9
+        with:
+          default_author: github_actions
+          message: "`${{ github.workflow }}.${{ github.job }}`: Sorted Python code with `isort`"
 
   static_analysis:
     runs-on: ubuntu-latest
@@ -35,20 +44,20 @@ jobs:
         id: setup-project
         uses: ./.github/actions/setup-project
 
-      - name: 'Linting with pylint'
+      - name: 'Linting with `pylint`'
         run: |
           pylint --jobs 0 ${{ steps.setup-project.outputs.fcg }} ${{ steps.setup-project.outputs.scripts }}
           pylint --jobs 0 --disable=missing-docstring,protected-access ${{ steps.setup-project.outputs.tests }}
           pylint --disable=missing-docstring setup.py
 
-      - name: 'Linting with flake8'
+      - name: 'Linting with `flake8`'
         run: |
           flake8 setup.py ${{ steps.setup-project.outputs.fcg }} ${{ steps.setup-project.outputs.scripts }} ${{ steps.setup-project.outputs.tests }}
 
-      - name: 'Check static types with mypy'
+      - name: 'Check static types with `mypy`'
         run: |
           mypy ${{ steps.setup-project.outputs.fcg }} ${{ steps.setup-project.outputs.scripts }} ${{ steps.setup-project.outputs.tests }}
 
-      - name: 'Test with pytest'
+      - name: 'Test with `pytest`'
         run: |
           pytest ${{ steps.setup-project.outputs.tests }}
