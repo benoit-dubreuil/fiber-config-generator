@@ -4,4 +4,4 @@ import dataclasses
 
 @dataclasses.dataclass(frozen=True)
 class World:
-    resolution: (int, int, int)
+    resolution: typing.Tuple[int, int, int]
