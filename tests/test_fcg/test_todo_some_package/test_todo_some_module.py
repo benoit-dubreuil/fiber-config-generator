@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import fcg.todo_some_package.todo_some_module
 
 
