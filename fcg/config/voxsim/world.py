@@ -11,3 +11,4 @@ class World:
     """
 
     resolution: typing.Tuple[int, int, int]
+    spacing: typing.Tuple[int, int, int]
