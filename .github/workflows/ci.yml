@@ -36,7 +36,8 @@ jobs:
       - name: 'Upgrade Python code syntax with `pyupgrade`'
         # The `--py38-plus` harcoded option must match the Python version defined in the file `.python-version`.
         run: |
-          pyupgrade --py38-plus setup.py ${{ steps.setup-project.outputs.fcg }} ${{ steps.setup-project.outputs.scripts }} ${{ steps.setup-project.outputs.tests }}
+          pyupgrade --py38-plus --exit-zero-even-if-changed \
+            setup.py ${{ steps.setup-project.outputs.fcg }} ${{ steps.setup-project.outputs.scripts }} ${{ steps.setup-project.outputs.tests }}
 
       - name: 'Commit changes made by `pyupgrade`'
         uses: EndBug/add-and-commit@v9
