@@ -1,1 +1,1 @@
-from ._typing import Numeric, TNumeric, Vec2, Vec2i, Vec2f, Vec3, Vec3i, Vec3f
+from ._typing import Numeric, TNumeric, Vec2, Vec2f, Vec2i, Vec3, Vec3f, Vec3i
