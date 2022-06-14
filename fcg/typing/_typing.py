@@ -2,12 +2,12 @@ import typing
 
 Numeric = typing.Union[int, float]
 
-T_numeric = typing.TypeVar('T_numeric', int, float)
+TNumeric = typing.TypeVar('TNumeric', int, float)
 
-Vec2 = typing.Tuple[T_numeric, T_numeric]
+Vec2 = typing.Tuple[TNumeric, TNumeric]
 Vec2i = Vec2[int]
 Vec2f = Vec2[float]
 
-Vec3 = typing.Tuple[T_numeric, T_numeric, T_numeric]
+Vec3 = typing.Tuple[TNumeric, TNumeric, TNumeric]
 Vec3i = Vec3[int]
 Vec3f = Vec3[float]
