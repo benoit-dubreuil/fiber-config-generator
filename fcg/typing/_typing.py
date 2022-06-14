@@ -1,5 +1,7 @@
 import typing
 
+Numeric = typing.Union[int, float]
+
 T_Numeric = typing.TypeVar('T_Numeric', int, float)
 
 Vector3 = typing.Tuple[T_Numeric, T_Numeric, T_Numeric]
