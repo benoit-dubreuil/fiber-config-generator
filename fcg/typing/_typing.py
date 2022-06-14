@@ -4,6 +4,6 @@ Numeric = typing.Union[int, float]
 
 T_Numeric = typing.TypeVar('T_Numeric', int, float)
 
-Vector3 = typing.Tuple[T_Numeric, T_Numeric, T_Numeric]
-Vector3i = Vector3[int]
-Vector3f = Vector3[float]
+Vec3 = typing.Tuple[T_Numeric, T_Numeric, T_Numeric]
+Vec3i = Vec3[int]
+Vec3f = Vec3[float]
