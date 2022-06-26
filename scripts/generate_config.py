@@ -7,7 +7,6 @@ from tempfile import mkdtemp
 
 from simulator.factory import GeometryFactory, Plane
 
-
 resolution = [10, 10, 10]
 spacing = [2, 2, 2]
 
