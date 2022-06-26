@@ -9,18 +9,19 @@ from simulator.factory import GeometryFactory
 
 import fcg.typing
 
-resolution: typing.Final[fcg.typing.Vec3i] = (10, 10, 10)
-spacing: typing.Final[fcg.typing.Vec3i] = (2, 2, 2)
 
-n_point_per_centroid: typing.Final[int] = 5
-bundle_radius: typing.Final[float] = 4
-bundle_symmetry: typing.Final[float] = 1
-bundle_n_fibers: typing.Final[int] = 1000
-bundle_limits: typing.Final[typing.List[typing.List[float]]] = [[0, 1], [0, 1], [0, 1]]
-bundle_center: typing.Final[fcg.typing.Vec3f] = (0.5, 0.5, 0.5)
-world_center: typing.Final[fcg.typing.Vec3f] = (5, 5, 5)
+RESOLUTION: typing.Final[fcg.typing.Vec3i] = (10, 10, 10)
+SPACING: typing.Final[fcg.typing.Vec3i] = (2, 2, 2)
 
-base_anchors: typing.Final[typing.List[fcg.typing.Vec3f]] = [
+N_POINT_PER_CENTROID: typing.Final[int] = 5
+BUNDLE_RADIUS: typing.Final[float] = 4
+BUNDLE_SYMMETRY: typing.Final[float] = 1
+BUNDLE_N_FIBERS: typing.Final[int] = 1000
+BUNDLE_LIMITS: typing.Final[typing.List[typing.List[float]]] = [[0, 1], [0, 1], [0, 1]]
+BUNDLE_CENTER: typing.Final[fcg.typing.Vec3f] = (0.5, 0.5, 0.5)
+WORLD_CENTER: typing.Final[fcg.typing.Vec3f] = (5, 5, 5)
+
+BASE_ANCHORS: typing.Final[typing.List[fcg.typing.Vec3f]] = [
     (0.5, -0.3, 0.5),
     (0.5, -0.2, 0.5),
     (0.5, -0.1, 0.5),
@@ -41,14 +42,14 @@ base_anchors: typing.Final[typing.List[fcg.typing.Vec3f]] = [
 
 
 def get_geometry_parameters(output_folder, output_naming):
-    geometry_handler = GeometryFactory.get_geometry_handler(resolution, spacing)
+    geometry_handler = GeometryFactory.get_geometry_handler(RESOLUTION, SPACING)
 
-    bundle1 = GeometryFactory.create_bundle(bundle_radius, bundle_symmetry, n_point_per_centroid, base_anchors)
+    bundle1 = GeometryFactory.create_bundle(BUNDLE_RADIUS, BUNDLE_SYMMETRY, N_POINT_PER_CENTROID, BASE_ANCHORS)
 
     cluster = GeometryFactory.create_cluster(
-        GeometryFactory.create_cluster_meta(3, bundle_n_fibers, 1, bundle_center, bundle_limits),
+        GeometryFactory.create_cluster_meta(3, BUNDLE_N_FIBERS, 1, BUNDLE_CENTER, BUNDLE_LIMITS),
         [bundle1],
-        world_center,
+        WORLD_CENTER,
     )
 
     geometry_handler.add_cluster(cluster)
