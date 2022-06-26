@@ -75,5 +75,5 @@ if __name__ == "__main__":
     else:
         dest = mkdtemp(prefix="geo_factory")
 
-    print("Script execution results are in : {}".format(dest))
+    print(f"Script execution results are in : {dest}")
     get_geometry_parameters(dest, "geometry")
