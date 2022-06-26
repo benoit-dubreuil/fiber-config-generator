@@ -45,20 +45,13 @@ base_anchors = [
 def get_geometry_parameters(output_folder, output_naming):
     geometry_handler = GeometryFactory.get_geometry_handler(resolution, spacing)
 
-    bundle1 = GeometryFactory.create_bundle(
-        bundle_radius, bundle_symmetry, n_point_per_centroid, base_anchors
-    )
-    _, bundle2 = GeometryFactory.rotate_bundle(
-        bundle1, [0.5, 0.5, 0.5], pi / 6.0, Plane.YZ
-    )
+    bundle1 = GeometryFactory.create_bundle(bundle_radius, bundle_symmetry, n_point_per_centroid, base_anchors)
+    _, bundle2 = GeometryFactory.rotate_bundle(bundle1, [0.5, 0.5, 0.5], pi / 6.0, Plane.YZ)
 
     cluster = GeometryFactory.create_cluster(
-        GeometryFactory.create_cluster_meta(
-            3, bundle_n_fibers, 1, bundle_center, bundle_limits
-        ),
-        [bundle1, bundle2],
-        world_center,
-    )
+            GeometryFactory.create_cluster_meta(3, bundle_n_fibers, 1, bundle_center, bundle_limits),
+            [bundle1, bundle2],
+            world_center)
 
     geometry_handler.add_cluster(cluster)
 
@@ -68,16 +61,12 @@ def get_geometry_parameters(output_folder, output_naming):
     geometry_handler.add_sphere(sphere_1)
     geometry_handler.add_sphere(sphere_2)
 
-    return geometry_handler.generate_json_configuration_files(
-        output_naming, output_folder
-    )
+    return geometry_handler.generate_json_configuration_files(output_naming, output_folder)
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser("Geometry Factory Example Script")
-    parser.add_argument(
-        "--out", type=str, required=False, help="Output directory for the files"
-    )
+    parser.add_argument("--out", type=str, required=False, help="Output directory for the files")
 
     args = parser.parse_args()
     if "out" in args and args.out:
