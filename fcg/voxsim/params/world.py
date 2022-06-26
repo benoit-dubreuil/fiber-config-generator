@@ -5,7 +5,7 @@ import fcg.typing
 
 @dataclasses.dataclass(frozen=True)
 class WorldParams:
-    """White fiber configuration generation parameters wrappers of
+    """White fiber configuration generation parameters wrapper of
     :meth:`simulator.factory.geometry_factory.geometry_factory.GeometryFactory.get_geometry_handler.
     """
 
