@@ -1,5 +1,6 @@
 import dataclasses
 
+import typing
 import fcg.typing
 
 
@@ -13,4 +14,6 @@ class World:
 
     resolution: fcg.typing.Vec3i
     spacing: fcg.typing.Vec3i
+    clusters: typing.Tuple
     # TODO: Add clusters
+
