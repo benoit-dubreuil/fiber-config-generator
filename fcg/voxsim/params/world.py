@@ -4,11 +4,9 @@ import fcg.typing
 
 
 @dataclasses.dataclass(frozen=True)
-class World:
-    """Configuration wrapper for the initial parameters of
-    :func:`simulator.factory.geometry_factory.handlers.geometry_handler.GeometryHandler`.
-
-    See :meth:`simulator.factory.geometry_factory.geometry_factory.GeometryFactory.get_geometry_handler`
+class WorldParams:
+    """White fiber configuration generation parameters wrappers of
+    :meth:`simulator.factory.geometry_factory.geometry_factory.GeometryFactory.get_geometry_handler.
     """
 
     resolution: fcg.typing.Vec3i
