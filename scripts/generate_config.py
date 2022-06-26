@@ -6,7 +6,6 @@ import tempfile
 
 from simulator.factory import GeometryFactory
 
-
 resolution = [10, 10, 10]
 spacing = [2, 2, 2]
 
@@ -64,5 +63,5 @@ if __name__ == "__main__":
     else:
         dest = tempfile.mkdtemp(prefix="geo_factory")
 
-    print("Script execution results are in : {}".format(dest))
+    print(f"Script execution results are in : {dest}")
     get_geometry_parameters(dest, "geometry")
