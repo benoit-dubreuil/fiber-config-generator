@@ -10,7 +10,7 @@ class WorldParams:
     """
 
     voxel_resolution: fcg.typing.Vec3i
-    "See :obj:`simulator.factory.geometry_factory.geometry_factory.GeometryFactory.get_geometry_handler.resolution"
+    'See :obj:`simulator.factory.geometry_factory.geometry_factory.GeometryFactory.get_geometry_handler.resolution'
 
     voxel_dimensions: fcg.typing.Vec3i
-    "See :obj:`simulator.factory.geometry_factory.geometry_factory.GeometryFactory.get_geometry_handler.spacing"
+    'See :obj:`simulator.factory.geometry_factory.geometry_factory.GeometryFactory.get_geometry_handler.spacing'
