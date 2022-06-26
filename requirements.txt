@@ -1,6 +1,5 @@
 wheel ~= 0.37.0
 
-numpy == 1.21.*
 git+https://git@github.com/AlexVCaron/voxsim#egg=simulation_generator
 
 
