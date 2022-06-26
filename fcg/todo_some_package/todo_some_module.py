@@ -4,7 +4,7 @@ TODO
 
 import typing
 
-__all__: typing.Sequence[str] = ['print_some_func_ret']
+__all__: typing.Sequence[str] = ["print_some_func_ret"]
 
 
 def print_some_func_ret(arg1: int) -> None:
@@ -21,4 +21,4 @@ def print_some_func_ret(arg1: int) -> None:
 
 
 def _some_func() -> str:
-    return 'test'
+    return "test"
