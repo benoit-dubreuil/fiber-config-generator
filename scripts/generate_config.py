@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
 import argparse
-from math import pi
-from os import makedirs
-from tempfile import mkdtemp
+import math
+import os
+import tempfile
 
 from simulator.factory import GeometryFactory, Plane
 
@@ -46,7 +46,7 @@ def get_geometry_parameters(output_folder, output_naming):
     geometry_handler = GeometryFactory.get_geometry_handler(resolution, spacing)
 
     bundle1 = GeometryFactory.create_bundle(bundle_radius, bundle_symmetry, n_point_per_centroid, base_anchors)
-    _, bundle2 = GeometryFactory.rotate_bundle(bundle1, [0.5, 0.5, 0.5], pi / 6.0, Plane.YZ)
+    _, bundle2 = GeometryFactory.rotate_bundle(bundle1, [0.5, 0.5, 0.5], math.pi / 6.0, Plane.YZ)
 
     cluster = GeometryFactory.create_cluster(
             GeometryFactory.create_cluster_meta(3, bundle_n_fibers, 1, bundle_center, bundle_limits),
@@ -71,9 +71,9 @@ if __name__ == "__main__":
     args = parser.parse_args()
     if "out" in args and args.out:
         dest = args.out
-        makedirs(args.out, exist_ok=True)
+        os.makedirs(args.out, exist_ok=True)
     else:
-        dest = mkdtemp(prefix="geo_factory")
+        dest = tempfile.mkdtemp(prefix="geo_factory")
 
     print("Script execution results are in : {}".format(dest))
     get_geometry_parameters(dest, "geometry")
