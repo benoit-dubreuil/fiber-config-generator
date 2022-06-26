@@ -1,21 +1,25 @@
 #!/usr/bin/env python
 
+import typing
+import fcg.typing
+
 import argparse
 import os
 import tempfile
 
 from simulator.factory import GeometryFactory
 
-resolution = [10, 10, 10]
-spacing = [2, 2, 2]
 
-n_point_per_centroid = 5
-bundle_radius = 4
-bundle_symmetry = 1
-bundle_n_fibers = 1000
-bundle_limits = [[0, 1], [0, 1], [0, 1]]
-bundle_center = [0.5, 0.5, 0.5]
-world_center = [5, 5, 5]
+resolution: typing.Final[fcg.typing.Vec3i] = (10, 10, 10)
+spacing: typing.Final[fcg.typing.Vec3i] = (2, 2, 2)
+
+n_point_per_centroid: typing.Final[int] = 5
+bundle_radius: typing.Final[float] = 4
+bundle_symmetry: typing.Final[float] = 1
+bundle_n_fibers: typing.Final[int] = 1000
+bundle_limits: typing.Final[typing.List[typing.List[float]]] = [[0, 1], [0, 1], [0, 1]]
+bundle_center: typing.Final[fcg.typing.Vec3f] = (0.5, 0.5, 0.5)
+world_center: typing.Final[fcg.typing.Vec3f] = (5, 5, 5)
 
 base_anchors = [
     [0.5, -0.3, 0.5],
