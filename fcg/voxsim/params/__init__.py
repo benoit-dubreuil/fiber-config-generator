@@ -2,4 +2,5 @@
 :class:`simulator.factory.geometry_factory.geometry_factory.GeometryFactory`.
 
 See :class:`simulator.factory.geometry_factory.geometry_factory.GeometryFactory`
+
 """
