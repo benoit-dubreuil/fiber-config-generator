@@ -12,5 +12,6 @@ class WorldParams:
     voxel_resolution: fcg.typing.Vec3i
     "See :obj:`simulator.factory.geometry_factory.geometry_factory.GeometryFactory.get_geometry_handler.resolution"
 
+    # TODO : Necessary? If not, then remove and rename `voxel_resolution` to `resolution`.
     voxel_dimensions: fcg.typing.Vec3i
     "See :obj:`simulator.factory.geometry_factory.geometry_factory.GeometryFactory.get_geometry_handler.spacing"
