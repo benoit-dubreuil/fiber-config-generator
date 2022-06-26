@@ -36,6 +36,8 @@ The line length is `120`, just as [LiNumPy](https://github.com/linum-uqam/linump
 
 NumPy style conventions
 
+See cross-reference Python objects : https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html#python-roles
+
 See comprehensive examples : https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html
 
 
