@@ -10,9 +10,9 @@ class WorldParams:
 
     Attributes
     ----------
-    voxel_resolution : fcg.typing.Vec3i
+    resolution : fcg.typing.Vec3i
         See the parameter :python:`resolution` of
         :meth:`simulator.factory.geometry_factory.geometry_factory.GeometryFactory.get_geometry_handler
     """
 
-    voxel_resolution: fcg.typing.Vec3i = (1, 1, 1)
+    resolution: fcg.typing.Vec3i = (1, 1, 1)
