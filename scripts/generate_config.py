@@ -1,14 +1,13 @@
 #!/usr/bin/env python
 
-import typing
-import fcg.typing
-
 import argparse
 import os
 import tempfile
+import typing
 
 from simulator.factory import GeometryFactory
 
+import fcg.typing
 
 resolution: typing.Final[fcg.typing.Vec3i] = (10, 10, 10)
 spacing: typing.Final[fcg.typing.Vec3i] = (2, 2, 2)
