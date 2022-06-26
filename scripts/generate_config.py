@@ -1,18 +1,14 @@
 #!/usr/bin/env python
 
 import argparse
-import math
 import os
 import tempfile
 
-from simulator.factory import GeometryFactory, Plane
+from simulator.factory import GeometryFactory
 
 
 resolution = [10, 10, 10]
 spacing = [2, 2, 2]
-
-spheres_center = [[-2, 7, 10], [2, -1, 11]]
-sphere_radius = 5
 
 n_point_per_centroid = 5
 bundle_radius = 4
@@ -46,20 +42,13 @@ def get_geometry_parameters(output_folder, output_naming):
     geometry_handler = GeometryFactory.get_geometry_handler(resolution, spacing)
 
     bundle1 = GeometryFactory.create_bundle(bundle_radius, bundle_symmetry, n_point_per_centroid, base_anchors)
-    _, bundle2 = GeometryFactory.rotate_bundle(bundle1, [0.5, 0.5, 0.5], math.pi / 6.0, Plane.YZ)
 
     cluster = GeometryFactory.create_cluster(
             GeometryFactory.create_cluster_meta(3, bundle_n_fibers, 1, bundle_center, bundle_limits),
-            [bundle1, bundle2],
+            [bundle1],
             world_center)
 
     geometry_handler.add_cluster(cluster)
-
-    sphere_1 = GeometryFactory.create_sphere(sphere_radius, spheres_center[0])
-    sphere_2 = GeometryFactory.create_sphere(sphere_radius, spheres_center[1])
-
-    geometry_handler.add_sphere(sphere_1)
-    geometry_handler.add_sphere(sphere_2)
 
     return geometry_handler.generate_json_configuration_files(output_naming, output_folder)
 
