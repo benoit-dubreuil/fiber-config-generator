@@ -43,9 +43,10 @@ def get_geometry_parameters(output_folder, output_naming):
     bundle1 = GeometryFactory.create_bundle(bundle_radius, bundle_symmetry, n_point_per_centroid, base_anchors)
 
     cluster = GeometryFactory.create_cluster(
-            GeometryFactory.create_cluster_meta(3, bundle_n_fibers, 1, bundle_center, bundle_limits),
-            [bundle1],
-            world_center)
+        GeometryFactory.create_cluster_meta(3, bundle_n_fibers, 1, bundle_center, bundle_limits),
+        [bundle1],
+        world_center,
+    )
 
     geometry_handler.add_cluster(cluster)
 
