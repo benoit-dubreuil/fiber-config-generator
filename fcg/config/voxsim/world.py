@@ -1,6 +1,5 @@
 import dataclasses
 
-import typing
 import fcg.typing
 
 
