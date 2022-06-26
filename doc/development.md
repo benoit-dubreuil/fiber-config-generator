@@ -5,6 +5,12 @@
 
 The version of Python is defined in the file [.python-version](../.python-version).
 
+Install the project in develop mode :
+
+```sh
+pip install --editable .
+```
+
 
 ## Conventions
 
