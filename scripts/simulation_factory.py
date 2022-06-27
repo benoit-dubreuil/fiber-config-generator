@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 
 import argparse
-from os import makedirs
-from tempfile import mkdtemp
-from random import uniform
+import os
+import tempfile
+import random
 
-from numpy import array
-from numpy.linalg import norm
+import numpy as np
 
 from simulator.factory import SimulationFactory
 from simulator.utils.test_helpers import GeometryHelper
@@ -47,7 +46,7 @@ def get_simulation_parameters(output_folder, output_naming):
         )
     )
 
-    normalize = lambda a: (array(a) / norm(a)).tolist()
+    normalize = lambda a: (np.array(a) / np.norm(a)).tolist()
 
     simulation_handler.set_gradient_profile(
         SimulationFactory.generate_gradient_profile(
@@ -55,7 +54,7 @@ def get_simulation_parameters(output_folder, output_naming):
             + [1000 for i in range(10)]
             + [2000 for i in range(10)],
             [
-                normalize([uniform(-1, 1), uniform(-1, 1), uniform(-1, 1)])
+                normalize([random.uniform(-1, 1), random.uniform(-1, 1), random.uniform(-1, 1)])
                 for i in range(30)
             ],
             1,
@@ -77,9 +76,9 @@ if __name__ == "__main__":
     args = parser.parse_args()
     if "out" in args and args.out:
         dest = args.out
-        makedirs(args.out, exist_ok=True)
+        os.makedirs(args.out, exist_ok=True)
     else:
-        dest = mkdtemp(prefix="sim_factory")
+        dest = tempfile.mkdtemp(prefix="sim_factory")
 
     print("Script execution results are in : {}".format(dest))
     get_simulation_parameters(dest, "simulation")

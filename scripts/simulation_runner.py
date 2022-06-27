@@ -1,12 +1,11 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 import argparse
-from os import makedirs
-from os.path import join
-from tempfile import mkdtemp
+import os
+import tempfile
 
-from scripts.geometry_factory import get_geometry_parameters
-from scripts.simulation_factory import get_simulation_parameters
+from .generate_config import get_geometry_parameters
+from .simulation_factory import get_simulation_parameters
 from simulator.runner.legacy import SimulationRunner
 
 
@@ -32,7 +31,7 @@ def run_simulation(output_folder):
         output_folder, "runner_test_simulation_standalone"
     )
 
-    standalone_output = join(output_folder, "standalone_test")
+    standalone_output = os.path.join(output_folder, "standalone_test")
 
     runner.run_simulation_standalone(
         standalone_output, output_folder, simulation_parameters, "standalone"
@@ -48,9 +47,9 @@ if __name__ == "__main__":
     args = parser.parse_args()
     if "out" in args and args.out:
         dest = args.out
-        makedirs(args.out, exist_ok=True)
+        os.makedirs(args.out, exist_ok=True)
     else:
-        dest = mkdtemp(prefix="sim_runner")
+        dest = tempfile.mkdtemp(prefix="sim_runner")
 
     print("Script execution results are in : {}".format(dest))
     run_simulation(dest)
