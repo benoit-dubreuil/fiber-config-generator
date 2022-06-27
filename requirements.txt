@@ -1,9 +1,14 @@
 wheel ~= 0.37.0
 
 
-# Transitive dependencies
+# Shared dependencies between Simulation Generator and LinumPy
 numpy ~= 1.23.0
 scipy ~= 1.8.0
+nibabel ~= 3.2.0
+
+# Transitive dependecies of Simulation Generator
+# which aren't installed automatically (bug?)
+-r voxsim_requirements.txt
 
 git+https://git@github.com/AlexVCaron/voxsim#egg=simulation_generator
 
