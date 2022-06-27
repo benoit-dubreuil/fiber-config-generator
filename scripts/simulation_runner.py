@@ -36,17 +36,12 @@ def run_simulation(output_folder):
 
 
 if __name__ == "__main__":
-    singularity_path: pathlib.Path = pathlib.Path(DEFAULT_SINGULARITY_NAME)
-
-    if not singularity_path.is_file():
-        singularity_path = next(pathlib.Path().rglob("*.sif"), DEFAULT_SINGULARITY_NAME)
-
     parser = argparse.ArgumentParser("Simulation Runner Example Script")
-    parser.add_argument("singularity_path", type=pathlib.Path, default=singularity_path)
+    parser.add_argument("singularity_path", type=pathlib.Path, nargs="?", default=DEFAULT_SINGULARITY_NAME)
     parser.add_argument("--out", type=str, required=False, help="Output directory for the files")
 
     args = parser.parse_args()
-    singularity_path = args.singularity_path.resolve(strict=True)
+    args.singularity_path.resolve(strict=True)
 
     if "out" in args and args.out:
         dest = args.out
