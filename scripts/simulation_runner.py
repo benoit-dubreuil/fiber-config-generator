@@ -2,14 +2,13 @@
 
 import argparse
 import os
-import tempfile
 import pathlib
+import tempfile
 import typing
 
 from generate_config import get_geometry_parameters
 from simulation_factory import get_simulation_parameters
 from simulator.runner.legacy import SimulationRunner
-
 
 DEFAULT_SINGULARITY_NAME: typing.Final[str] = "voxsim_singularity_latest.sif"
 
