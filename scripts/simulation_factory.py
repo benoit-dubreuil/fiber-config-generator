@@ -2,11 +2,10 @@
 
 import argparse
 import os
-import tempfile
 import random
+import tempfile
 
 import numpy as np
-
 from simulator.factory import SimulationFactory
 from simulator.utils.test_helpers import GeometryHelper
 
