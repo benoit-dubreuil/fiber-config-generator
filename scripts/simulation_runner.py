@@ -10,13 +10,9 @@ from simulator.runner.legacy import SimulationRunner
 
 
 def run_simulation(output_folder):
-    geometry_parameters = get_geometry_parameters(
-        output_folder, "runner_test_geometry"
-    )
+    geometry_parameters = get_geometry_parameters(output_folder, "runner_test_geometry")
 
-    simulation_parameters = get_simulation_parameters(
-        output_folder, "runner_test_simulation"
-    )
+    simulation_parameters = get_simulation_parameters(output_folder, "runner_test_simulation")
 
     runner = SimulationRunner(
         "runner_test",
@@ -27,22 +23,16 @@ def run_simulation(output_folder):
 
     runner.run(output_folder, True)
 
-    simulation_parameters = get_simulation_parameters(
-        output_folder, "runner_test_simulation_standalone"
-    )
+    simulation_parameters = get_simulation_parameters(output_folder, "runner_test_simulation_standalone")
 
     standalone_output = os.path.join(output_folder, "standalone_test")
 
-    runner.run_simulation_standalone(
-        standalone_output, output_folder, simulation_parameters, "standalone"
-    )
+    runner.run_simulation_standalone(standalone_output, output_folder, simulation_parameters, "standalone")
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser("Simulation Runner Example Script")
-    parser.add_argument(
-        "--out", type=str, required=False, help="Output directory for the files"
-    )
+    parser.add_argument("--out", type=str, required=False, help="Output directory for the files")
 
     args = parser.parse_args()
     if "out" in args and args.out:
