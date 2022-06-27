@@ -5,6 +5,17 @@
 
 The version of Python is defined in the file [.python-version](../.python-version).
 
+Install the dependencies :
+
+```sh
+sudo apt update
+sudo apt install -y mpich libopenmpi-dev libxml2-dev libxslt1-dev
+python -m pip install --upgrade pip setuptools wheel
+pip install -r requirements.txt
+```
+
+`mpich`, `libopenmpi-dev`, `libxml2-dev` and `libxslt1-dev` are necessary for Simulation Generator.
+
 Install the project in develop mode :
 
 ```sh
