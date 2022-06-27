@@ -65,7 +65,7 @@ if __name__ == "__main__":
         dest = args.out
         os.makedirs(args.out, exist_ok=True)
     else:
-        dest = tempfile.mkdtemp(prefix="geo_factory")
+        dest = tempfile.mkdtemp(prefix="gen_config")
 
     print(f"Script execution results are in : {dest}")
     get_geometry_parameters(dest, "geometry")
