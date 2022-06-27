@@ -4,10 +4,9 @@ import argparse
 import os
 import tempfile
 
-from simulator.runner.legacy import SimulationRunner
-
 from generate_config import get_geometry_parameters
 from simulation_factory import get_simulation_parameters
+from simulator.runner.legacy import SimulationRunner
 
 
 def run_simulation(output_folder):
