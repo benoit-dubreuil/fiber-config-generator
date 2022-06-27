@@ -3,10 +3,15 @@
 import argparse
 import os
 import tempfile
+import pathlib
+import typing
 
 from generate_config import get_geometry_parameters
 from simulation_factory import get_simulation_parameters
 from simulator.runner.legacy import SimulationRunner
+
+
+DEFAULT_SINGULARITY_NAME: typing.Final[str] = "voxsim_singularity_latest.sif"
 
 
 def run_simulation(output_folder):
@@ -31,10 +36,18 @@ def run_simulation(output_folder):
 
 
 if __name__ == "__main__":
+    singularity_path: pathlib.Path = pathlib.Path(DEFAULT_SINGULARITY_NAME)
+
+    if not singularity_path.is_file():
+        singularity_path = next(pathlib.Path().rglob("*.sif"), DEFAULT_SINGULARITY_NAME)
+
     parser = argparse.ArgumentParser("Simulation Runner Example Script")
+    parser.add_argument("singularity_path", type=pathlib.Path, default=singularity_path)
     parser.add_argument("--out", type=str, required=False, help="Output directory for the files")
 
     args = parser.parse_args()
+    singularity_path = args.singularity_path.resolve(strict=True)
+
     if "out" in args and args.out:
         dest = args.out
         os.makedirs(args.out, exist_ok=True)
