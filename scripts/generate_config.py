@@ -9,7 +9,6 @@ from simulator.factory import GeometryFactory
 
 import fcg.typing
 
-
 RESOLUTION: typing.Final[fcg.typing.Vec3i] = (10, 10, 10)
 SPACING: typing.Final[fcg.typing.Vec3i] = (2, 2, 2)
 
