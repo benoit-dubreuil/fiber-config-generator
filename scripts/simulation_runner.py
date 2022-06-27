@@ -42,5 +42,5 @@ if __name__ == "__main__":
     else:
         dest = tempfile.mkdtemp(prefix="sim_runner")
 
-    print("Script execution results are in : {}".format(dest))
+    print(f"Script execution results are in : {dest}")
     run_simulation(dest)

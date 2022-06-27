@@ -60,5 +60,5 @@ if __name__ == "__main__":
     else:
         dest = tempfile.mkdtemp(prefix="sim_factory")
 
-    print("Script execution results are in : {}".format(dest))
+    print(f"Script execution results are in : {dest}")
     get_simulation_parameters(dest, "simulation")
