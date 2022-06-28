@@ -13,6 +13,7 @@ from simulator.runner.legacy import SimulationRunner
 DEFAULT_SINGULARITY_NAME: typing.Final[str] = "voxsim_singularity_latest.sif"
 
 
+# TODO : Use new runner instead of legacy one.
 def run_simulation(output_folder):
     geometry_parameters = get_geometry_parameters(output_folder, "runner_test_geometry")
 
