@@ -1,6 +1,10 @@
 wheel ~= 0.37.0
 
 
+# Transitive dependencies
+numpy ~= 1.23.0
+scipy ~= 1.8.0
+
 git+https://git@github.com/AlexVCaron/voxsim#egg=simulation_generator
 
 
