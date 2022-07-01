@@ -35,7 +35,7 @@ def get_simulation_parameters(output_folder, output_naming):
 
     simulation_handler.set_artifact_model(SimulationFactory.generate_artifact_model(noise_artifact, motion_artifact))
 
-    normalize = lambda a: (np.array(a) / np.norm(a)).tolist()
+    normalize = lambda a: (np.array(a) / np.linalg.norm(a)).tolist()
 
     simulation_handler.set_gradient_profile(
         SimulationFactory.generate_gradient_profile(
