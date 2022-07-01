@@ -4,8 +4,8 @@ import argparse
 import pathlib
 import typing
 
-from simulator.factory.geometry_factory.handlers import GeometryInfos
 from simulator.factory import GeometryFactory
+from simulator.factory.geometry_factory.handlers import GeometryInfos
 
 import fcg.typing
 
