@@ -5,5 +5,8 @@
 - [SCILPY coding standards](https://scil-documentation.readthedocs.io/en/latest/coding/scilpy.html)
 - [Simulation Generator](https://github.com/AlexVCaron/voxsim)  
   &nbsp;&nbsp; Issues
-  - [Module config not found](https://github.com/AlexVCaron/voxsim/issues/5)
+    - [Module config not found](https://github.com/AlexVCaron/voxsim/issues/5)
+- [Fork of Simulation Generator](https://github.com/benoit-dubreuil/voxsim)  
+  &nbsp;&nbsp; Pull requests
+    - [PR](https://github.com/AlexVCaron/voxsim/issues/5) for the issue [module config not found](https://github.com/AlexVCaron/voxsim/issues/5)
 - [LiNumPy](https://github.com/linum-uqam/linumpy)
