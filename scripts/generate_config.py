@@ -57,7 +57,7 @@ def get_geometry_parameters(output_folder, output_naming):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser("Geometry Factory Example Script")
+    parser = argparse.ArgumentParser("Generate a configuration of white matter fibre bundles")
     parser.add_argument("--out", type=str, required=False, help="Output directory for the files")
 
     args = parser.parse_args()
