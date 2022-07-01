@@ -19,6 +19,9 @@ BUNDLE_LIMITS: typing.Final[typing.List[typing.List[float]]] = [[0, 1], [0, 1], 
 BUNDLE_CENTER: typing.Final[fcg.typing.Vec3f] = (0.5, 0.5, 0.5)
 WORLD_CENTER: typing.Final[fcg.typing.Vec3f] = (5, 5, 5)
 
+DEFAULT_OUT_DIR: typing.Final[pathlib.Path] = pathlib.Path("out")
+OUT_GEOM_FILES_PREFIX: typing.Final[str] = "geom"
+
 BASE_ANCHORS: typing.Final[typing.List[fcg.typing.Vec3f]] = [
     (0.5, -0.3, 0.5),
     (0.5, -0.2, 0.5),
@@ -60,8 +63,8 @@ if __name__ == "__main__":
     parser.add_argument("--out", type=pathlib.Path, required=False, help="Output directory for the files")
 
     args = parser.parse_args()
-    out_dir: pathlib.Path = args.out or pathlib.Path("out")
+    out_dir: pathlib.Path = args.out or pathlib.Path(DEFAULT_OUT_DIR)
     out_dir.mkdir(parents=True, exist_ok=True)
 
     print(f"Script execution results are in : {out_dir}")
-    generate_voxsim_geom_params(out_dir, "geometry")
+    generate_voxsim_geom_params(out_dir, OUT_GEOM_FILES_PREFIX)
