@@ -4,6 +4,7 @@ import argparse
 import pathlib
 import typing
 
+from simulator.factory.geometry_factory.handlers import GeometryInfos
 from simulator.factory import GeometryFactory
 
 import fcg.typing
@@ -42,7 +43,18 @@ BASE_ANCHORS: typing.Final[typing.List[fcg.typing.Vec3f]] = [
 ]
 
 
-def generate_voxsim_geom_params(out_dir, out_files_prefix):
+def generate_voxsim_geom_params(out_dir, out_files_prefix) -> GeometryInfos:
+    """
+    TODO
+    Parameters
+    ----------
+    out_dir :
+    out_files_prefix :
+
+    Returns
+    -------
+
+    """
     geometry_handler = GeometryFactory.get_geometry_handler(RESOLUTION, SPACING)
 
     bundle1 = GeometryFactory.create_bundle(BUNDLE_RADIUS, BUNDLE_SYMMETRY, N_POINT_PER_CENTROID, BASE_ANCHORS)
@@ -67,4 +79,4 @@ if __name__ == "__main__":
     out_dir.mkdir(parents=True, exist_ok=True)
 
     print(f"Script execution results are in : {out_dir}")
-    generate_voxsim_geom_params(out_dir, OUT_GEOM_FILES_PREFIX)
+    voxsim_geom_params: GeometryInfos = generate_voxsim_geom_params(out_dir, OUT_GEOM_FILES_PREFIX)
