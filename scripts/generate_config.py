@@ -40,7 +40,7 @@ BASE_ANCHORS: typing.Final[typing.List[fcg.typing.Vec3f]] = [
 ]
 
 
-def get_geometry_parameters(output_folder, output_naming):
+def get_geometry_parameters(out_dir, out_files_prefix):
     geometry_handler = GeometryFactory.get_geometry_handler(RESOLUTION, SPACING)
 
     bundle1 = GeometryFactory.create_bundle(BUNDLE_RADIUS, BUNDLE_SYMMETRY, N_POINT_PER_CENTROID, BASE_ANCHORS)
@@ -53,7 +53,7 @@ def get_geometry_parameters(output_folder, output_naming):
 
     geometry_handler.add_cluster(cluster)
 
-    return geometry_handler.generate_json_configuration_files(output_naming, output_folder)
+    return geometry_handler.generate_json_configuration_files(out_files_prefix, out_dir)
 
 
 if __name__ == "__main__":
