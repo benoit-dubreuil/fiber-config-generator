@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 
 import argparse
-import os
-import tempfile
+import pathlib
 import typing
 
 from simulator.factory import GeometryFactory
@@ -58,14 +57,11 @@ def get_geometry_parameters(out_dir, out_files_prefix):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser("Generate a configuration of white matter fibre bundles")
-    parser.add_argument("--out", type=str, required=False, help="Output directory for the files")
+    parser.add_argument("--out", type=pathlib.Path, required=False, help="Output directory for the files")
 
     args = parser.parse_args()
-    if "out" in args and args.out:
-        dest = args.out
-        os.makedirs(args.out, exist_ok=True)
-    else:
-        dest = tempfile.mkdtemp(prefix="gen_config")
+    out_dir: pathlib.Path = args.out or pathlib.Path("out")
+    out_dir.mkdir(parents=True, exist_ok=True)
 
-    print(f"Script execution results are in : {dest}")
-    get_geometry_parameters(dest, "geometry")
+    print(f"Script execution results are in : {out_dir}")
+    get_geometry_parameters(out_dir, "geometry")
