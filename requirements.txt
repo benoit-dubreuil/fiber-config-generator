@@ -10,7 +10,7 @@ nibabel ~= 3.2.0
 # which aren't installed automatically (bug?)
 -r voxsim_requirements.txt
 
-git+https://git@github.com/AlexVCaron/voxsim#egg=simulation_generator
+git+https://git@github.com/benoit-dubreuil/voxsim#egg=simulation_generator
 
 
 # Development
