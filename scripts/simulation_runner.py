@@ -6,7 +6,7 @@ import pathlib
 import tempfile
 import typing
 
-from generate_config import get_geometry_parameters
+from generate_config import generate_voxsim_geom_params
 from simulation_factory import get_simulation_parameters
 from simulator.runner.legacy import SimulationRunner
 
@@ -15,7 +15,7 @@ DEFAULT_SINGULARITY_NAME: typing.Final[str] = "voxsim_singularity_latest.sif"
 
 # TODO : Use new runner instead of legacy one.
 def run_simulation(output_folder):
-    geometry_parameters = get_geometry_parameters(output_folder, "runner_test_geometry")
+    geometry_parameters = generate_voxsim_geom_params(output_folder, "runner_test_geometry")
 
     simulation_parameters = get_simulation_parameters(output_folder, "runner_test_simulation")
 

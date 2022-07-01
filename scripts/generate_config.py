@@ -39,7 +39,7 @@ BASE_ANCHORS: typing.Final[typing.List[fcg.typing.Vec3f]] = [
 ]
 
 
-def get_geometry_parameters(out_dir, out_files_prefix):
+def generate_voxsim_geom_params(out_dir, out_files_prefix):
     geometry_handler = GeometryFactory.get_geometry_handler(RESOLUTION, SPACING)
 
     bundle1 = GeometryFactory.create_bundle(BUNDLE_RADIUS, BUNDLE_SYMMETRY, N_POINT_PER_CENTROID, BASE_ANCHORS)
@@ -64,4 +64,4 @@ if __name__ == "__main__":
     out_dir.mkdir(parents=True, exist_ok=True)
 
     print(f"Script execution results are in : {out_dir}")
-    get_geometry_parameters(out_dir, "geometry")
+    generate_voxsim_geom_params(out_dir, "geometry")
