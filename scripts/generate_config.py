@@ -5,8 +5,8 @@ import pathlib
 import typing
 
 from simulator.factory import GeometryFactory
-from simulator.runner import SimulationRunner, SingularityConfig
 from simulator.factory.geometry_factory.handlers import GeometryInfos
+from simulator.runner import SimulationRunner, SingularityConfig
 
 import fcg.typing
 
