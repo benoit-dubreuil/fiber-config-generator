@@ -83,9 +83,7 @@ def generate_fiber_tracts(out_dir: pathlib.Path, voxsim_geom_params: GeometryInf
     # TODO : Supply SingularityConfig to SimulationRunner with custom attribute values
     simulation: SimulationRunner = SimulationRunner()
 
-    simulation.generate_phantom("run_name",
-                                voxsim_geom_params,
-                                out_dir)
+    simulation.generate_phantom("run_name", voxsim_geom_params, out_dir)
 
 
 if __name__ == "__main__":
