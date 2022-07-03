@@ -71,6 +71,9 @@ def generate_voxsim_geom_params(out_dir, out_files_prefix) -> GeometryInfos:
 
 
 if __name__ == "__main__":
+    # TODO : Supply the singularity (*.sif) path as a program arg. See SingularityConfig.
+    # TODO : Supply the SingularityCE executable path as a program arg. See SingularityConfig.
+
     parser = argparse.ArgumentParser("Generate a configuration of white matter fibre bundles")
     parser.add_argument("--out", type=pathlib.Path, required=False, help="Output directory for the files")
 
