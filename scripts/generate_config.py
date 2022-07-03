@@ -75,8 +75,8 @@ if __name__ == "__main__":
     parser.add_argument("--out", type=pathlib.Path, required=False, help="Output directory for the files")
 
     args = parser.parse_args()
-    out_dir: pathlib.Path = args.out or pathlib.Path(DEFAULT_OUT_DIR)
-    out_dir.mkdir(parents=True, exist_ok=True)
+    dest_dir: pathlib.Path = args.out or pathlib.Path(DEFAULT_OUT_DIR)
+    dest_dir.mkdir(parents=True, exist_ok=True)
 
-    print(f"Script execution results are in : {out_dir}")
-    voxsim_geom_params: GeometryInfos = generate_voxsim_geom_params(out_dir, OUT_GEOM_FILES_PREFIX)
+    print(f"Script execution results are in : {dest_dir}")
+    voxsim_geom_params: GeometryInfos = generate_voxsim_geom_params(dest_dir, OUT_GEOM_FILES_PREFIX)
