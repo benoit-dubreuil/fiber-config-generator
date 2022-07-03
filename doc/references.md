@@ -9,4 +9,6 @@
 - [Fork of Simulation Generator](https://github.com/benoit-dubreuil/voxsim)  
   &nbsp;&nbsp; Pull requests
     - [Improv/remove top level config](https://github.com/AlexVCaron/voxsim/pull/6), issue [module config not found](https://github.com/AlexVCaron/voxsim/issues/5)
+    - [Fix/modules same name as pkg](https://github.com/AlexVCaron/voxsim/pull/7)
+    - [Fix/param import same names](https://github.com/AlexVCaron/voxsim/pull/8)
 - [LiNumPy](https://github.com/linum-uqam/linumpy)
