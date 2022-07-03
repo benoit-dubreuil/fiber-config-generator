@@ -5,6 +5,7 @@ import pathlib
 import typing
 
 from simulator.factory import GeometryFactory
+from simulator.runner import SimulationRunner, SingularityConfig
 from simulator.factory.geometry_factory.handlers import GeometryInfos
 
 import fcg.typing
@@ -68,6 +69,18 @@ def generate_voxsim_geom_params(out_dir: pathlib.Path, out_files_prefix: str) ->
     geometry_handler.add_cluster(cluster)
 
     return geometry_handler.generate_json_configuration_files(out_files_prefix, out_dir)
+
+
+def generate_fiber_tracts(out_dir: pathlib.Path, voxsim_geom_params: GeometryInfos) -> None:
+    # Params to fill :
+    # run_name = ?
+    # phantom_infos = voxsim_geom_params
+    # output_folder = out_dir
+    # relative_fiber_fraction (optional) -> ???
+    # output_nifti (optional) -> ???
+    # loop_managed -> default
+    
+    ...
 
 
 if __name__ == "__main__":
