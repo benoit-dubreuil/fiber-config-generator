@@ -11,6 +11,8 @@ See [`setup.cfg`](../setup.cfg) for technical details.
 
 Reference: https://softwareengineering.stackexchange.com/a/75929
 
+See https://peps.python.org/pep-0008
+
 
 ### Project folder structure
 
