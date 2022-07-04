@@ -96,6 +96,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     dest_dir: pathlib.Path = args.out
     dest_dir.mkdir(parents=True, exist_ok=True)
+    dest_dir = dest_dir.resolve(strict=True)
 
     print(f"Script execution results are in : {dest_dir}")
     voxsim_geom_params: GeometryInfos = generate_voxsim_geom_params(dest_dir, OUT_GEOM_FILES_PREFIX)
