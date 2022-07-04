@@ -11,4 +11,5 @@
     - [Improv/remove top level config](https://github.com/AlexVCaron/voxsim/pull/6), issue [module config not found](https://github.com/AlexVCaron/voxsim/issues/5), [fork](https://github.com/benoit-dubreuil/voxsim/pull/1)
     - [Fix/modules same name as pkg](https://github.com/AlexVCaron/voxsim/pull/7), [fork](https://github.com/benoit-dubreuil/voxsim/pull/2)
     - [Fix/param import same names](https://github.com/AlexVCaron/voxsim/pull/8), [fork](https://github.com/benoit-dubreuil/voxsim/pull/3)
+    - [Fix/str join takes path](https://github.com/AlexVCaron/voxsim/pull/9), [fork](https://github.com/benoit-dubreuil/voxsim/pull/4)
 - [LiNumPy](https://github.com/linum-uqam/linumpy)
