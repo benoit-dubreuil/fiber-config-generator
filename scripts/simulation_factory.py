@@ -54,7 +54,7 @@ if __name__ == "__main__":
     parser.add_argument("--out", type=str, required=False, help="Output directory for the files")
 
     args = parser.parse_args()
-    if "out" in args and args.out:
+    if args.out:
         dest = args.out
         os.makedirs(args.out, exist_ok=True)
     else:
