@@ -5,7 +5,7 @@ import pathlib
 
 from simulator.factory.geometry_factory.handlers import GeometryInfos
 
-import fcg.voxsim.geom
+import fcg.voxsim
 import fcg.voxsim.geom as _geom
 from fcg.voxsim.fiber.generator import generate_fiber_tracts
 
