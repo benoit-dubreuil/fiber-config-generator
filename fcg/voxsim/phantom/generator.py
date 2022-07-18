@@ -9,10 +9,10 @@ import simulator.runner
 
 def generate_fiber_tracts(
     voxsim_geom_params: _sim_geom_handlers.GeometryInfos,
-    out_dir: pathlib.Path = fcg.voxsim.default.OUT_DIR
+    out_dir: pathlib.Path = fcg.voxsim.default.OUT_DIR,
+    singularity_conf=simulator.runner.SingularityConfig()
 ) -> None:
-    # TODO : Supply SingularityConfig to SimulationRunner with custom attribute values
-    simulation: simulator.runner.SimulationRunner = simulator.runner.SimulationRunner()
+    simulation: simulator.runner.SimulationRunner = simulator.runner.SimulationRunner(singularity_conf)
 
     simulation.generate_phantom(fcg.voxsim.default.SIMULATION_NAME,
                                 voxsim_geom_params,
