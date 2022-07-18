@@ -2,6 +2,7 @@
 import pathlib
 
 import fcg.voxsim
+import fcg.voxsim.phantom as _phantom
 from simulator.factory.geometry_factory.handlers import GeometryInfos
 from simulator.runner import SimulationRunner
 
@@ -13,4 +14,7 @@ def generate_fiber_tracts(
     # TODO : Supply SingularityConfig to SimulationRunner with custom attribute values
     simulation: SimulationRunner = SimulationRunner()
 
-    simulation.generate_phantom(fcg.voxsim.default.RUN_NAME, voxsim_geom_params, out_dir, output_nifti=False)
+    simulation.generate_phantom(fcg.voxsim.default.RUN_NAME,
+                                voxsim_geom_params,
+                                out_dir,
+                                output_nifti=_phantom.default.GENERATE_NIFTI)
