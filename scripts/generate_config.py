@@ -4,7 +4,7 @@ import argparse
 import pathlib
 import typing
 
-from simulator.factory import GeometryFactory
+from fcg.voxsim.geom.generator import generate_voxsim_geom_params
 from simulator.factory.geometry_factory.handlers import GeometryInfos
 from simulator.runner import SimulationRunner
 
@@ -41,34 +41,6 @@ BASE_ANCHORS: typing.Final[typing.List[fcg.typing.Vec3f]] = [
     (0.5, 1.2, 0.5),
     (0.5, 1.3, 0.5),
 ]
-
-
-def generate_voxsim_geom_params(out_dir: pathlib.Path = OUT_DIR,
-                                out_files_prefix: str = OUT_GEOM_FILES_PREFIX) -> GeometryInfos:
-    """
-    TODO
-    Parameters
-    ----------
-    out_dir :
-    out_files_prefix :
-
-    Returns
-    -------
-
-    """
-    geometry_handler = GeometryFactory.get_geometry_handler(RESOLUTION, SPACING)
-
-    bundle1 = GeometryFactory.create_bundle(BUNDLE_RADIUS, BUNDLE_SYMMETRY, N_POINT_PER_CENTROID, BASE_ANCHORS)
-
-    cluster = GeometryFactory.create_cluster(
-        GeometryFactory.create_cluster_meta(3, BUNDLE_N_FIBERS, 1, BUNDLE_CENTER, BUNDLE_LIMITS),
-        [bundle1],
-        WORLD_CENTER,
-    )
-
-    geometry_handler.add_cluster(cluster)
-
-    return geometry_handler.generate_json_configuration_files(out_files_prefix, out_dir)
 
 
 def generate_fiber_tracts(out_dir: pathlib.Path, voxsim_geom_params: GeometryInfos) -> None:
