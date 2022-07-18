@@ -4,6 +4,7 @@ import argparse
 import pathlib
 import typing
 
+from fcg.voxsim.default import OUT_DIR, OUT_GEOM_FILES_PREFIX
 from simulator.factory import GeometryFactory
 from simulator.factory.geometry_factory.handlers import GeometryInfos
 from simulator.runner import SimulationRunner, SingularityConfig
@@ -20,9 +21,6 @@ BUNDLE_N_FIBERS: typing.Final[int] = 1000
 BUNDLE_LIMITS: typing.Final[typing.List[typing.List[float]]] = [[0, 1], [0, 1], [0, 1]]
 BUNDLE_CENTER: typing.Final[fcg.typing.Vec3f] = (0.5, 0.5, 0.5)
 WORLD_CENTER: typing.Final[fcg.typing.Vec3f] = (5, 5, 5)
-
-OUT_DIR: typing.Final[pathlib.Path] = pathlib.Path("out")
-OUT_GEOM_FILES_PREFIX: typing.Final[str] = "geom"
 
 BASE_ANCHORS: typing.Final[typing.List[fcg.typing.Vec3f]] = [
     (0.5, -0.3, 0.5),
