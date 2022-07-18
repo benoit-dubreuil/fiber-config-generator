@@ -6,8 +6,9 @@ import pathlib
 from simulator.factory.geometry_factory.handlers import GeometryInfos
 
 import fcg.voxsim
+import fcg.voxsim.fiber.generator
 import fcg.voxsim.geom as _geom
-from fcg.voxsim.fiber.generator import generate_fiber_tracts
+import fcg.voxsim.fiber as _fiber
 
 if __name__ == "__main__":
     # TODO : Supply the singularity (*.sif) path as a program arg. See SingularityConfig.
@@ -25,4 +26,4 @@ if __name__ == "__main__":
 
     print(f"Script execution results are in : {dest_dir}")
     voxsim_geom_params: GeometryInfos = _geom.generate_voxsim_geom_params(_geom.default.OUT_GEOM_FILES_PREFIX, dest_dir)
-    generate_fiber_tracts(voxsim_geom_params, dest_dir)
+    _fiber.generator.generate_fiber_tracts(voxsim_geom_params, dest_dir)
