@@ -7,8 +7,10 @@ import fcg.voxsim.cli as _cli
 import fcg.voxsim.geom as _geom
 
 
+# TODO : Transform this module into a builder (design pattern).
+
 def generate_voxsim_geom_params(
-    out_dir: pathlib.Path = _cli.default.OUT_DIR, out_files_prefix: str = _geom.default.OUT_GEOM_FILES_PREFIX
+        out_dir: pathlib.Path = _cli.default.OUT_DIR, out_files_prefix: str = _geom.default.OUT_GEOM_FILES_PREFIX
 ) -> _sim_geom_handlers.GeometryInfos:
     """
     TODO
@@ -21,7 +23,7 @@ def generate_voxsim_geom_params(
     -------
 
     """
-    geometry_handler = _sim_factory.GeometryFactory.get_geometry_handler(
+    geometry_handler: _sim_geom_handlers.GeometryHandler = _sim_factory.GeometryFactory.get_geometry_handler(
         _geom.params.default.RESOLUTION, _geom.params.default.SPACING
     )
 
