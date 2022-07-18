@@ -32,6 +32,5 @@ if __name__ == "__main__":
     dest_dir = dest_dir.resolve(strict=True)
 
     print(f"Script execution results are in : {dest_dir}")
-    voxsim_geom_params: GeometryInfos = _geom.generate_voxsim_geom_params(dest_dir,
-                                                                          _geom.default.OUT_GEOM_FILES_PREFIX)
+    voxsim_geom_params: GeometryInfos = _geom.generate_voxsim_geom_params(dest_dir, _geom.default.OUT_GEOM_FILES_PREFIX)
     generate_fiber_tracts(dest_dir, voxsim_geom_params)
