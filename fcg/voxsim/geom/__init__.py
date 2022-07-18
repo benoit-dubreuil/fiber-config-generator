@@ -2,6 +2,7 @@
 :class:`simulator.factory.geometry_factory.geometry_factory.GeometryFactory`.
 """
 
+import const
 import default
 import params
 
