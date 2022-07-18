@@ -4,13 +4,13 @@ import argparse
 import pathlib
 import typing
 
-from fcg.voxsim.geom.default import OUT_GEOM_FILES_PREFIX
-from fcg.voxsim.cli.default import OUT_DIR, RUN_NAME
 from simulator.factory import GeometryFactory
 from simulator.factory.geometry_factory.handlers import GeometryInfos
 from simulator.runner import SimulationRunner
 
 import fcg.typing
+from fcg.voxsim.cli.default import OUT_DIR, RUN_NAME
+from fcg.voxsim.geom.default import OUT_GEOM_FILES_PREFIX
 
 RESOLUTION: typing.Final[fcg.typing.Vec3i] = (10, 10, 10)
 SPACING: typing.Final[fcg.typing.Vec3i] = (2, 2, 2)
