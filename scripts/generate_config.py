@@ -4,7 +4,7 @@ import argparse
 import pathlib
 import typing
 
-from fcg.voxsim.default import OUT_GEOM_FILES_PREFIX
+from fcg.voxsim.geom.default import OUT_GEOM_FILES_PREFIX
 from fcg.voxsim.cli.default import OUT_DIR, RUN_NAME
 from simulator.factory import GeometryFactory
 from simulator.factory.geometry_factory.handlers import GeometryInfos
