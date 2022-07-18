@@ -10,17 +10,18 @@ import fcg.voxsim.geom as _geom
 
 
 def generate_voxsim_geom_params(
-    out_dir: pathlib.Path = fcg.voxsim.default.OUT_DIR, out_files_prefix: str = _geom.default.OUT_GEOM_FILES_PREFIX
+    out_files_prefix: str = _geom.default.OUT_GEOM_FILES_PREFIX,
+    out_dir: pathlib.Path = fcg.voxsim.default.OUT_DIR
 ) -> _sim_geom_handlers.GeometryInfos:
     """
     Generate the VoxSim geometry parameters configuration files.
 
     Parameters
     ----------
-    out_dir
-        The directory into which the generated geometry parameter files will be saved. For simplicity, it is usually the root output directory of all the other generated files.
     out_files_prefix
         The prefix of the generated geometry parameter files.
+    out_dir
+        The directory into which the generated geometry parameter files will be saved. For simplicity, it is usually the root output directory of all the other generated files.
 
     Returns
     -------
