@@ -3,11 +3,11 @@
 import argparse
 import pathlib
 
-from fcg.voxsim.phantom.generator import generate_fiber_tracts
 from simulator.factory.geometry_factory.handlers import GeometryInfos
 
 import fcg.voxsim.geom
 import fcg.voxsim.geom as _geom
+from fcg.voxsim.phantom.generator import generate_fiber_tracts
 
 if __name__ == "__main__":
     # TODO : Supply the singularity (*.sif) path as a program arg. See SingularityConfig.

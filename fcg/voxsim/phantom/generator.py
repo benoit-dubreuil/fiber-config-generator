@@ -6,6 +6,8 @@ import fcg.voxsim.phantom as _phantom
 import simulator.factory.geometry_factory.handlers as _sim_geom_handlers
 import simulator.runner
 
+import fcg.voxsim
+
 
 def generate_fiber_tracts(
     voxsim_geom_params: _sim_geom_handlers.GeometryInfos,
