@@ -11,6 +11,7 @@ from simulator.factory.geometry_factory.handlers import GeometryInfos
 from simulator.runner import SimulationRunner
 
 import fcg.typing
+from fcg.voxsim.default import OUT_DIR, OUT_GEOM_FILES_PREFIX, RUN_NAME
 
 RESOLUTION: typing.Final[fcg.typing.Vec3i] = (10, 10, 10)
 SPACING: typing.Final[fcg.typing.Vec3i] = (2, 2, 2)
