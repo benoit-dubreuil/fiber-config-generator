@@ -9,12 +9,13 @@ import simulator.runner
 
 def generate_fiber_tracts(
     voxsim_geom_params: _sim_geom_handlers.GeometryInfos,
+    simulation_name: str = fcg.voxsim.default.SIMULATION_NAME,
     out_dir: pathlib.Path = fcg.voxsim.default.OUT_DIR,
     singularity_conf=simulator.runner.SingularityConfig(),
 ) -> None:
     simulation: simulator.runner.SimulationRunner = simulator.runner.SimulationRunner(singularity_conf)
 
-    simulation.generate_phantom(fcg.voxsim.default.SIMULATION_NAME,
+    simulation.generate_phantom(simulation_name,
                                 voxsim_geom_params,
                                 out_dir,
                                 output_nifti=_phantom.const.GENERATE_NIFTI)
