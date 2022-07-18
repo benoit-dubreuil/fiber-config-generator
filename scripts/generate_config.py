@@ -43,7 +43,8 @@ BASE_ANCHORS: typing.Final[typing.List[fcg.typing.Vec3f]] = [
 ]
 
 
-def generate_voxsim_geom_params(out_dir: pathlib.Path, out_files_prefix: str) -> GeometryInfos:
+def generate_voxsim_geom_params(out_dir: pathlib.Path = OUT_DIR,
+                                out_files_prefix: str = OUT_GEOM_FILES_PREFIX) -> GeometryInfos:
     """
     TODO
     Parameters
