@@ -1,9 +1,10 @@
 import pathlib
 
-import fcg.voxsim.cli as _cli
-import fcg.voxsim.geom as _geom
 import simulator.factory as _sim_factory
 import simulator.factory.geometry_factory.handlers as _sim_geom_handlers
+
+import fcg.voxsim.cli as _cli
+import fcg.voxsim.geom as _geom
 
 
 def generate_voxsim_geom_params(
