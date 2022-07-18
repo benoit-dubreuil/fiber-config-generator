@@ -3,4 +3,6 @@
 """
 
 import params
+import default
+
 from .generator import generate_voxsim_geom_params
