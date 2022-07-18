@@ -4,7 +4,7 @@ import argparse
 import pathlib
 import typing
 
-from fcg.voxsim.default import OUT_DIR, OUT_GEOM_FILES_PREFIX
+from fcg.voxsim.default import OUT_DIR, OUT_GEOM_FILES_PREFIX, RUN_NAME
 from simulator.factory import GeometryFactory
 from simulator.factory.geometry_factory.handlers import GeometryInfos
 from simulator.runner import SimulationRunner, SingularityConfig
@@ -73,7 +73,7 @@ def generate_fiber_tracts(out_dir: pathlib.Path, voxsim_geom_params: GeometryInf
     # TODO : Supply SingularityConfig to SimulationRunner with custom attribute values
     simulation: SimulationRunner = SimulationRunner()
 
-    simulation.generate_phantom("run_name", voxsim_geom_params, out_dir, output_nifti=False)
+    simulation.generate_phantom(RUN_NAME, voxsim_geom_params, out_dir, output_nifti=False)
 
 
 if __name__ == "__main__":
