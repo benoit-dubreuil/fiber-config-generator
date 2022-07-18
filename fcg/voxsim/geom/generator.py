@@ -1,21 +1,15 @@
 import pathlib
 
-from fcg.voxsim.cli.default import OUT_DIR
-from fcg.voxsim.geom.default import OUT_GEOM_FILES_PREFIX
-from fcg.voxsim.geom.params.default import (
-    RESOLUTION,
-    SPACING,
-    N_POINT_PER_CENTROID,
-    BUNDLE_RADIUS,
-    BUNDLE_SYMMETRY,
-    BUNDLE_N_FIBERS,
-    BUNDLE_LIMITS,
-    BUNDLE_CENTER,
-    WORLD_CENTER,
-    BASE_ANCHORS,
-)
 from simulator.factory import GeometryFactory
 from simulator.factory.geometry_factory.handlers import GeometryInfos
+
+from fcg.voxsim.cli.default import OUT_DIR
+from fcg.voxsim.geom.default import OUT_GEOM_FILES_PREFIX
+from fcg.voxsim.geom.params.default import (BASE_ANCHORS, BUNDLE_CENTER,
+                                            BUNDLE_LIMITS, BUNDLE_N_FIBERS,
+                                            BUNDLE_RADIUS, BUNDLE_SYMMETRY,
+                                            N_POINT_PER_CENTROID, RESOLUTION,
+                                            SPACING, WORLD_CENTER)
 
 
 def generate_voxsim_geom_params(
