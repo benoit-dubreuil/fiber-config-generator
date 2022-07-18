@@ -1,9 +1,10 @@
 # TODO : Transform this module into a builder (design pattern).
 import pathlib
 
-import fcg.voxsim
 from simulator.factory.geometry_factory.handlers import GeometryInfos
 from simulator.runner import SimulationRunner
+
+import fcg.voxsim
 
 
 def generate_fiber_tracts(
