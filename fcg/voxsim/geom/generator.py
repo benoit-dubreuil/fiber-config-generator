@@ -6,7 +6,6 @@ import simulator.factory.geometry_factory.handlers as _sim_geom_handlers
 import fcg.voxsim.cli as _cli
 import fcg.voxsim.geom as _geom
 
-
 # TODO : Transform this module into a builder (design pattern).
 
 
