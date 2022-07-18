@@ -21,7 +21,7 @@ BUNDLE_LIMITS: typing.Final[typing.List[typing.List[float]]] = [[0, 1], [0, 1], 
 BUNDLE_CENTER: typing.Final[fcg.typing.Vec3f] = (0.5, 0.5, 0.5)
 WORLD_CENTER: typing.Final[fcg.typing.Vec3f] = (5, 5, 5)
 
-DEFAULT_OUT_DIR: typing.Final[pathlib.Path] = pathlib.Path("out")
+OUT_DIR: typing.Final[pathlib.Path] = pathlib.Path("out")
 OUT_GEOM_FILES_PREFIX: typing.Final[str] = "geom"
 
 BASE_ANCHORS: typing.Final[typing.List[fcg.typing.Vec3f]] = [
@@ -83,7 +83,7 @@ if __name__ == "__main__":
     # TODO : Supply the SingularityCE executable path as a program arg. See SingularityConfig.
 
     parser = argparse.ArgumentParser("Generate a configuration of white matter fibre bundles")
-    parser.add_argument("--out", type=pathlib.Path, default=DEFAULT_OUT_DIR, help="Output directory for the files")
+    parser.add_argument("--out", type=pathlib.Path, default=OUT_DIR, help="Output directory for the files")
 
     args = parser.parse_args()
     dest_dir: pathlib.Path = args.out
