@@ -6,9 +6,8 @@ import pathlib
 from simulator.factory.geometry_factory.handlers import GeometryInfos
 from simulator.runner import SimulationRunner
 
-import fcg.voxsim
-from fcg.voxsim.geom.default import OUT_GEOM_FILES_PREFIX
-from fcg.voxsim.geom.generator import generate_voxsim_geom_params
+import fcg.voxsim.geom
+import fcg.voxsim.geom as _geom
 
 
 def generate_fiber_tracts(out_dir: pathlib.Path, voxsim_geom_params: GeometryInfos) -> None:
@@ -33,5 +32,6 @@ if __name__ == "__main__":
     dest_dir = dest_dir.resolve(strict=True)
 
     print(f"Script execution results are in : {dest_dir}")
-    voxsim_geom_params: GeometryInfos = generate_voxsim_geom_params(dest_dir, OUT_GEOM_FILES_PREFIX)
+    voxsim_geom_params: GeometryInfos = _geom.generate_voxsim_geom_params(dest_dir,
+                                                                          _geom.default.OUT_GEOM_FILES_PREFIX)
     generate_fiber_tracts(dest_dir, voxsim_geom_params)
