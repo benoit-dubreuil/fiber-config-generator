@@ -5,7 +5,7 @@ import simulator.factory.geometry_factory.handlers as _sim_geom_handlers
 import simulator.runner
 
 import fcg.voxsim
-import fcg.voxsim.phantom as _phantom
+import fcg.voxsim.fiber as _phantom
 
 
 def generate_fiber_tracts(
