@@ -34,6 +34,7 @@ def generate_voxsim_geom_params(
         _geom.params.default.RESOLUTION, _geom.params.default.SPACING
     )
 
+    # TODO : Customise
     bundle1 = _sim_factory.GeometryFactory.create_bundle(
         _geom.params.default.BUNDLE_RADIUS,
         _geom.params.default.BUNDLE_SYMMETRY,
