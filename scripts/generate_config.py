@@ -16,7 +16,7 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser("Generate a configuration of white matter fibre bundles")
     parser.add_argument(
-        "--out", type=pathlib.Path, default=fcg.voxsim.default.OUT_DIR, help="Output directory for the files"
+        "--out", type=pathlib.Path, default=fcg.voxsim.default.ROOT_OUT_DIR, help="Output directory for the files"
     )
 
     args = parser.parse_args()
