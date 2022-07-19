@@ -6,9 +6,9 @@ import pathlib
 from simulator.factory.geometry_factory.handlers import GeometryInfos
 
 import fcg.voxsim
+import fcg.voxsim.geom as _geom
 import fcg.voxsim.phantom as _fiber
 import fcg.voxsim.phantom.generator
-import fcg.voxsim.geom as _geom
 
 if __name__ == "__main__":
     # TODO : Supply the singularity (*.sif) path as a program arg. See SingularityConfig.
