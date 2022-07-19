@@ -2,8 +2,8 @@
 :class:`simulator.factory.geometry_factory.geometry_factory.GeometryFactory`.
 """
 
-import const
-import default
-import params
+from . import const
+from . import default
+from . import params
 
 from .generator import generate_voxsim_geom_params

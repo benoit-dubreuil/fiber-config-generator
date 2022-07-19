@@ -1,1 +1,1 @@
-import const
+from . import const
