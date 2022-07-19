@@ -19,15 +19,6 @@ class Singleton(metaclass=abc.ABCMeta):
     @classmethod
     def get_singleton(cls) -> _T:
         if cls.__singleton is None:
-            cls._force_create_singleton()
+            cls.__singleton = cls()
 
         return cls.__singleton
-
-    @classmethod
-    def _force_create_singleton(cls) -> None:
-        singleton_creator = cls._get_singleton_creator()
-        cls.__singleton = singleton_creator()
-
-    @classmethod
-    def _get_singleton_creator(cls) -> typing.Callable[[], _T]:
-        return cls.__init__
