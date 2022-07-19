@@ -1,4 +1,5 @@
 import abc
+
 import fcg.utils.design_pattern.singleton as _singleton
 
 
