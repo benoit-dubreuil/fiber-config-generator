@@ -10,8 +10,8 @@ import fcg.voxsim.geom as _geom
 
 
 def generate_voxsim_geom_params(
-    out_files_prefix: str = _geom.default.OUT_GEOM_FILES_PREFIX,
     root_out_dir: pathlib.Path = fcg.voxsim.default.ROOT_OUT_DIR,
+    out_files_prefix: str = _geom.default.OUT_GEOM_FILES_PREFIX,
 ) -> _sim_geom_handlers.GeometryInfos:
     """
     Generates the VoxSim geometry parameters configuration files.

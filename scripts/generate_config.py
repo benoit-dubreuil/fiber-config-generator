@@ -25,5 +25,5 @@ if __name__ == "__main__":
     out_dir = out_dir.resolve(strict=True)
 
     print(f"Script execution results are in : {out_dir}")
-    voxsim_geom_params: GeometryInfos = _geom.generate_voxsim_geom_params(_geom.default.OUT_GEOM_FILES_PREFIX, out_dir)
-    _fiber.generator.generate_fiber_tracts(voxsim_geom_params, root_out_dir=out_dir)
+    voxsim_geom_params: GeometryInfos = _geom.generate_voxsim_geom_params(out_dir)
+    _fiber.generator.generate_fiber_tracts(voxsim_geom_params, out_dir)
