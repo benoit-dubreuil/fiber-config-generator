@@ -37,7 +37,6 @@ class Singleton(metaclass=abc.ABCMeta):
 
 
 class Bob(Singleton):
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
