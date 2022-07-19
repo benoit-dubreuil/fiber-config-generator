@@ -1,7 +1,7 @@
 import abc
 import typing
 
-_T = typing.TypeVar('_T', bound='Singleton')
+_T = typing.TypeVar("_T", bound="Singleton")
 
 
 class Singleton(metaclass=abc.ABCMeta):
