@@ -14,6 +14,27 @@ def generate_fiber_tracts(
     out_dir: pathlib.Path = fcg.voxsim.default.OUT_DIR,
     singularity_conf: simulator.runner.SingularityConfig = simulator.runner.SingularityConfig(),
 ) -> None:
+    """
+    Generates the white matter phantom configured by the supplied geometry parameters.
+
+    Parameters
+    ----------
+    voxsim_geom_params
+        The VoxSim-specific geometry parameters.
+    simulation_name
+        The mnemonic name of the simulation. The generated log file has the same name as the simulation name, excluding
+        the file extension. The generated phantom files are prefixed with the simulation name.
+    out_dir
+        The directory into which the generated white matter phantoms files and directories will be saved. For
+        simplicity, it is usually the root output directory of all the other generated files.
+    singularity_conf
+        The singularity configuration which defines where the SingularityCE resources are.
+
+    Returns
+    -------
+    None
+
+    """
     simulation: simulator.runner.SimulationRunner = simulator.runner.SimulationRunner(singularity_conf)
 
     simulation.generate_phantom(
