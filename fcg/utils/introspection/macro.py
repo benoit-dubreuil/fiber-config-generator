@@ -3,11 +3,10 @@ import typing
 
 
 class _AutoMacroFromName(str, enum.Enum):
-
     @staticmethod
     @typing.final
     def _generate_next_value_(name: str, start, count, last_values) -> str:
-        __AFFIX: typing.Final[str] = '__'
+        __AFFIX: typing.Final[str] = "__"
         return __AFFIX + name.lower() + __AFFIX
 
 
