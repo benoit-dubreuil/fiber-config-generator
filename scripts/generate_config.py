@@ -6,8 +6,8 @@ import pathlib
 from simulator.factory.geometry_factory.handlers import GeometryInfos
 
 import fcg.voxsim
-import fcg.voxsim.fiber as _fiber
-import fcg.voxsim.fiber.generator
+import fcg.voxsim.phantom as _fiber
+import fcg.voxsim.phantom.generator
 import fcg.voxsim.geom as _geom
 
 if __name__ == "__main__":
