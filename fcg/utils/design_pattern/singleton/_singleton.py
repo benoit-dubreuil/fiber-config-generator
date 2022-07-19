@@ -1,7 +1,8 @@
 import abc
 import typing
-import fcg.utils.introspection.caller
+
 import fcg.utils.introspection as _intro
+import fcg.utils.introspection.caller
 
 _T = typing.TypeVar("_T", bound="Singleton")
 
