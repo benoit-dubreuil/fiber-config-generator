@@ -20,10 +20,10 @@ if __name__ == "__main__":
     )
 
     args = parser.parse_args()
-    dest_dir: pathlib.Path = args.out
-    dest_dir.mkdir(parents=True, exist_ok=True)
-    dest_dir = dest_dir.resolve(strict=True)
+    out_dir: pathlib.Path = args.out
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_dir = out_dir.resolve(strict=True)
 
-    print(f"Script execution results are in : {dest_dir}")
-    voxsim_geom_params: GeometryInfos = _geom.generate_voxsim_geom_params(_geom.default.OUT_GEOM_FILES_PREFIX, dest_dir)
-    _fiber.generator.generate_fiber_tracts(voxsim_geom_params, dest_dir)
+    print(f"Script execution results are in : {out_dir}")
+    voxsim_geom_params: GeometryInfos = _geom.generate_voxsim_geom_params(_geom.default.OUT_GEOM_FILES_PREFIX, out_dir)
+    _fiber.generator.generate_fiber_tracts(voxsim_geom_params, out_dir)
