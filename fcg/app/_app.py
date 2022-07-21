@@ -6,6 +6,10 @@ _Signal_number = int
 _Signal_handler = typing.Union[typing.Callable[[_Signal_number, types.FrameType], None], _Signal_number, None]
 
 
+class AppLifeCycleException(RuntimeError):
+    ...
+
+
 class App(metaclass=abc.ABCMeta):
     _is_running: bool = False
     _has_correctly_shutdown: bool = True
@@ -14,10 +18,16 @@ class App(metaclass=abc.ABCMeta):
         super().__init__(*args, **kwargs)
 
     def start(self) -> None:
+        if self.is_running:
+            raise AppLifeCycleException("Cannot start an app that is already running.")
+
         # TODO
         self._is_running = True
 
-    def shutdown(self) -> None:
+    def shut_down(self) -> None:
+        if not self.is_running:
+            raise AppLifeCycleException("Cannot shut down an app that is already shutdown.")
+
         self._has_correctly_shutdown = False
         self._is_running = False
 
