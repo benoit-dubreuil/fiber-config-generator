@@ -1,4 +1,9 @@
 import abc
+import typing
+import types
+
+_Signal_number = int
+_Signal_handler = typing.Union[typing.Callable[[_Signal_number, types.FrameType], None], _Signal_number, None]
 
 
 class App(metaclass=abc.ABCMeta):
