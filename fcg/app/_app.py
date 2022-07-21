@@ -1,4 +1,5 @@
 import abc
+import signal
 import typing
 import types
 
@@ -13,15 +14,24 @@ class AppLifeCycleException(RuntimeError):
 class App(metaclass=abc.ABCMeta):
     _is_running: bool = False
     _has_correctly_shutdown: bool = True
+    _preceding_sigterm_handler: _Signal_handler = None
+    _preceding_sigint_handler: _Signal_handler = None
 
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
 
     def start(self) -> None:
+        assert self._preceding_sigterm_handler is None
+        assert self._preceding_sigint_handler is None
+
         if self.is_running:
             raise AppLifeCycleException("Cannot start an app that is already running.")
 
+        self._preceding_sigterm_handler = signal.signal(signal.SIGTERM, self._exit_signal_handler())
+        self._preceding_sigint_handler = signal.signal(signal.SIGINT, self._exit_signal_handler())
+
         # TODO
+
         self._is_running = True
 
     def shut_down(self) -> None:
@@ -31,9 +41,17 @@ class App(metaclass=abc.ABCMeta):
         self._has_correctly_shutdown = False
         self._is_running = False
 
+        signal.signal(signal.SIGTERM, self._preceding_sigterm_handler)
+        self._preceding_sigterm_handler = None
+
+        signal.signal(signal.SIGINT, self._preceding_sigint_handler)
+        self._preceding_sigint_handler = None
+
         # TODO
 
         self._has_correctly_shutdown = True
+
+        # TODO : Actually shut down the process
 
     @property
     def is_running(self) -> bool:
@@ -42,3 +60,10 @@ class App(metaclass=abc.ABCMeta):
     @property
     def has_correctly_shutdown(self) -> bool:
         return self._has_correctly_shutdown
+
+    def _exit_signal_handler(self):
+        def handle_exit_signal(signum: _Signal_number, frame: types.FrameType) -> None:
+            nonlocal self
+            self.shut_down()
+
+        return handle_exit_signal
