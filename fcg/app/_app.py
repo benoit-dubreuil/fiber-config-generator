@@ -1,8 +1,8 @@
 import abc
 import signal
+import sys
 import types
 import typing
-import sys
 
 _Signal_number = int
 _Signal_handler = typing.Union[typing.Callable[[_Signal_number, types.FrameType], None], _Signal_number, None]
