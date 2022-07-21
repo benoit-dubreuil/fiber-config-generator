@@ -13,6 +13,7 @@ class App(metaclass=abc.ABCMeta):
         self._is_running = True
 
     def shutdown(self) -> None:
+        self._is_running = False
         # TODO
         ...
 
