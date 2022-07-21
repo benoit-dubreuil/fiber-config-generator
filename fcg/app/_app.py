@@ -2,6 +2,7 @@ import abc
 import signal
 import types
 import typing
+import sys
 
 _Signal_number = int
 _Signal_handler = typing.Union[typing.Callable[[_Signal_number, types.FrameType], None], _Signal_number, None]
@@ -34,7 +35,7 @@ class App(metaclass=abc.ABCMeta):
 
         self._is_running = True
 
-    def shut_down(self) -> None:
+    def shut_down(self, signum: typing.Optional[_Signal_number] = None) -> None:
         if not self.is_running:
             raise AppLifeCycleException("Cannot shut down an app that is already shutdown.")
 
@@ -51,7 +52,8 @@ class App(metaclass=abc.ABCMeta):
 
         self._has_correctly_shutdown = True
 
-        # TODO : Actually shut down the process
+        if signum is not None:
+            sys.exit(self._get_signal_exit_code(signum))
 
     @property
     def is_running(self) -> bool:
@@ -64,6 +66,13 @@ class App(metaclass=abc.ABCMeta):
     def _exit_signal_handler(self):
         def handle_exit_signal(signum: _Signal_number, frame: types.FrameType) -> None:
             nonlocal self
-            self.shut_down()
+            self.shut_down(signum=signum)
 
         return handle_exit_signal
+
+    @staticmethod
+    def _get_signal_exit_code(signum: _Signal_number) -> int:
+        if signum <= 0:
+            raise ValueError("A signal number must strictly positive.")
+
+        return 128 + signum
