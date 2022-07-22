@@ -36,8 +36,9 @@ class App(metaclass=abc.ABCMeta):
         colorama.init(autoreset=True)
 
         self._is_running = True
-
         self._exec_logic()
+
+        self.shut_down()
 
     @abc.abstractmethod
     def _exec_logic(self) -> None:
