@@ -9,7 +9,7 @@ _Signal_handler = typing.Union[typing.Callable[[_Signal_number, types.FrameType]
 
 
 class AppLifeCycleException(RuntimeError):
-    ...
+    pass
 
 
 class App(metaclass=abc.ABCMeta):
