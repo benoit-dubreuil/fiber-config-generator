@@ -3,6 +3,7 @@ import signal
 import sys
 import types
 import typing
+import colorama
 
 _Signal_number = int
 _Signal_handler = typing.Union[typing.Callable[[_Signal_number, types.FrameType], None], _Signal_number, None]
@@ -32,7 +33,7 @@ class App(metaclass=abc.ABCMeta):
         self._preceding_sigterm_handler = signal.signal(signal.SIGTERM, self._exit_signal_handler())
         self._preceding_sigint_handler = signal.signal(signal.SIGINT, self._exit_signal_handler())
 
-        # TODO
+        colorama.init(autoreset=True)
 
         self._is_running = True
 
@@ -50,13 +51,13 @@ class App(metaclass=abc.ABCMeta):
         self._has_correctly_shutdown = False
         self._is_running = False
 
+        colorama.deinit()
+
         signal.signal(signal.SIGTERM, self._preceding_sigterm_handler)
         self._preceding_sigterm_handler = None
 
         signal.signal(signal.SIGINT, self._preceding_sigint_handler)
         self._preceding_sigint_handler = None
-
-        # TODO
 
         self._has_correctly_shutdown = True
 
