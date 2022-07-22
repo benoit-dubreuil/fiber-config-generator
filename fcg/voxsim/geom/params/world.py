@@ -11,7 +11,7 @@ class WorldParams:
     Attributes
     ----------
     resolution
-        See the parameter :python:`resolution` of
+        See the parameter :obj:`resolution` of
         :meth:`simulator.factory.geometry_factory.geometry_factory.GeometryFactory.get_geometry_handler`
     """
 
