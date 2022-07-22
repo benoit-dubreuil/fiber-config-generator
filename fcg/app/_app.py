@@ -36,6 +36,12 @@ class App(metaclass=abc.ABCMeta):
 
         self._is_running = True
 
+        self._exec_logic()
+
+    @abc.abstractmethod
+    def _exec_logic(self) -> None:
+        pass
+
     @typing.final
     def shut_down(self, signum: typing.Optional[_Signal_number] = None) -> None:
         if not self.is_running:
