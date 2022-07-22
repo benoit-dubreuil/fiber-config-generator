@@ -33,17 +33,17 @@ class GenerateStraigthBundle(fcg.app.App):
         print("Generating VoxSim geometry parameters ... ", end="")
         try:
             voxsim_geom_params: GeometryInfos = _geom.generate_voxsim_geom_params(out_dir)
-            print(colorama.Fore.GREEN + "succeeded")
+            print(colorama.Style.BRIGHT + colorama.Fore.GREEN + "succeeded")
         except Exception as e:
-            print(colorama.Fore.RED + "failed")
+            print(colorama.Style.BRIGHT + colorama.Fore.RED + "failed")
             raise e
 
         print("Generating the white matter phantom ... ", end="")
         try:
             _fiber.generator.generate_fiber_tracts(voxsim_geom_params, out_dir)
-            print(colorama.Fore.GREEN + "succeeded")
+            print(colorama.Style.BRIGHT + colorama.Fore.GREEN + "succeeded")
         except Exception as e:
-            print(colorama.Fore.RED + "failed")
+            print(colorama.Style.BRIGHT + colorama.Fore.RED + "failed")
             raise e
 
 
