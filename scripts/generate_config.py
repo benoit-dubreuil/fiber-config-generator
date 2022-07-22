@@ -3,6 +3,7 @@
 import argparse
 import pathlib
 
+import colorama
 from simulator.factory.geometry_factory.handlers import GeometryInfos
 
 import fcg.app
@@ -10,7 +11,6 @@ import fcg.voxsim
 import fcg.voxsim.geom as _geom
 import fcg.voxsim.phantom as _fiber
 import fcg.voxsim.phantom.generator
-import colorama
 
 
 class GenerateStraigthBundle(fcg.app.App):
