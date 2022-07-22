@@ -3,6 +3,7 @@ import signal
 import sys
 import types
 import typing
+
 import colorama
 
 _Signal_number = int
