@@ -21,6 +21,7 @@ class App(metaclass=abc.ABCMeta):
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
 
+    @typing.final
     def start(self) -> None:
         assert self._preceding_sigterm_handler is None
         assert self._preceding_sigint_handler is None
@@ -35,6 +36,7 @@ class App(metaclass=abc.ABCMeta):
 
         self._is_running = True
 
+    @typing.final
     def shut_down(self, signum: typing.Optional[_Signal_number] = None) -> None:
         if not self.is_running:
             raise AppLifeCycleException("Cannot shut down an app that is already shutdown.")
@@ -55,10 +57,12 @@ class App(metaclass=abc.ABCMeta):
         if signum is not None:
             sys.exit(self._get_signal_exit_code(signum))
 
+    @typing.final
     @property
     def is_running(self) -> bool:
         return self._is_running
 
+    @typing.final
     @property
     def has_correctly_shutdown(self) -> bool:
         return self._has_correctly_shutdown
