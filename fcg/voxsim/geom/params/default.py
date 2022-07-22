@@ -5,7 +5,7 @@ import fcg.typing
 RESOLUTION: typing.Final[fcg.typing.Vec3i] = (10, 10, 10)
 N_POINT_PER_CENTROID: typing.Final[int] = 5
 
-WORLD_CENTER: typing.Final[fcg.typing.Vec3f] = (5, 5, 5)
+WORLD_CENTER: typing.Final[fcg.typing.Vec3f] = (RESOLUTION[0] / 2, RESOLUTION[1] / 2, RESOLUTION[2] / 2)
 
 BUNDLE_RADIUS: typing.Final[float] = 4
 BUNDLE_SYMMETRY: typing.Final[float] = 1
