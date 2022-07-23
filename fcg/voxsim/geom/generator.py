@@ -31,7 +31,7 @@ def generate_voxsim_geom_params(
 
     """
     geometry_handler: _sim_geom_handlers.GeometryHandler = _sim_factory.GeometryFactory.get_geometry_handler(
-        _geom.params.default.RESOLUTION, _geom.const.SPACING
+        _geom.const.RESOLUTION, _geom.const.SPACING
     )
 
     # TODO : Customise
