@@ -13,7 +13,7 @@ def generate_fiber_tracts(
     root_out_dir: pathlib.Path = fcg.voxsim.default.ROOT_OUT_DIR,
     simulation_name: str = fcg.voxsim.default.SIMULATION_NAME,
     singularity_conf: simulator.runner.SingularityConfig = simulator.runner.SingularityConfig(),
-) -> None:
+) -> int:
     """
     Generates the white matter phantom configured by the supplied geometry parameters.
 
@@ -32,14 +32,17 @@ def generate_fiber_tracts(
 
     Returns
     -------
-    None
+    int
+        The returncode of the phantom generation. ``0`` if successfull, ``> 0`` otherwise.
 
     """
     simulation: simulator.runner.SimulationRunner = simulator.runner.SimulationRunner(singularity_conf)
 
-    simulation.generate_phantom(
+    returncode: int = simulation.generate_phantom(
         run_name=simulation_name,
         phantom_infos=voxsim_geom_params,
         output_folder=root_out_dir,
         output_nifti=_phantom.const.GENERATE_NIFTI,
     )
+
+    return returncode
