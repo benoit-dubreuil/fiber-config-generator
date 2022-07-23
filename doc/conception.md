@@ -23,7 +23,15 @@ to generate multiple white matter clusters which themselves are comprised of mul
 produced data would simply be excessive for the goal.
 
 
-- the voxel size in milimeters is `(1, 1, 1)`;
+###### The voxel resolution is `(1, 1, 1)`
+
+Given that computing the MRI voxels ([NRRD File Format specification](http://teem.sourceforge.net/nrrd/format.html),
+[NifTI-2 Data Format specification](https://nifti.nimh.nih.gov/nifti-2/)) require hardware resources (CPU time, RAM,
+...) and that this VoxSim feature cannot be switched off due to fact that it is programmed into the VoxSim singularity,
+the voxel resolution is set to the minimum acceptable value. VoxSim singularity is a private modification of Fiberfox.
+
+
+###### The voxel size in milimeters is `(1, 1, 1)`
 - the Simulation Generator geometry configuration files are prefixed with `geom_`;
 - the generated white matter phantom subdirectory is named `phantom/`;
     - the generated white matter bundles are prefixed with the name of the simulation, like so : `name_`;
