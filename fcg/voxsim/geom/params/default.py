@@ -2,7 +2,7 @@ import typing
 
 import fcg.typing
 
-RESOLUTION: typing.Final[fcg.typing.Vec3i] = (10, 10, 10)
+RESOLUTION: typing.Final[fcg.typing.Vec3i] = (1, 1, 1)
 N_POINT_PER_CENTROID: typing.Final[int] = 5
 
 WORLD_CENTER: typing.Final[fcg.typing.Vec3f] = (RESOLUTION[0] / 2, RESOLUTION[1] / 2, RESOLUTION[2] / 2)
