@@ -14,7 +14,7 @@ def generate_voxsim_geom_params(
     out_files_prefix: str = _geom.default.OUT_GEOM_FILES_PREFIX,
 ) -> _sim_geom_handlers.GeometryInfos:
     """
-    Generates the VoxSim geometry parameters configuration files.
+    Generates the VoxSim (through Simulation Generator) geometry parameters configuration files.
 
     Parameters
     ----------
