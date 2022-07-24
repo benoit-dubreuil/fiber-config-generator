@@ -6,9 +6,9 @@ import fcg.voxsim.geom.const
 N_POINT_PER_CENTROID: typing.Final[int] = 5
 
 WORLD_CENTER: typing.Final[fcg.typing.Vec3f] = (
-    fcg.voxsim.geom.const.RESOLUTION[0] / 2,
-    fcg.voxsim.geom.const.RESOLUTION[1] / 2,
-    fcg.voxsim.geom.const.RESOLUTION[2] / 2
+    fcg.voxsim.geom.const.MRI_RESOLUTION[0] / 2,
+    fcg.voxsim.geom.const.MRI_RESOLUTION[1] / 2,
+    fcg.voxsim.geom.const.MRI_RESOLUTION[2] / 2
 )
 
 BUNDLE_RADIUS: typing.Final[float] = 4

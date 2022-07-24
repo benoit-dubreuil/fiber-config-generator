@@ -11,11 +11,11 @@ SAMPLING_DISTANCE: typing.Final[float] = 1
 :meth:`simulator.factory.geometry_factory.GeometryFactory.create_cluster_meta`
 """
 
-RESOLUTION: typing.Final[fcg.typing.Vec3i] = (1, 1, 1)
+MRI_RESOLUTION: typing.Final[fcg.typing.Vec3i] = (1, 1, 1)
 """See the parameter :obj:`resolution` of
 :meth:`simulator.factory.geometry_factory.GeometryFactory.get_geometry_handler`
 """
 
-SPACING: typing.Final[fcg.typing.Vec3i] = (1, 1, 1)
+MRI_VOXEL_SPACING: typing.Final[fcg.typing.Vec3i] = (1, 1, 1)
 """See the parameter :obj:`spacing` of :meth:`simulator.factory.geometry_factory.GeometryFactory.get_geometry_handler`
 """
