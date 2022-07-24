@@ -38,6 +38,13 @@ the voxel resolution is set to the minimum acceptable value. VoxSim singularity 
 ###### The voxel size in milimeters is `(1, 1, 1)`
 
 Name in code : `MRI_VOXEL_SPACING`
+
+See [Drew, Z., Bell, D. Voxel size. Reference article, Radiopaedia.org. (accessed on 23 Jul 2022)](https://doi.org/10.53347/rID-62838)
+.
+
+
+[//]: # (TODO)
+
 - the Simulation Generator geometry configuration files are prefixed with `geom_`;
 - the generated white matter phantom subdirectory is named `phantom/`;
     - the generated white matter bundles are prefixed with the name of the simulation, like so : `name_`;
