@@ -12,6 +12,8 @@ Simulation Generator's general parameters are defined as conventions (constants)
 
 ###### The physical space is the 3D space
 
+Name in code : `DIMENSIONALITY`
+
 Supporting both the 2D and 3D would significantly increase the complexity of the parameterization.
 
 
@@ -25,6 +27,8 @@ produced data would simply be excessive for the goal.
 
 ###### The voxel resolution is `(1, 1, 1)`
 
+Name in code : `MRI_RESOLUTION`
+
 Given that computing the MRI voxels ([NRRD File Format specification](http://teem.sourceforge.net/nrrd/format.html),
 [NifTI-2 Data Format specification](https://nifti.nimh.nih.gov/nifti-2/)) require hardware resources (CPU time, RAM,
 ...) and that this VoxSim feature cannot be switched off due to fact that it is programmed into the VoxSim singularity,
@@ -32,6 +36,8 @@ the voxel resolution is set to the minimum acceptable value. VoxSim singularity 
 
 
 ###### The voxel size in milimeters is `(1, 1, 1)`
+
+Name in code : `MRI_VOXEL_SPACING`
 - the Simulation Generator geometry configuration files are prefixed with `geom_`;
 - the generated white matter phantom subdirectory is named `phantom/`;
     - the generated white matter bundles are prefixed with the name of the simulation, like so : `name_`;
