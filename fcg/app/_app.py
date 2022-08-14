@@ -90,7 +90,8 @@ class App(metaclass=abc.ABCMeta):
         return self._has_correctly_shutdown
 
     def _exit_signal_handler(self):
-        def handle_exit_signal(signum: _SignalNumber, frame: types.FrameType) -> None:
+        def handle_exit_signal(signum: _SignalNumber) -> None:
+            # Missing function parameter : `frame: types.FrameType`.
             nonlocal self
             self.shut_down(signum=signum)
 
