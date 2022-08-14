@@ -7,10 +7,6 @@ See [`setup.cfg`](../setup.cfg) for technical details.
 
 ### Nomenclature
 
-> Use the plural for packages with homogeneous contents and the singular for packages with heterogeneous contents.
-
-Reference: https://softwareengineering.stackexchange.com/a/75929
-
 See https://peps.python.org/pep-0008
 
 
