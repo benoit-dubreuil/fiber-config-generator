@@ -14,6 +14,10 @@ import fcg.voxsim.phantom.generator
 
 
 class GenerateStraigthBundle(fcg.app.App):
+    """
+    TODO
+    """
+
     def _exec_logic(self) -> None:
         # TODO : Supply the singularity (*.sif) path as a program arg. See SingularityConfig.
         # TODO : Supply the SingularityCE executable path as a program arg. See SingularityConfig.
