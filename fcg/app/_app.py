@@ -6,9 +6,9 @@ import typing
 
 import colorama
 
-_Signal_number: typing.TypeAlias = int
-_Signal_handler: typing.TypeAlias = typing.Union[
-    typing.Callable[[_Signal_number, types.FrameType], None], _Signal_number, None]
+_SignalNumber: typing.TypeAlias = int
+_SignalHandler: typing.TypeAlias = typing.Union[
+    typing.Callable[[_SignalNumber, types.FrameType], None], _SignalNumber, None]
 
 
 class AppLifeCycleException(RuntimeError):
@@ -18,8 +18,8 @@ class AppLifeCycleException(RuntimeError):
 class App(metaclass=abc.ABCMeta):
     _is_running: bool = False
     _has_correctly_shutdown: bool = True
-    _preceding_sigterm_handler: _Signal_handler = None
-    _preceding_sigint_handler: _Signal_handler = None
+    _preceding_sigterm_handler: _SignalHandler = None
+    _preceding_sigint_handler: _SignalHandler = None
 
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
@@ -47,7 +47,7 @@ class App(metaclass=abc.ABCMeta):
         pass
 
     @typing.final
-    def shut_down(self, signum: typing.Optional[_Signal_number] = None) -> None:
+    def shut_down(self, signum: typing.Optional[_SignalNumber] = None) -> None:
         if not self.is_running:
             raise AppLifeCycleException("Cannot shut down an app that is already shutdown.")
 
@@ -78,14 +78,14 @@ class App(metaclass=abc.ABCMeta):
         return self._has_correctly_shutdown
 
     def _exit_signal_handler(self):
-        def handle_exit_signal(signum: _Signal_number, frame: types.FrameType) -> None:
+        def handle_exit_signal(signum: _SignalNumber, frame: types.FrameType) -> None:
             nonlocal self
             self.shut_down(signum=signum)
 
         return handle_exit_signal
 
     @staticmethod
-    def _get_signal_exit_code(signum: _Signal_number) -> int:
+    def _get_signal_exit_code(signum: _SignalNumber) -> int:
         if signum <= 0:
             raise ValueError("A signal number must strictly positive.")
 
