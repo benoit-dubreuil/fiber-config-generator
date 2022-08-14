@@ -7,7 +7,7 @@ DIMENSIONALITY: typing.Final[int] = 3
 """
 
 SAMPLING_DISTANCE: typing.Final[float] = 1
-"""See the parameter :obj:`sampling_distance` of 
+"""See the parameter :obj:`sampling_distance` of
 :meth:`simulator.factory.geometry_factory.GeometryFactory.create_cluster_meta`
 """
 
