@@ -1,6 +1,7 @@
 import typing
 
 import fcg.typing
+
 from .. import const as _geom_const
 
 N_POINT_PER_CENTROID: typing.Final[int] = 5
