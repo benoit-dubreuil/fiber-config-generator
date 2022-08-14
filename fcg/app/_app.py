@@ -48,7 +48,7 @@ class App(metaclass=abc.ABCMeta):
         pass
 
     @typing.final
-    def shut_down(self, signum: typing.Optional[_SignalNumber] = None) -> None:
+    def shut_down(self, signum: _SignalNumber | None = None) -> None:
         if not self.is_running:
             raise AppLifeCycleException("Cannot shut down an app that is already shutdown.")
 
