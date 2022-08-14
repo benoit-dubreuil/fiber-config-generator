@@ -6,8 +6,9 @@ import typing
 
 import colorama
 
-_Signal_number = int
-_Signal_handler = typing.Union[typing.Callable[[_Signal_number, types.FrameType], None], _Signal_number, None]
+_Signal_number: typing.TypeAlias = int
+_Signal_handler: typing.TypeAlias = typing.Union[
+    typing.Callable[[_Signal_number, types.FrameType], None], _Signal_number, None]
 
 
 class AppLifeCycleException(RuntimeError):
