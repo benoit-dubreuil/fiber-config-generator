@@ -44,6 +44,11 @@ class App(metaclass=abc.ABCMeta):
         Returns
         -------
         None
+
+        Raises
+        ------
+        AppLifeCycleException
+            If the application is already running.
         """
         assert self._preceding_sigterm_handler is None
         assert self._preceding_sigint_handler is None
