@@ -17,8 +17,6 @@ class AppLifeCycleException(RuntimeError):
     state.
     """
 
-    pass
-
 
 class App(metaclass=abc.ABCMeta):
     """Generic Fiber Config Generator program for quickly coding executable scripts.
