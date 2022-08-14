@@ -72,6 +72,25 @@ class App(metaclass=abc.ABCMeta):
 
     @typing.final
     def shut_down(self, signum: _SignalNumber | None = None) -> None:
+        """
+        Shuts down the application.
+
+        This method also unsets the signal handlers.
+
+        Parameters
+        ----------
+        signum
+            The received signal's number which ordered the shutdown of the App.
+
+        Returns
+        -------
+        None
+
+        Raises
+        ------
+        AppLifeCycleException
+            If the application is already shutdown.
+        """
         if not self.is_running:
             raise AppLifeCycleException("Cannot shut down an app that is already shutdown.")
 
