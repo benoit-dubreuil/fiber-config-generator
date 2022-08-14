@@ -34,9 +34,9 @@ class GenerateStraigthBundle(fcg.app.App):
         try:
             voxsim_geom_params: GeometryInfos = _geom.generate_voxsim_geom_params(out_dir)
             print(colorama.Style.BRIGHT + colorama.Fore.GREEN + "succeeded")
-        except Exception as e:
+        except Exception as exception:
             print(colorama.Style.BRIGHT + colorama.Fore.RED + "failed")
-            raise e
+            raise exception
 
         print("Generating the white matter phantom ... ", end="")
         try:
@@ -46,9 +46,9 @@ class GenerateStraigthBundle(fcg.app.App):
                 print(colorama.Style.BRIGHT + colorama.Fore.RED + "failed")
             else:
                 print(colorama.Style.BRIGHT + colorama.Fore.GREEN + "succeeded")
-        except Exception as e:
+        except Exception as exception:
             print(colorama.Style.BRIGHT + colorama.Fore.RED + "failed")
-            raise e
+            raise exception
 
 
 if __name__ == "__main__":
