@@ -13,7 +13,7 @@ _SignalHandler: typing.TypeAlias = typing.Union[
 
 
 class AppLifeCycleException(RuntimeError):
-    """Raised by an instance of the class :class:`fcg.app.App` when calling one of its method with an inappropriate
+    """Raised by an instance of the class :class:`fcg.app.App` when calling one of its methods with an inappropriate
     state.
     """
 
