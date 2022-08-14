@@ -8,7 +8,7 @@ import simulator.factory.geometry_factory.handlers as _sim_geom_handlers
 import fcg.voxsim
 from . import const as _const
 from . import default as _default
-from . import params as _params
+from . import param as _param
 
 
 def generate_voxsim_geom_params(
@@ -38,22 +38,22 @@ def generate_voxsim_geom_params(
 
     # TODO : Customise
     bundle1 = _sim_factory.GeometryFactory.create_bundle(
-        _params.default.BUNDLE_RADIUS,
-        _params.default.BUNDLE_SYMMETRY,
-        _params.default.N_POINT_PER_CENTROID,
-        _params.default.BASE_ANCHORS,
+        _param.default.BUNDLE_RADIUS,
+        _param.default.BUNDLE_SYMMETRY,
+        _param.default.N_POINT_PER_CENTROID,
+        _param.default.BASE_ANCHORS,
     )
 
     cluster = _sim_factory.GeometryFactory.create_cluster(
         _sim_factory.GeometryFactory.create_cluster_meta(
             _const.DIMENSIONALITY,
-            _params.default.BUNDLE_N_FIBERS,
+            _param.default.BUNDLE_N_FIBERS,
             _const.SAMPLING_DISTANCE,
-            _params.default.BUNDLE_CENTER,
-            _params.default.BUNDLE_LIMITS,
+            _param.default.BUNDLE_CENTER,
+            _param.default.BUNDLE_LIMITS,
         ),
         [bundle1],
-        _params.default.WORLD_CENTER,
+        _param.default.WORLD_CENTER,
     )
 
     geometry_handler.add_cluster(cluster)
