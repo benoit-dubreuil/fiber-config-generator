@@ -21,6 +21,13 @@ class AppLifeCycleException(RuntimeError):
 
 
 class App(metaclass=abc.ABCMeta):
+    """Generic Fiber Config Generator program for quickly coding executable scripts.
+
+    This class is meant to be inherited by a concrete class in order to define the core program logic by implementing
+    the method :meth:`fcg.app.App._exec_logic`. The class :class:`fcg.app.App` wraps the program startup and
+    shutdown, and handles OS signals as well.
+    """
+
     _is_running: bool = False
     _has_correctly_shutdown: bool = True
     _preceding_sigterm_handler: _SignalHandler = None
