@@ -64,14 +64,14 @@ class App(metaclass=abc.ABCMeta):
         self._is_running = True
         self._exec_logic()
 
-        self.shut_down()
+        self._shut_down()
 
     @abc.abstractmethod
     def _exec_logic(self) -> None:
         pass
 
     @typing.final
-    def shut_down(self, signum: _SignalNumber | None = None) -> None:
+    def _shut_down(self, signum: _SignalNumber | None = None) -> None:
         """
         Shuts down the application.
 
@@ -117,7 +117,7 @@ class App(metaclass=abc.ABCMeta):
         Gets the status that indicates if the application is running or not.
 
         In order to be running, the method :meth:`fcg.app.App.start` must have been called and the method
-        :meth:`fcg.app.App.shut_down` must not have been called, unless the former was called after the latter.
+        :meth:`fcg.app.App._shut_down` must not have been called, unless the former was called after the latter.
 
         Returns
         -------
@@ -133,7 +133,7 @@ class App(metaclass=abc.ABCMeta):
         Gets the status that indicates if the application has correctly shut down.
 
         In order to correctly shut down, the application needs to clean everything it has set up, such as signal
-        handlers. Also, the method :meth:`fcg.app.App.shut_down` must have been called after the method
+        handlers. Also, the method :meth:`fcg.app.App._shut_down` must have been called after the method
         :meth:`fcg.app.App.start` was called.
 
         Returns
@@ -147,7 +147,7 @@ class App(metaclass=abc.ABCMeta):
         def handle_exit_signal(signum: _SignalNumber) -> None:
             # Missing function parameter : `frame: types.FrameType`.
             nonlocal self
-            self.shut_down(signum=signum)
+            self._shut_down(signum=signum)
 
         return handle_exit_signal
 
