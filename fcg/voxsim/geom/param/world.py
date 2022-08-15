@@ -1,10 +1,9 @@
 import dataclasses
 
 import fcg.typing
-from . import default as _default
+
 
 @dataclasses.dataclass()
-
 class WorldParams:
     """White fiber configuration generation parameters wrapper of
     :meth:`simulator.factory.geometry_factory.GeometryFactory.get_geometry_handler`.
@@ -17,4 +16,4 @@ class WorldParams:
 
     """
 
-    resolution: fcg.typing.Vec3i = _default.WORLD_CENTER
+    resolution: fcg.typing.Vec3i = (1, 1, 1)
