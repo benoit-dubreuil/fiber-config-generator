@@ -1,4 +1,4 @@
 from . import default
-from .bundle import BundleParams
+from . import bundle
 from .cluster import ClusterParams
 from .world import WorldParams
