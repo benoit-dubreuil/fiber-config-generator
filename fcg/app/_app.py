@@ -113,6 +113,18 @@ class App(metaclass=abc.ABCMeta):
     @typing.final
     @property
     def is_running(self) -> bool:
+        """
+        Gets the status that indicates if the application is running or not.
+
+        In order to be running, the method :meth:`fcg.app.App.start` must have been called and the method
+        :meth:`fcg.app.App.shut_down` must not have been called, unless the method :meth:`fcg.app.App.start` was
+        called after.
+
+        Returns
+        -------
+        bool
+            True if the application is running, False otherwise.
+        """
         return self._is_running
 
     @typing.final
