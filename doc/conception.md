@@ -43,9 +43,13 @@ See [Drew, Z., Bell, D. Voxel size. Reference article, Radiopaedia.org. (accesse
 .
 
 
-[//]: # (TODO)
+###### The Simulation Generator geometry configuration files are prefixed with `geom_`
 
-- the Simulation Generator geometry configuration files are prefixed with `geom_`;
-- the generated white matter phantom subdirectory is named `phantom/`;
-    - the generated white matter bundles are prefixed with the name of the simulation, like so : `name_`;
-    - the bundles are then prefixed with the word `phantom_`;
+
+###### The generated white matter phantom subdirectory is named `phantom/`
+
+
+###### The generated white matter bundles are prefixed with the name of the simulation, like so : `name_`
+
+
+###### The generated white matter bundles are prefixed with the word `phantom_`, after the simulation name prefix
