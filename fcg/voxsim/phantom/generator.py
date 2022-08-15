@@ -15,8 +15,7 @@ def generate_fiber_tracts(
     simulation_name: str = fcg.voxsim.default.SIMULATION_NAME,
     singularity_conf: simulator.runner.SingularityConfig = simulator.runner.SingularityConfig(),
 ) -> int:
-    """
-    Generates the white matter phantom configured by the supplied geometry parameters.
+    """Generates the white matter phantom configured by the supplied geometry parameters.
 
     Parameters
     ----------
