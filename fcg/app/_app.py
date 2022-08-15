@@ -27,6 +27,7 @@ class App(metaclass=abc.ABCMeta):
     shutdown, and handles OS signals as well.
 
     """
+
     _is_running: bool = False
     _has_correctly_shutdown: bool = True
     _preceding_sigterm_handler: _SignalHandler = None
