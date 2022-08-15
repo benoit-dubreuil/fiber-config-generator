@@ -129,6 +129,18 @@ class App(metaclass=abc.ABCMeta):
     @typing.final
     @property
     def has_correctly_shut_down(self) -> bool:
+        """
+        Gets the status that indicates if the application has correctly shut down.
+
+        In order to correctly shut down, the application needs to clean everything it has set up, such as signal
+        handlers. Also, the method :meth:`fcg.app.App.shut_down` must have been called after the method
+        :meth:`fcg.app.App.start` was called.
+
+        Returns
+        -------
+        bool
+            True if the application has correctly shut down, False otherwise.
+        """
         return self._has_correctly_shutdown
 
     def _exit_signal_handler(self):
