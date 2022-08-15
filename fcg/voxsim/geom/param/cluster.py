@@ -3,7 +3,7 @@ import dataclasses
 import fcg.typing
 
 
-@dataclasses.dataclass(frozen=True)
+@dataclasses.dataclass()
 class ClusterParams:
     """White fiber configuration generation parameters wrapper of
     :meth:`simulator.factory.geometry_factory.GeometryFactory.create_cluster`.
