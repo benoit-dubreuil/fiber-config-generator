@@ -31,9 +31,6 @@ class App(metaclass=abc.ABCMeta):
     _preceding_sigterm_handler: _SignalHandler = None
     _preceding_sigint_handler: _SignalHandler = None
 
-    def __init__(self, *args, **kwargs) -> None:
-        super().__init__(*args, **kwargs)
-
     @typing.final
     def start(self) -> None:
         """
