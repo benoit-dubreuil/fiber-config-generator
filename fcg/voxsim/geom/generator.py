@@ -8,13 +8,12 @@ import simulator.factory.geometry_factory.handlers as _sim_geom_handlers
 import fcg.voxsim
 
 from . import const as _const
-from . import default as _default
 from . import param as _param
 
 
 def generate_voxsim_geom_params(
     root_out_dir: pathlib.Path = fcg.voxsim.default.ROOT_OUT_DIR,
-    out_files_prefix: str = _default.OUT_GEOM_FILES_PREFIX,
+    out_files_prefix: str = _const.OUT_GEOM_FILES_PREFIX,
 ) -> _sim_geom_handlers.GeometryInfos:
     """
     Generates the VoxSim (through Simulation Generator) geometry parameters configuration files.
