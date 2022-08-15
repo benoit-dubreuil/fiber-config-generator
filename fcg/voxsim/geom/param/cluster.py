@@ -1,6 +1,7 @@
 import dataclasses
 
 import fcg.typing
+from . import default as _default
 
 
 @dataclasses.dataclass()
@@ -16,6 +17,6 @@ class ClusterParams:
 
     """
 
-    world_center: fcg.typing.Vec3f = (0.5, 0.5, 0.5)
+    world_center: fcg.typing.Vec3f = _default.WORLD_CENTER
 
     # TODO
