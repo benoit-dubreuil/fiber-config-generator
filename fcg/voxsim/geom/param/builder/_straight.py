@@ -1,6 +1,3 @@
-from ._bundle import BundleParams
-
-
 class StraightBundleParamsBuilder:
     """A builder of generation parameters of straight fiber bundles.
 
