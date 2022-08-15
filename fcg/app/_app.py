@@ -129,7 +129,7 @@ class App(metaclass=abc.ABCMeta):
 
     @typing.final
     @property
-    def has_correctly_shutdown(self) -> bool:
+    def has_correctly_shut_down(self) -> bool:
         return self._has_correctly_shutdown
 
     def _exit_signal_handler(self):
