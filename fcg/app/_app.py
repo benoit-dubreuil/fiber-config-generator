@@ -117,8 +117,7 @@ class App(metaclass=abc.ABCMeta):
         Gets the status that indicates if the application is running or not.
 
         In order to be running, the method :meth:`fcg.app.App.start` must have been called and the method
-        :meth:`fcg.app.App.shut_down` must not have been called, unless the method :meth:`fcg.app.App.start` was
-        called after.
+        :meth:`fcg.app.App.shut_down` must not have been called, unless the former was called after the latter.
 
         Returns
         -------
