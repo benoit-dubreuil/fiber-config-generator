@@ -14,7 +14,7 @@ class ClusterParams:
     ----------
     world_center
         See the parameter :obj:`world_center` of
-        :meth:`simulator.factory.geometry_factory.GeometryFactory.create_cluster`
+        :meth:`simulator.factory.geometry_factory.GeometryFactory.create_cluster`.
 
     """
 
