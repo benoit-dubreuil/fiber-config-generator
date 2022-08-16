@@ -1,5 +1,7 @@
 import dataclasses
 
+import fcg.typing
+
 
 @dataclasses.dataclass()
 class BundleParams:
@@ -10,7 +12,22 @@ class BundleParams:
 
     Attributes
     ----------
-
+    radius
+        See the parameter :obj:`radius` of the method
+        :meth:`simulator.factory.geometry_factory.GeometryFactory.create_bundle`.
+    symmetry
+        See the parameter :obj:`symmetry` of the method
+        :meth:`simulator.factory.geometry_factory.GeometryFactory.create_bundle`.
+        See the definition of a cross-section : https://en.wikipedia.org/wiki/Cross_section_(geometry).
+    n_point_per_centroid
+        See the parameter :obj:`n_point_per_centroid` of the method
+        :meth:`simulator.factory.geometry_factory.GeometryFactory.create_bundle`.
+    anchors
+        See the parameter :obj:`anchors` of the method
+        :meth:`simulator.factory.geometry_factory.GeometryFactory.create_bundle`.
     """
 
-    # TODO
+    radius: float
+    symmetry: float
+    n_point_per_centroid: int
+    anchors: list[fcg.typing.Vec3f]
