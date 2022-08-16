@@ -4,7 +4,7 @@ import fcg.typing
 
 from .. import const as _geom_const
 
-N_POINTS_PER_CENTROID: typing.Final[int] = 5
+N_POINT_PER_CENTROID: typing.Final[int] = 5
 
 WORLD_CENTER: typing.Final[fcg.typing.Vec3f] = (
     _geom_const.MRI_RESOLUTION[0] / 2,

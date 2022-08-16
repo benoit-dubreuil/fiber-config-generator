@@ -36,7 +36,7 @@ def generate_voxsim_geom_params(
     bundle1 = _sim_factory.GeometryFactory.create_bundle(
         _param.default.BUNDLE_RADIUS,
         _param.default.BUNDLE_SYMMETRY,
-        _param.default.N_POINTS_PER_CENTROID,
+        _param.default.N_POINT_PER_CENTROID,
         _param.default.BASE_ANCHORS,
     )
 
