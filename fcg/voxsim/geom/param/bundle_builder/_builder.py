@@ -3,6 +3,7 @@ import dataclasses
 import typing
 
 import fcg.typing
+from .. import default
 from .._bundle import BundleParams
 
 
@@ -26,10 +27,9 @@ class BundleParamsBuilder(metaclass=abc.ABCMeta):
         :meth:`simulator.factory.geometry_factory.GeometryFactory.create_bundle`.
     """
 
-    # TODO : Default values
-    radius: float
-    symmetry: float
-    n_point_per_centroid: int
+    radius: float = default.BUNDLE_RADIUS
+    symmetry: float = default.BUNDLE_SYMMETRY
+    n_point_per_centroid: int = default.N_POINT_PER_CENTROID
 
     @abc.abstractmethod
     def build(self, *args, **kwargs) -> BundleParams:
