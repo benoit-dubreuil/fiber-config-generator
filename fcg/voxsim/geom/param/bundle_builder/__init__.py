@@ -1,2 +1,2 @@
 from ._builder import BundleParamsBuilder
-from _straight import StraightBundleParamsBuilder
+from ._straight import StraightBundleParamsBuilder
