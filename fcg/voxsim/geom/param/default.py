@@ -1,10 +1,11 @@
 import typing
 
 import fcg.typing
-
 from .. import const as _geom_const
 
-N_POINT_PER_CENTROID: typing.Final[int] = 5
+BUNDLE_N_FIBERS: typing.Final[int] = 1000
+BUNDLE_CENTER: typing.Final[fcg.typing.Vec3f] = (0.5, 0.5, 0.5)
+BUNDLE_LIMITS: typing.Final[list[list[float]]] = [[0, 1], [0, 1], [0, 1]]
 
 WORLD_CENTER: typing.Final[fcg.typing.Vec3f] = (
     _geom_const.MRI_RESOLUTION[0] / 2,
@@ -14,10 +15,7 @@ WORLD_CENTER: typing.Final[fcg.typing.Vec3f] = (
 
 BUNDLE_RADIUS: typing.Final[float] = 4
 BUNDLE_SYMMETRY: typing.Final[float] = 1
-BUNDLE_N_FIBERS: typing.Final[int] = 1000
-BUNDLE_LIMITS: typing.Final[list[list[float]]] = [[0, 1], [0, 1], [0, 1]]
-BUNDLE_CENTER: typing.Final[fcg.typing.Vec3f] = (0.5, 0.5, 0.5)
-
+N_POINT_PER_CENTROID: typing.Final[int] = 5
 BASE_ANCHORS: typing.Final[list[fcg.typing.Vec3f]] = [
     (0.5, -0.3, 0.5),
     (0.5, -0.2, 0.5),
