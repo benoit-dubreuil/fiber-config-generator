@@ -1,5 +1,6 @@
 import dataclasses
 
+import fcg.typing
 from ._builder import BundleParamsBuilder
 from .._bundle import BundleParams
 
@@ -16,5 +17,6 @@ class StraightBundleParamsBuilder(BundleParamsBuilder):
     n_point_per_centroid: int = 1
 
     def build(self, radius: float, symmetry: float, n_point_per_centroid: int) -> BundleParams:
+        anchors: list[fcg.typing.Vec3f] = []
         # TODO
-        pass
+        return self._build_bundle(anchors)
