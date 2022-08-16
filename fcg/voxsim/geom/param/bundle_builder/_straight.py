@@ -1,5 +1,5 @@
-from .._bundle import BundleParams
 from ._builder import BundleParamsBuilder
+from .._bundle import BundleParams
 
 
 class StraightBundleParamsBuilder(BundleParamsBuilder):
@@ -9,6 +9,6 @@ class StraightBundleParamsBuilder(BundleParamsBuilder):
 
     """
 
-    def build(self, *args, **kwargs) -> BundleParams:
+    def build(self, radius: float, symmetry: float, n_point_per_centroid: int) -> BundleParams:
         # TODO
         pass
