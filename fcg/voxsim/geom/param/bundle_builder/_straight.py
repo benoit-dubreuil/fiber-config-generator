@@ -3,10 +3,10 @@ from .._bundle import BundleParams
 
 
 class StraightBundleParamsBuilder(BundleParamsBuilder):
-    """A builder of generation parameters of straight fiber bundles.
+    """Builder of straight fiber bundles generation parameters.
 
-    See :class:`fcg.voxsim.geom.param.bundle.BundleParams`.
-
+    This class builds :class:`fcg.voxsim.geom.param.BundleParams` which represent straight fiber bundles. A straight
+    fiber bundle forms a straight line.
     """
 
     def build(self, radius: float, symmetry: float, n_point_per_centroid: int) -> BundleParams:
