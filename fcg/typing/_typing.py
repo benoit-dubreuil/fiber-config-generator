@@ -2,7 +2,7 @@ import typing
 
 Numeric: typing.TypeAlias = typing.Union[int, float]
 
-TNumeric: typing.TypeAlias = typing.TypeVar("TNumeric", int, float)
+TNumeric = typing.TypeVar("TNumeric", int, float)
 
 Vec2: typing.TypeAlias = tuple[TNumeric, TNumeric]
 Vec2i: typing.TypeAlias = Vec2[int]
