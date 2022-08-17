@@ -39,7 +39,6 @@ class BundleParamsBuilder(metaclass=abc.ABCMeta):
         BundleParams
             A newly created :class:`fcg.voxsim.geom.param.BundleParams`
         """
-        pass
 
     @typing.final
     def _build_bundle(self, anchors: list[fcg.typing.Vec3f]) -> BundleParams:
