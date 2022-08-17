@@ -1,9 +1,8 @@
 import dataclasses
-import typing
 
 import fcg.typing
 
-from . import default
+from . import const, default
 
 
 @dataclasses.dataclass()
@@ -32,9 +31,10 @@ class BundleParams:
         :meth:`simulator.factory.geometry_factory.GeometryFactory.create_bundle`.
     """
 
-    MIN_CENTROID_SAMPLE_SIZE: typing.Final[typing.ClassVar[int]] = 2
-
     radius: float = default.BUNDLE_RADIUS
     symmetry: float = default.BUNDLE_SYMMETRY
     centroid_sample_size: int = default.CENTROID_SAMPLE_SIZE
     anchors: list[fcg.typing.Vec3f] = dataclasses.field(default_factory=list)
+
+    def __post_init__(self):
+        assert self.centroid_sample_size >= const.MIN_CENTROID_SAMPLE_SIZE
