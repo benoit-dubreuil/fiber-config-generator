@@ -35,5 +35,6 @@ class BundleParamsBuilder(metaclass=abc.ABCMeta):
 
     @typing.final
     def _build_bundle(self, anchors: list[fcg.typing.Vec3f]) -> BundleParams:
-        return BundleParams(radius=radius, symmetry=symmetry, centroid_sample_size=centroid_sample_size,
-                            anchors=anchors)
+        return BundleParams(
+            radius=radius, symmetry=symmetry, centroid_sample_size=centroid_sample_size, anchors=anchors
+        )
