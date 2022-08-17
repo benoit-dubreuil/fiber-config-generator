@@ -9,7 +9,7 @@ Install the dependencies :
 
 ```sh
 sudo apt update
-sudo apt install -y mpich libopenmpi-dev libxml2-dev libxslt1-dev
+sudo apt install -y mpich libmpich-dev libxml2-dev libxslt1-dev
 python -m pip install --upgrade pip setuptools wheel
 pip install -r requirements.txt
 ```
