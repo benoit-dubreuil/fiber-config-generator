@@ -1,4 +1,5 @@
 import dataclasses
+import typing
 
 import fcg.typing
 
@@ -30,6 +31,8 @@ class BundleParams:
         See the parameter :obj:`anchors` of the method
         :meth:`simulator.factory.geometry_factory.GeometryFactory.create_bundle`.
     """
+
+    MIN_CENTROID_SAMPLE_SIZE: typing.Final[typing.ClassVar[int]] = 2
 
     radius: float = default.BUNDLE_RADIUS
     symmetry: float = default.BUNDLE_SYMMETRY
