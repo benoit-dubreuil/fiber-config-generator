@@ -2,11 +2,14 @@
 
 import pathlib
 
-import fcg.voxsim
 import simulator.factory as _sim_factory
 import simulator.factory.geometry_factory.features as _sim_geom_data
 import simulator.factory.geometry_factory.handlers as _sim_geom_handlers
-from . import const as _const, param as _param
+
+import fcg.voxsim
+
+from . import const as _const
+from . import param as _param
 
 
 def _create_voxsim_bundle(bundle_params: _param.BundleParams) -> _sim_geom_data.Bundle:

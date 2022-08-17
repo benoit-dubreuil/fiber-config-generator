@@ -2,9 +2,9 @@ import dataclasses
 
 import fcg.typing
 
+from .. import const as _param_const
 from .._bundle import BundleParams
 from ._builder import BundleParamsBuilder
-from .. import const as _param_const
 
 
 @dataclasses.dataclass
