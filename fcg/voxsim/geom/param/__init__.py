@@ -1,4 +1,3 @@
-from . import default
+from . import default, builder
 from ._bundle import BundleParams
 from ._cluster import ClusterParams
-from .builder import *
