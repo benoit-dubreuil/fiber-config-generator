@@ -16,14 +16,12 @@ class BundleParamsBuilder(metaclass=abc.ABCMeta):
     Attributes
     ----------
     radius
-        See the parameter :obj:`radius` of the method
-        :meth:`simulator.factory.geometry_factory.GeometryFactory.create_bundle`.
+        See the attribute :attr:`fcg.voxsim.geom.param.BundleParams.radius`.
     symmetry
-        See the parameter :obj:`symmetry` of the method
-        :meth:`simulator.factory.geometry_factory.GeometryFactory.create_bundle`.
+        See the attribute ee the attribute :attr:`fcg.voxsim.geom.param.BundleParams.symmetry`.
         See the definition of a cross-section : https://en.wikipedia.org/wiki/Cross_section_(geometry).
     centroid_sample_size
-        See the parameter :obj:`n_point_per_centroid` of the method
+        See the attribute ee the attribute :attr:`fcg.voxsim.geom.param.BundleParams.centroid_sample_size`.
         :meth:`simulator.factory.geometry_factory.GeometryFactory.create_bundle`.
     """
 
