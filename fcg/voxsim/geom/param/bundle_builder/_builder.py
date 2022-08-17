@@ -22,14 +22,14 @@ class BundleParamsBuilder(metaclass=abc.ABCMeta):
         See the parameter :obj:`symmetry` of the method
         :meth:`simulator.factory.geometry_factory.GeometryFactory.create_bundle`.
         See the definition of a cross-section : https://en.wikipedia.org/wiki/Cross_section_(geometry).
-    n_point_per_centroid
+    centroid_sample_size
         See the parameter :obj:`n_point_per_centroid` of the method
         :meth:`simulator.factory.geometry_factory.GeometryFactory.create_bundle`.
     """
 
     radius: float = default.BUNDLE_RADIUS
     symmetry: float = default.BUNDLE_SYMMETRY
-    n_point_per_centroid: int = default.N_POINT_PER_CENTROID
+    centroid_sample_size: int = default.CENTROID_SAMPLE_SIZE
 
     @abc.abstractmethod
     def build(self, *args, **kwargs) -> BundleParams:
@@ -37,5 +37,5 @@ class BundleParamsBuilder(metaclass=abc.ABCMeta):
 
     @typing.final
     def _build_bundle(self, anchors: list[fcg.typing.Vec3f]) -> BundleParams:
-        return BundleParams(radius=radius, symmetry=symmetry, n_point_per_centroid=n_point_per_centroid,
+        return BundleParams(radius=radius, symmetry=symmetry, centroid_sample_size=centroid_sample_size,
                             anchors=anchors)

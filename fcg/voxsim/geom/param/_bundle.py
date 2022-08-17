@@ -20,9 +20,11 @@ class BundleParams:
         See the parameter :obj:`symmetry` of the method
         :meth:`simulator.factory.geometry_factory.GeometryFactory.create_bundle`.
         See the definition of a cross-section : https://en.wikipedia.org/wiki/Cross_section_(geometry).
-    n_point_per_centroid
+    centroid_sample_size
         See the parameter :obj:`n_point_per_centroid` of the method
-        :meth:`simulator.factory.geometry_factory.GeometryFactory.create_bundle`.
+        :meth:`simulator.factory.geometry_factory.GeometryFactory.create_bundle`. A greater sample size means a
+        smoother curvature of the centroid spline.
+        TODO : Test == len(anchors), test < len(anchors), test > len(anchors)
     anchors
         See the parameter :obj:`anchors` of the method
         :meth:`simulator.factory.geometry_factory.GeometryFactory.create_bundle`.
@@ -30,5 +32,5 @@ class BundleParams:
 
     radius: float = default.BUNDLE_RADIUS
     symmetry: float = default.BUNDLE_SYMMETRY
-    n_point_per_centroid: int = default.N_POINT_PER_CENTROID
+    centroid_sample_size: int = default.CENTROID_SAMPLE_SIZE
     anchors: list[fcg.typing.Vec3f] = dataclasses.field(default_factory=list)
