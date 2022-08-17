@@ -10,7 +10,7 @@ Install the dependencies :
 ```sh
 sudo apt update
 sudo apt install -y mpich libmpich-dev libxml2-dev libxslt1-dev
-python -m pip install --upgrade pip setuptools wheel
+python -m pip install --user --upgrade pip setuptools wheel
 pip install -r requirements.txt
 ```
 
