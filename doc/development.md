@@ -16,7 +16,7 @@ python -m pip install --user --upgrade pip setuptools wheel
 `mpich`, `libmpich-dev`, `libxml2-dev` and `libxslt1-dev` are necessary for Simulation Generator.
 
 
-Setup the `venv` and install the requirements :
+Set up the `venv` and install the requirements :
 
 ```sh
 python3 -m venv env &&  # Create the `venv`, if necessary
