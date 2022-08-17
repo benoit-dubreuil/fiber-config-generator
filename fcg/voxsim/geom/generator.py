@@ -2,13 +2,24 @@
 
 import pathlib
 
-import simulator.factory as _sim_factory
-import simulator.factory.geometry_factory.handlers as _sim_geom_handlers
-
 import fcg.voxsim
+import simulator.factory as _sim_factory
+import simulator.factory.geometry_factory.features as _sim_geom_data
+import simulator.factory.geometry_factory.handlers as _sim_geom_handlers
+from . import const as _const, param as _param
 
-from . import const as _const
-from . import param as _param
+
+def _create_voxsim_bundle(bundle_params: _param.BundleParams) -> _sim_geom_data.Bundle:
+    return _sim_factory.GeometryFactory.create_bundle(radius=bundle_params.radius,
+                                                      symmetry=bundle_params.symmetry,
+                                                      n_point_per_centroid=bundle_params.centroid_sample_size,
+                                                      anchors=bundle_params.anchors
+                                                      )
+
+
+def _genereate_voxsim_bundle(bundle_params_builder: _param.builder.BundleParamsBuilder) -> _sim_geom_data.Bundle:
+    bundle_params = bundle_params_builder.build()
+    return _create_voxsim_bundle(bundle_params)
 
 
 def generate_voxsim_geom_params(
@@ -33,13 +44,10 @@ def generate_voxsim_geom_params(
     )
 
     # TODO : Customise
-    bundle1 = _sim_factory.GeometryFactory.create_bundle(
-        _param.default.BUNDLE_RADIUS,
-        _param.default.BUNDLE_SYMMETRY,
-        _param.default.CENTROID_SAMPLE_SIZE,
-        _param.default.BASE_ANCHORS,
-    )
+    bundle_params_builder = _param.builder.StraightBundleParamsBuilder()
+    bundle = _genereate_voxsim_bundle(bundle_params_builder)
 
+    # TODO : Customise
     cluster = _sim_factory.GeometryFactory.create_cluster(
         _sim_factory.GeometryFactory.create_cluster_meta(
             _const.DIMENSIONALITY,
@@ -48,7 +56,7 @@ def generate_voxsim_geom_params(
             _param.default.BUNDLE_CENTER,
             _param.default.BUNDLE_LIMITS,
         ),
-        [bundle1],
+        [bundle],
         _param.default.WORLD_CENTER,
     )
 
