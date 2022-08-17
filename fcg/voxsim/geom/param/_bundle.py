@@ -23,8 +23,8 @@ class BundleParams:
         See the definition of a cross-section : https://en.wikipedia.org/wiki/Cross_section_(geometry).
     centroid_sample_size
         See the parameter :obj:`n_point_per_centroid` of the method
-        :meth:`simulator.factory.geometry_factory.GeometryFactory.create_bundle`. A greater sample size means a
-        smoother curvature of the centroid spline.
+        :meth:`simulator.factory.geometry_factory.GeometryFactory.create_bundle`.
+        A greater sample size means a smoother curvature of the centroid spline. It must be greater or equal to ``2``.
         TODO : Test == len(anchors), test < len(anchors), test > len(anchors)
     anchors
         See the parameter :obj:`anchors` of the method
