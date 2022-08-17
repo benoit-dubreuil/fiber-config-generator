@@ -14,9 +14,9 @@ class StraightBundleParamsBuilder(BundleParamsBuilder):
     as there is no need to add more details to this simple geometric shape.
     """
 
-    n_point_per_centroid: int = 1
+    centroid_sample_size: int = 1
+    begin_position: fcg.typing.Vec3f = (-0.9, 0.0, 0.0)
+    end_position: fcg.typing.Vec3f = (1.1, 0.0, 0.0)
 
-    def build(self, radius: float, symmetry: float, n_point_per_centroid: int) -> BundleParams:
-        anchors: list[fcg.typing.Vec3f] = []
-        # TODO
-        return self._build_bundle(anchors)
+    def build(self) -> BundleParams:
+        return self._build_bundle([self.begin_position, self.end_position])

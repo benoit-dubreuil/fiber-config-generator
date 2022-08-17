@@ -30,7 +30,7 @@ class BundleParamsBuilder(metaclass=abc.ABCMeta):
     centroid_sample_size: int = default.CENTROID_SAMPLE_SIZE
 
     @abc.abstractmethod
-    def build(self, *args, **kwargs) -> BundleParams:
+    def build(self) -> BundleParams:
         pass
 
     @typing.final
