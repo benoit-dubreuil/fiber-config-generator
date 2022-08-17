@@ -16,8 +16,8 @@ class StraightBundleParamsBuilder(BundleParamsBuilder):
     """
 
     centroid_sample_size: int = 1
-    begin_position: fcg.typing.Vec3f = (-0.9, 0.0, 0.0)
-    end_position: fcg.typing.Vec3f = (1.1, 0.0, 0.0)
+    begin_position: fcg.typing.Vec3f = (-0.01, 0.0, 0.0)
+    end_position: fcg.typing.Vec3f = (1.01, 0.0, 0.0)
 
     def build(self) -> BundleParams:
         return self._build_bundle([self.begin_position, self.end_position])
