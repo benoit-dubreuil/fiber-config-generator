@@ -11,16 +11,17 @@ Install the dependencies :
 sudo apt update
 sudo apt install -y mpich libmpich-dev libxml2-dev libxslt1-dev
 python -m pip install --user --upgrade pip setuptools wheel
-pip install -r requirements.txt
 ```
 
 `mpich`, `libmpich-dev`, `libxml2-dev` and `libxslt1-dev` are necessary for Simulation Generator.
 
-Install the project in develop mode :
 
+Setup the `venv` and install the requirements :
 
 ```sh
-pip install --editable .
+python3 -m venv env  # Create the `venv`, if necessary
+pip install -r requirements.txt
+pip install --editable .  # Install the project in develop mode
 ```
 
 
