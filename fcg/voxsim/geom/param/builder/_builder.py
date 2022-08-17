@@ -32,6 +32,13 @@ class BundleParamsBuilder(metaclass=abc.ABCMeta):
 
     @abc.abstractmethod
     def build(self) -> BundleParams:
+        """Build the :class:`fcg.voxsim.geom.param.BundleParams` from the supplied attributes.
+
+        Returns
+        -------
+        BundleParams
+            A newly created :class:`fcg.voxsim.geom.param.BundleParams`
+        """
         pass
 
     @typing.final
