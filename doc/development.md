@@ -14,7 +14,7 @@ python -m pip install --upgrade pip setuptools wheel
 pip install -r requirements.txt
 ```
 
-`mpich`, `libopenmpi-dev`, `libxml2-dev` and `libxslt1-dev` are necessary for Simulation Generator.
+`mpich`, `libmpich-dev`, `libxml2-dev` and `libxslt1-dev` are necessary for Simulation Generator.
 
 Install the project in develop mode :
 
