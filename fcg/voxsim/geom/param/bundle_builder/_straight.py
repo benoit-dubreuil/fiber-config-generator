@@ -1,8 +1,9 @@
 import dataclasses
 
 import fcg.typing
-from ._builder import BundleParamsBuilder
+
 from .._bundle import BundleParams
+from ._builder import BundleParamsBuilder
 
 
 @dataclasses.dataclass

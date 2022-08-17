@@ -1,6 +1,7 @@
 import typing
 
 import fcg.typing
+
 from .. import const as _geom_const
 
 BUNDLE_N_FIBERS: typing.Final[int] = 1000

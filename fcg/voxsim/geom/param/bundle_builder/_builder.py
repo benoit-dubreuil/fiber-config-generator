@@ -3,6 +3,7 @@ import dataclasses
 import typing
 
 import fcg.typing
+
 from .. import default
 from .._bundle import BundleParams
 
