@@ -10,11 +10,12 @@ from . import const as _const, param as _param
 
 
 def _create_voxsim_bundle(bundle_params: _param.BundleParams) -> _sim_geom_data.Bundle:
-    return _sim_factory.GeometryFactory.create_bundle(radius=bundle_params.radius,
-                                                      symmetry=bundle_params.symmetry,
-                                                      n_point_per_centroid=bundle_params.centroid_sample_size,
-                                                      anchors=bundle_params.anchors
-                                                      )
+    return _sim_factory.GeometryFactory.create_bundle(
+        radius=bundle_params.radius,
+        symmetry=bundle_params.symmetry,
+        n_point_per_centroid=bundle_params.centroid_sample_size,
+        anchors=bundle_params.anchors,
+    )
 
 
 def _genereate_voxsim_bundle(bundle_params_builder: _param.builder.BundleParamsBuilder) -> _sim_geom_data.Bundle:
