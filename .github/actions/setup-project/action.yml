@@ -27,7 +27,15 @@ runs:
       run: |
         sudo apt update
         sudo apt install -y mpich libmpich-dev libxml2-dev libxslt1-dev
-        python -m pip install --user --upgrade pip setuptools wheel
+      shell: bash
+
+    - name: 'Update Python dependency management tools'
+      run: |
+        python -m pip install --upgrade pip setuptools wheel
+      shell: bash
+
+    - name: 'Install requirements'
+      run: |
         pip install -r requirements.txt
       shell: bash
 
