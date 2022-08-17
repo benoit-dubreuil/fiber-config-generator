@@ -36,5 +36,5 @@ class BundleParams:
     centroid_sample_size: int = default.CENTROID_SAMPLE_SIZE
     anchors: list[fcg.typing.Vec3f] = dataclasses.field(default_factory=list)
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         assert self.centroid_sample_size >= const.MIN_CENTROID_SAMPLE_SIZE
