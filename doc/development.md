@@ -20,6 +20,7 @@ Setup the `venv` and install the requirements :
 
 ```sh
 python3 -m venv env  # Create the `venv`, if necessary
+source ./env/bin/activate
 pip install -r requirements.txt
 pip install --editable .  # Install the project in develop mode
 ```
