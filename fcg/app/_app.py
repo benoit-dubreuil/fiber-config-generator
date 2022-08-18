@@ -143,9 +143,8 @@ class App(metaclass=abc.ABCMeta):
         """
         return self._has_correctly_shutdown
 
-    def _exit_signal_handler(self) -> typing.Callable[[_SignalNumber], None]:
-        def handle_exit_signal(signum: _SignalNumber) -> None:
-            # Missing function parameter : `frame: types.FrameType`.
+    def _exit_signal_handler(self) -> _SignalHandler:
+        def handle_exit_signal(signum: _SignalNumber, frame: types.FrameType) -> None:
             nonlocal self
             self._shut_down(signum=signum)
 
