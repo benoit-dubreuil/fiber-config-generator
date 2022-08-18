@@ -15,6 +15,7 @@ class ClusterParams:
     world_center
         See the parameter :obj:`world_center` of the method
         :meth:`simulator.factory.geometry_factory.GeometryFactory.create_cluster`.
+
     """
 
     world_center: fcg.typing.Vec3f = _default.WORLD_CENTER

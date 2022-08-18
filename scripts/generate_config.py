@@ -16,6 +16,7 @@ import fcg.voxsim.phantom.generator
 class GenerateStraigthBundle(fcg.app.App):
     """
     TODO
+
     """
 
     def _exec_logic(self) -> None:

@@ -28,6 +28,7 @@ class BundleParams:
     anchors
         See the parameter :obj:`anchors` of the method
         :meth:`simulator.factory.geometry_factory.GeometryFactory.create_bundle`.
+
     """
 
     radius: float = default.BUNDLE_RADIUS

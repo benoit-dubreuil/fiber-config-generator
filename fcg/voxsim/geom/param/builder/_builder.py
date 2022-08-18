@@ -24,6 +24,7 @@ class BundleParamsBuilder(metaclass=abc.ABCMeta):
     centroid_sample_size
         See the attribute ee the attribute :attr:`fcg.voxsim.geom.param.BundleParams.centroid_sample_size`.
         :meth:`simulator.factory.geometry_factory.GeometryFactory.create_bundle`.
+
     """
 
     radius: float = default.BUNDLE_RADIUS

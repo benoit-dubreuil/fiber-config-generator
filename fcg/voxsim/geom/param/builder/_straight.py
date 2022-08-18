@@ -14,6 +14,7 @@ class StraightBundleParamsBuilder(BundleParamsBuilder):
     This class builds :class:`fcg.voxsim.geom.param.BundleParams` which represent straight fiber bundles. A straight
     fiber bundle forms a straight line. This is why the attribute :attr:`.centroid_sample_size` is minimized,
     as there is no need to add more details to this simple geometric shape.
+
     """
 
     centroid_sample_size: int = _param_const.MIN_CENTROID_SAMPLE_SIZE
