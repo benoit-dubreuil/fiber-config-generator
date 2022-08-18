@@ -71,7 +71,7 @@ jobs:
 
       - name: 'Check static types with `mypy`'
         run: |
-          mypy ${{ steps.setup-project.outputs.fcg }} ${{ steps.setup-project.outputs.scripts }} ${{ steps.setup-project.outputs.tests }}
+          mypy --warn-unused-configs ${{ steps.setup-project.outputs.fcg }} ${{ steps.setup-project.outputs.scripts }} ${{ steps.setup-project.outputs.tests }}
 
       - name: 'Test with `pytest`'
         run: |
