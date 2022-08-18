@@ -5,6 +5,11 @@
 See [`setup.cfg`](../setup.cfg) for technical details.
 
 
+### Nomenclature
+
+See https://peps.python.org/pep-0008
+
+
 ### Project folder structure
 
 - `/scripts` — executable scripts from the CLI
@@ -29,7 +34,10 @@ The line length is `120`, just as [LiNumPy](https://github.com/linum-uqam/linump
 
 NumPy style conventions
 
-See comprehensive examples : https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html
+See :
+
+- [cross-reference Python objects](https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html#python-roles)
+- NumPy style documentation [comprehensive examples](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html)
 
 
 ```python

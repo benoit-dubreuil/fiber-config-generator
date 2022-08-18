@@ -6,7 +6,7 @@ on: [ push ]
 
 jobs:
   clean_code:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - uses: actions/checkout@v3
@@ -36,9 +36,9 @@ jobs:
           message: "`${{ github.workflow }}.${{ github.job }}`: Sorted Python code with `isort`"
 
       - name: 'Upgrade Python syntax with `pyupgrade`'
-        # The `--py38-plus` harcoded option must match the Python version defined in the file `.python-version`.
+        # The `--py310-plus` harcoded option must match the Python version defined in the file `.python-version`.
         run: |
-          pyupgrade --py38-plus --exit-zero-even-if-changed \
+          pyupgrade --py310-plus --exit-zero-even-if-changed \
             setup.py ${{ steps.setup-project.outputs.fcg }} ${{ steps.setup-project.outputs.scripts }} ${{ steps.setup-project.outputs.tests }}
 
       - name: 'Commit changes made by `pyupgrade`'
@@ -47,20 +47,8 @@ jobs:
           default_author: github_actions
           message: "`${{ github.workflow }}.${{ github.job }}`: Upgraded Python syntax with `pyupgrade`"
 
-      - name: 'Upgrade Python syntax in doc with `pyupgrade-docs`'
-        # The `--py38-plus` harcoded option must match the Python version defined in the file `.python-version`.
-        # TODO: Remove the `true` statement when the `--exit-zero-even-if-changed` option is fixed. See https://github.com/verhovsky/pyupgrade-docs/issues/6.
-        run: |
-          (git ls-files README.md 'doc/**.md' | xargs pyupgrade-docs --py38-plus --exit-zero-even-if-changed) || true
-
-      - name: 'Commit changes made by `pyupgrade-docs`'
-        uses: EndBug/add-and-commit@v9
-        with:
-          default_author: github_actions
-          message: "`${{ github.workflow }}.${{ github.job }}`: Upgraded Python syntax in doc with `pyupgrade-docs`"
-
   static_analysis:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: clean_code
 
     steps:
@@ -83,7 +71,7 @@ jobs:
 
       - name: 'Check static types with `mypy`'
         run: |
-          mypy ${{ steps.setup-project.outputs.fcg }} ${{ steps.setup-project.outputs.scripts }} ${{ steps.setup-project.outputs.tests }}
+          mypy --warn-unused-configs ${{ steps.setup-project.outputs.fcg }} ${{ steps.setup-project.outputs.scripts }} ${{ steps.setup-project.outputs.tests }}
 
       - name: 'Test with `pytest`'
         run: |

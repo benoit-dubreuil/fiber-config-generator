@@ -15,10 +15,10 @@ git+https://git@github.com/benoit-dubreuil/voxsim#egg=simulation_generator
 
 # Development
 pylint ~= 2.14.0
-flake8 ~= 4.0.0
-mypy ~= 0.961
+flake8 ~= 5.0.0
+# mypy ~= 0.0  # v0.971 is latest release but has this breaking issue : https://github.com/python/mypy/issues/5374
+git+https://git@github.com/python/mypy@52f1dd309c80d456027351fd6c0905e53dcde11a#egg=mypy
 pytest ~= 7.1.0
 brunette ~= 0.2.0
 isort ~= 5.10.0
-pyupgrade-docs ~= 0.3.0
-pyupgrade ~= 2.31
+pyupgrade ~= 2.37

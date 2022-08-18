@@ -1,11 +1,10 @@
-# Reference: https://rehansaeed.com/gitattributes-best-practices/
-
 ###############################
 # Git Line Endings            #
 ###############################
 
-# Set default behaviour to automatically normalize line endings.
-* text=auto
+# Set default behaviour to normalize line endings.
+# Use test=auto to automatically normalize line endings.
+* text eol=auto
 
 # Force batch scripts to always use CRLF line endings so that if a repo is accessed
 # in Windows via a file share from Linux, the scripts will work.
@@ -16,55 +15,79 @@
 # in Unix via a file share from Windows, the scripts will work.
 *.sh text eol=lf
 
-# MITK Diffusion, Simulation Generator
-# The simulation runs on Linux.
+# Code files
+*.sh text eol=lf
+*.py text eol=lf
+*.pyc text eol=lf
+*.python-version text eol=lf
+*.c text eol=lf
+*.h text eol=lf
+*.cpp text eol=lf
+*.hpp text eol=lf
+*.d text eol=lf
+*.java text eol=lf
+*.cs text eol=lf
+
+# Configuration files
+*.yml text eol=lf
+*.xml text eol=lf
+*.toml text eol=lf
 *.json text eol=lf
+*.properties text eol=lf
+*.cfg text eol=lf
+*.mk text eol=lf
+Makefile text eol=lf
+*.clang* text eol=lf
+*.gitignore text eol=lf
+*.gitattributes text eol=lf
+CODEOWNERS text eol=lf
+
+# Text files
+*.md text eol=lf
+*.rst text eol=lf
+*.txt text eol=lf
+LICENSE text eol=lf
+README text eol=lf
+
+# MITK Diffusion, Simulation Generator
 *.bvecs text eol=lf
 *.bvals text eol=lf
 *.fib text eol=lf
 *.vtk text eol=lf
 *.ffp text eol=lf
 
-# Code files
-# They are going to be used by the Simulation Generator, which runs on Linux.
-*.py text eol=lf
-*.pyc text eol=lf
-*.txt text eol=lf
-*.rst text eol=lf
-Makefile text eol=lf
-*.c text eol=lf
-*.h text eol=lf
-*.cpp text eol=lf
-*.hpp text eol=lf
-
 
 ###############################
 # Git Large File System (LFS) #
 ###############################
 
+# Use filter=lfs diff=lfs merge=lfs for LFS
+
+# LFS is disabled for the following files, as LFS is slow and unfortunately costly.
+
 # Archives
-*.7z filter=lfs diff=lfs merge=lfs -text
-*.br filter=lfs diff=lfs merge=lfs -text
-*.gz filter=lfs diff=lfs merge=lfs -text
-*.tar filter=lfs diff=lfs merge=lfs -text
-*.zip filter=lfs diff=lfs merge=lfs -text
+*.7z -text
+*.br -text
+*.gz -text
+*.tar -text
+*.zip -text
 
 # Documents
-#*.pdf filter=lfs diff=lfs merge=lfs -text
+*.pdf -text
+*.PDF -text
 
 # Images
-#*.gif filter=lfs diff=lfs merge=lfs -text
-#*.ico filter=lfs diff=lfs merge=lfs -text
-#*.jpg filter=lfs diff=lfs merge=lfs -text
-#*.pdf filter=lfs diff=lfs merge=lfs -text
-#*.png filter=lfs diff=lfs merge=lfs -text
-#*.tif filter=lfs diff=lfs merge=lfs -text
-#*.tiff filter=lfs diff=lfs merge=lfs -text
-#*.psd filter=lfs diff=lfs merge=lfs -text
-#*.webp filter=lfs diff=lfs merge=lfs -text
+*.gif -text
+*.ico -text
+*.jpg -text
+*.png -text
+*.tif -text
+*.tiff -text
+*.psd -text
+*.webp -text
 
 # Fonts
-*.woff2 filter=lfs diff=lfs merge=lfs -text
+*.woff2 -text
 
 # Other
-*.exe filter=lfs diff=lfs merge=lfs -text
+*.exe -text
