@@ -142,8 +142,8 @@ class App(metaclass=abc.ABCMeta):
         """
         return self._has_correctly_shutdown
 
-    def _exit_signal_handler(self) -> _SignalHandler:
-        def handle_exit_signal(signum: _SignalNumber, frame: types.FrameType) -> None:
+    def _exit_signal_handler(self) -> _SignalHandlerFunc:
+        def handle_exit_signal(signum: _SignalNumber, frame: types.FrameType | None) -> None:
             nonlocal self
             self._shut_down(signum=signum)
 
