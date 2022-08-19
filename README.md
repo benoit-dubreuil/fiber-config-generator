@@ -10,6 +10,11 @@
 Développé par Benoît Dubreuil sous la supervision du professeur-superviseur Joël Lefebvre du LINUM au cours de la session d'été 2022 à l'UQÀM pour un stage COOP (INM5803).
 
 
+## VoxSim
+
+See [VoxSim](doc/voxsim.md)
+
+
 ## Development
 
 See [development](doc/development.md)
