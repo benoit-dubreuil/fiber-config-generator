@@ -7,7 +7,13 @@
 
 ### Été 2022
 
-Développé par Benoît Dubreuil sous la supervision du professeur-superviseur Joël Lefebvre du LINUM au cours de la session d'été 2022 à l'UQÀM pour un stage COOP (INM5803).
+Développé par Benoît Dubreuil sous la supervision du professeur-superviseur Joël Lefebvre du LINUM au cours de la
+session d'été 2022 à l'UQÀM pour un stage COOP (INM5803).
+
+
+## Conception
+
+See [conception](doc/conception.md)
 
 
 ## VoxSim
