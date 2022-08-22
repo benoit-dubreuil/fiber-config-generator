@@ -16,3 +16,4 @@ WORLD_CENTER: typing.Final[fcg.typing.Vec3f] = (
 
 BUNDLE_RADIUS: typing.Final[float] = 0.25
 BUNDLE_SYMMETRY: typing.Final[float] = 1
+CENTROID_SAMPLE_SIZE: typing.Final[int] = 500
