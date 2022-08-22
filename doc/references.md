@@ -14,4 +14,5 @@
     - [Fix/str join takes path](https://github.com/AlexVCaron/voxsim/pull/9), [fork](https://github.com/benoit-dubreuil/voxsim/pull/4)
     - [Feature/path use pathlib](https://github.com/AlexVCaron/voxsim/pull/10), [fork](https://github.com/benoit-dubreuil/voxsim/pull/6)
     - [Feature/simulation return code](https://github.com/AlexVCaron/voxsim/pull/11), [fork](https://github.com/benoit-dubreuil/voxsim/pull/7)
+    - [Fix/legacy runner error](https://github.com/AlexVCaron/voxsim/pull/12), [fork](https://github.com/benoit-dubreuil/voxsim/pull/8)
 - [LiNumPy](https://github.com/linum-uqam/linumpy)
