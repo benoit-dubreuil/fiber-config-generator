@@ -1,3 +1,3 @@
 import typing
 
-MIN_CENTROID_SAMPLE_SIZE: typing.Final[int] = 2
+MIN_CENTROID_SAMPLE_SIZE: typing.Final[int] = 0
