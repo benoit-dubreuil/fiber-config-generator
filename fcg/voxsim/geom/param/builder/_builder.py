@@ -29,7 +29,7 @@ class BundleParamsBuilder(metaclass=abc.ABCMeta):
 
     radius: float = default.BUNDLE_RADIUS
     symmetry: float = default.BUNDLE_SYMMETRY
-    centroid_sample_size: int = default.CENTROID_SAMPLE_SIZE
+    centroid_sample_size: int = 2
 
     @abc.abstractmethod
     def build(self) -> BundleParams:
