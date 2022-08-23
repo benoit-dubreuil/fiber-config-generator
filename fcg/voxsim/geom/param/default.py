@@ -8,11 +8,7 @@ BUNDLE_N_FIBERS: typing.Final[int] = 800
 BUNDLE_CENTER: typing.Final[fcg.typing.Vec3f] = (0.5, 0.5, 0.5)
 BUNDLE_LIMITS: typing.Final[list[list[float]]] = [[0, 1], [0, 1], [0, 1]]
 
-CLUSTER_WORLD_POSITION: typing.Final[fcg.typing.Vec3f] = (
-    _geom_const.MRI_RESOLUTION[0] / 2,
-    _geom_const.MRI_RESOLUTION[1] / 2,
-    _geom_const.MRI_RESOLUTION[2] / 2,
-)
+CLUSTER_WORLD_POSITION: typing.Final[fcg.typing.Vec3f] = BUNDLE_CENTER
 
 BUNDLE_RADIUS: typing.Final[float] = 0.25
 BUNDLE_SYMMETRY: typing.Final[float] = 1
