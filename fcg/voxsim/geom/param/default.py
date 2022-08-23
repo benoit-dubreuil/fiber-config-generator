@@ -2,8 +2,6 @@ import typing
 
 import fcg.typing
 
-from .. import const as _geom_const
-
 CLUSTER_FIBER_QUANTITY_PER_BUNDLE: typing.Final[int] = 800
 CLUSTER_LIMITS: typing.Final[list[list[float]]] = [[0, 1], [0, 1], [0, 1]]
 CLUSTER_CENTER: typing.Final[fcg.typing.Vec3f] = (
