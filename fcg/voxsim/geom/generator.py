@@ -57,7 +57,7 @@ def generate_voxsim_geom_params(
             _const.DIMENSIONALITY,
             _param.default.BUNDLE_N_FIBERS,
             _const.SAMPLING_DISTANCE,
-            _param.default.BUNDLE_CENTER,
+            _param.default.CLUSTER_CENTER,
             _param.default.CLUSTER_LIMITS,
         ),
         [bundle],
