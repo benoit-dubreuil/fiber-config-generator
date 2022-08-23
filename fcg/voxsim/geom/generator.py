@@ -55,13 +55,13 @@ def generate_voxsim_geom_params(
     cluster = _sim_factory.GeometryFactory.create_cluster(
         _sim_factory.GeometryFactory.create_cluster_meta(
             _const.DIMENSIONALITY,
-            _param.default.BUNDLE_N_FIBERS,
+            _param.default.CLUSTER_FIBER_QUANTITY_PER_BUNDLE,
             _const.SAMPLING_DISTANCE,
-            _param.default.BUNDLE_CENTER,
-            _param.default.BUNDLE_LIMITS,
+            _param.default.CLUSTER_CENTER,
+            _param.default.CLUSTER_LIMITS,
         ),
         [bundle],
-        _param.default.WORLD_CENTER,
+        _param.default.CLUSTER_WORLD_POSITION,
     )
 
     geometry_handler.add_cluster(cluster)
