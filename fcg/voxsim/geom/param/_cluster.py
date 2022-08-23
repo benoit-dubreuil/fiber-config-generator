@@ -15,9 +15,10 @@ class ClusterParams:
     world_center
         See the parameter :obj:`world_center` of the method
         :meth:`simulator.factory.geometry_factory.GeometryFactory.create_cluster`.
+        It is the cluster's position in the world space.
 
     """
 
-    world_center: fcg.typing.Vec3f = _default.WORLD_CENTER
+    world_center: fcg.typing.Vec3f = _default.CLUSTER_WORLD_POSITION
 
     # TODO

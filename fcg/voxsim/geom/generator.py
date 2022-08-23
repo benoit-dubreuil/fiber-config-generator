@@ -61,7 +61,7 @@ def generate_voxsim_geom_params(
             _param.default.BUNDLE_LIMITS,
         ),
         [bundle],
-        _param.default.WORLD_CENTER,
+        _param.default.CLUSTER_WORLD_POSITION,
     )
 
     geometry_handler.add_cluster(cluster)
