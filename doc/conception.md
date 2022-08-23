@@ -35,9 +35,11 @@ Given that computing the MRI voxels ([NRRD File Format specification](http://tee
 the voxel resolution is set to the minimum acceptable value. VoxSim singularity is a private modification of Fiberfox.
 
 
-###### The voxel size in millimeters is `(1, 1, 1)`
+###### The voxel size in millimeters is `(2, 2, 2)`
 
 Name in code : `MRI_VOXEL_SPACING`
+
+`(2, 2, 2)` is the absolute minimum voxel spacing, as a value below that induces the generation of erroneous fiber data.
 
 See [Drew, Z., Bell, D. Voxel size. Reference article, Radiopaedia.org. (accessed on 23 Jul 2022)](https://doi.org/10.53347/rID-62838)
 .

@@ -17,9 +17,11 @@ MRI_RESOLUTION: typing.Final[fcg.typing.Vec3i] = (1, 1, 1)
 :meth:`simulator.factory.geometry_factory.GeometryFactory.get_geometry_handler`.
 """
 
-MRI_VOXEL_SPACING: typing.Final[fcg.typing.Vec3i] = (1, 1, 1)
+MRI_VOXEL_SPACING: typing.Final[fcg.typing.Vec3i] = (2, 2, 2)
 """See the parameter :obj:`spacing` of the method
 :meth:`simulator.factory.geometry_factory.GeometryFactory.get_geometry_handler`.
+
+The minimum value is ``(2, 2, 2)``.
 """
 
 OUT_GEOM_FILES_PREFIX: typing.Final[str] = "geom"
