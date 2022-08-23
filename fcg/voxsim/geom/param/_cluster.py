@@ -19,6 +19,7 @@ class ClusterParams:
 
     """
 
+    # TODO : Code getter/setter of this var but renamed as world_position. Make this var private.
     world_center: fcg.typing.Vec3f = _default.CLUSTER_WORLD_POSITION
 
     # TODO
