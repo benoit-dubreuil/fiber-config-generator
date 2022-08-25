@@ -13,7 +13,7 @@ import fcg.voxsim.phantom as _fiber
 import fcg.voxsim.phantom.generator
 
 
-class GenerateStraigthBundle(fcg.app.App):
+class GenerateStraightBundle(fcg.app.App):
     """
     TODO
 
@@ -57,5 +57,5 @@ class GenerateStraigthBundle(fcg.app.App):
 
 
 if __name__ == "__main__":
-    app = GenerateStraigthBundle()
+    app = GenerateStraightBundle()
     app.start()
