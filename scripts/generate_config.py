@@ -9,7 +9,7 @@ from simulator.factory.geometry_factory.handlers import GeometryInfos
 import fcg.app
 import fcg.voxsim
 import fcg.voxsim.geom as _geom
-import fcg.voxsim.phantom as _fiber
+import fcg.voxsim.phantom as _phantom
 import fcg.voxsim.phantom.generator
 
 
@@ -45,7 +45,7 @@ class GenerateStraightBundle(fcg.app.App):
 
         print("Generating the white matter phantom ... ", end="")
         try:
-            returncode: int = _fiber.generator.generate_phantom(voxsim_geom_params, out_dir)
+            returncode: int = _phantom.generator.generate_phantom(voxsim_geom_params, out_dir)
 
             if returncode:
                 print(colorama.Style.BRIGHT + colorama.Fore.RED + "failed")
