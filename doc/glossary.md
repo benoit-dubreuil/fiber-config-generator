@@ -9,4 +9,7 @@
 - **white matter:** A generic term for a collection of central nervous system axons. When a freshly dissected brain is
   cut open, axons appear white (Bear et al., 2016).
 
+
+## References
+
 1. Bear, M. F., Connors, B. W., & Paradiso, M. A. (2016). Neuroscience: Exploring the Brain (4th ed.). Wolters Kluwer.
