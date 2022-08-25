@@ -10,7 +10,7 @@ import fcg.voxsim
 from . import const as _const
 
 
-def generate_fiber_tracts(
+def generate_phantom(
     voxsim_geom_params: _sim_geom_handlers.GeometryInfos,
     root_out_dir: pathlib.Path = fcg.voxsim.default.ROOT_OUT_DIR,
     simulation_name: str = fcg.voxsim.default.SIMULATION_NAME,
