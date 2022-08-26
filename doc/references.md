@@ -26,3 +26,6 @@
     - [Feature/modern script simulation runner](https://github.com/AlexVCaron/voxsim/pull/13),
       [fork](https://github.com/benoit-dubreuil/voxsim/pull/9)
 - [LiNumPy](https://github.com/linum-uqam/linumpy)
+- Bear, M. F., Connors, B. W., & Paradiso, M. A. (2016). Neuroscience: Exploring the Brain (4th ed.). Wolters Kluwer.
+- Xu, X. G., & Eckerman, K. F. (Eds.). (2009). Handbook of Anatomical Models for Radiation Dosimetry (1st ed.). CRC
+  Press. https://doi.org/https://doi.org/10.1201/EBK1420059793.
