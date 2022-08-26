@@ -64,8 +64,14 @@ jobs:
       - name: 'Linting with `pylint`'
         if: steps.setup-project.outputs.fcg != '' || steps.setup-project.outputs.scripts != '' || steps.setup-project.outputs.tests != ''
         run: |
-          pylint --jobs 0 ${{ steps.setup-project.outputs.fcg }} ${{ steps.setup-project.outputs.scripts }}
-          pylint --jobs 0 --disable=missing-docstring,protected-access ${{ steps.setup-project.outputs.tests }}
+          if [[ "${{ steps.setup-project.outputs.fcg }}" != '' ]] && [[ "${{ steps.setup-project.outputs.scripts }}" != '' ]]; then
+            pylint --jobs 0 ${{ steps.setup-project.outputs.fcg }} ${{ steps.setup-project.outputs.scripts }}
+          fi
+
+          if [[ "${{ steps.setup-project.outputs.tests }}" != '' ]]; then
+            pylint --jobs 0 --disable=missing-docstring,protected-access ${{ steps.setup-project.outputs.tests }}
+          fi
+
           pylint --disable=missing-docstring setup.py
 
       - name: 'Linting with `flake8`'
