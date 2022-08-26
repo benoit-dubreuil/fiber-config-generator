@@ -1,6 +1,6 @@
 # Research
 
-## Fiber tract generator
+## Phantom generator
 
 In
 the [final report](https://github.com/linum-uqam/inf6200-h2022-benoit-dubreuil/blob/main/report/2022_inf6200_benoit_dubreuil.pdf)
