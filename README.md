@@ -1,6 +1,6 @@
 # Fiber Config Generator
 
-## White matter fiber tracts configuration generator
+## White matter fiber bundles configuration generator
 
 
 ## INM5803 – Stage d'informatique III

@@ -21,7 +21,7 @@ See https://peps.python.org/pep-0008
 
 ### Python scripts
 
-See [SCILPY coding standards](https://scil-documentation.readthedocs.io/en/latest/coding/scilpy.html) but keep in mind that since [PEP 3120](https://peps.python.org/pep-3120/),
+See [Scilpy coding standards](https://scil-documentation.readthedocs.io/en/latest/coding/scilpy.html) but keep in mind that since [PEP 3120](https://peps.python.org/pep-3120/),
 UTF-8 is the default encoding for Python source code.
 
 Avoid `__all__` because the `_` prefix defines what is public and what is not.
