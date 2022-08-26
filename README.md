@@ -12,21 +12,10 @@ d'Imagerie Numérique, Neurophotonique et Microscopie ([LINUM](https://linum.inf
 2022 à l'UQÀM pour un stage COOP ([INM5803](https://etudier.uqam.ca/cours?sigle=INM5803)).
 
 
-## Conception
+## Documentation
 
-See [conception](doc/conception.md)
-
-
-## VoxSim
-
-See [VoxSim](doc/voxsim.md)
-
-
-## Development
-
-See [development](doc/development.md)
-
-
-## References
-
-See [references](doc/references.md)
+- [Conception](doc/conception.md)
+- [Development](doc/development.md)
+- [VoxSim](doc/voxsim.md)
+- [Glossary](doc/glossary.md)
+- [References](doc/references.md)
