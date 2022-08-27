@@ -11,9 +11,4 @@ our requirements have become stricter and more specific to the fields of tractog
 Thenceforth, in order to delegate the white matter phantom generation to an external library, it is imperative that it
 parameterizes and allows its users to control the axon distribution, neural morphology and biological neural network.
 
-
-### Simulation Generator — VoxSim
-
-[Simulation Generator](https://github.com/AlexVCaron/voxsim) is a Python API to VoxSim.
-
 TODO : [fork](https://github.com/benoit-dubreuil/voxsim) of Simulation Generator
