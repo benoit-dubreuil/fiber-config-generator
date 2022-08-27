@@ -22,11 +22,12 @@ See https://peps.python.org/pep-0008
 
 ### Python scripts
 
-See [Scilpy coding standards](https://scil-documentation.readthedocs.io/en/latest/coding/scilpy.html) but keep in mind that since [PEP 3120](https://peps.python.org/pep-3120/),
-UTF-8 is the default encoding for Python source code.
+See [Scilpy coding standards](https://scil-documentation.readthedocs.io/en/latest/coding/scilpy.html) but keep in mind
+that since [PEP 3120](https://peps.python.org/pep-3120/), UTF-8 is the default encoding for Python source code.
 
 Avoid `__all__` because the `_` prefix defines what is public and what is not.
-See [this post](https://stackoverflow.com/questions/44834/what-does-all-mean-in-python/35710527#35710527) for an explanation.
+See [this post](https://stackoverflow.com/questions/44834/what-does-all-mean-in-python/35710527#35710527) for an
+explanation.
 
 The line length is `120`, just as [LiNumPy](https://github.com/linum-uqam/linumpy).
 
@@ -38,7 +39,8 @@ NumPy style conventions
 See :
 
 - [cross-reference Python objects](https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html#python-roles)
-- NumPy style documentation [comprehensive examples](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html)
+- NumPy style
+  documentation [comprehensive examples](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html)
 
 
 ```python
