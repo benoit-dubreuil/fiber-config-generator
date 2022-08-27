@@ -12,6 +12,13 @@ The [first part](https://github.com/linum-uqam/inf6200-h2022-benoit-dubreuil/) w
 research" that preceeded this internship, back in the winter 2022 academic term. The [second part](/README.md) is the
 objective of this internship, which takes place in the summer 2022 academic term.
 
+In the first part of the project, the results in
+the [final report](https://github.com/linum-uqam/inf6200-h2022-benoit-dubreuil/blob/main/report/2022_inf6200_benoit_dubreuil.pdf)
+single out the software library [Simulation Generator](https://github.com/AlexVCaron/voxsim) as the one that is best
+suited for the project's needs of automation capability, ergonomics, functional independence and being coded in Python.
+Those requirements sufficed the project's goal at the time, as the LINUM team lacked firsthand experience with
+third-party white matter phantom simulation softwares. WIP
+
 WIP  
 Back in the winter 2022 term, in the course "initation to research" that preceeded this internship as it shares the same
 project,
