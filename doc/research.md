@@ -11,4 +11,6 @@ our requirements have become stricter and more specific to the fields of tractog
 Thenceforth, in order to delegate the white matter phantom generation to an external library, it is imperative that it
 parameterizes and allows its users to control the axon distribution, neural morphology and biological neural network.
 
+TODO : Simulation Generator does not meet the new requirements
+
 TODO : [fork](https://github.com/benoit-dubreuil/voxsim) of Simulation Generator
