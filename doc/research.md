@@ -7,8 +7,10 @@ The goal of the project [Fiber Config Generator](/README.md) is to create a 3D w
 generate synthetic data in order to validate our new algorithms for processing of light sheet microscopy data. To do so,
 the project was divided into two parts : identify potential software libraries to delegate the white matter phantom
 generation to and single out one according to predefined selection criteria (1), and develop an application program that
-utilizes the selected software library (2). The first part was achieved in the course "initation to research" that
-preceeded this internship, back in the winter 2022 academic term.
+utilizes the selected software library (2).
+The [first part](https://github.com/linum-uqam/inf6200-h2022-benoit-dubreuil/) was achieved in the course "initation to
+research" that preceeded this internship, back in the winter 2022 academic term. The [second part](/) is the objective
+of this internship, which takes place in the summer 2022 academic term.
 
 WIP  
 Back in the winter 2022 term, in the course "initation to research" that preceeded this internship as it shares the same
