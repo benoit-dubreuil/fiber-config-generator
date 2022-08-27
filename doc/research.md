@@ -3,6 +3,7 @@
 
 ## Phantom generator
 
+[Fiber Config Generator](/README.md) Test markdown link
 In
 the [final report](https://github.com/linum-uqam/inf6200-h2022-benoit-dubreuil/blob/main/report/2022_inf6200_benoit_dubreuil.pdf)
 of the initation to research course back in the winter 2022 term that preceeded this internship,
