@@ -1,5 +1,6 @@
 # Development conventions
 
+
 ## Coding conventions
 
 See [`setup.cfg`](../setup.cfg) for technical details.
