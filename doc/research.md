@@ -34,7 +34,7 @@ network. Thus, Simulation Generator is incompatible with the new sine quibus non
 - Its strong cohesion with [MITK Fiberfox](https://docs.mitk.org/2018.04/org_mitk_views_fiberfoxview.html)
   pertains to its DWI roots. It is impossible to truly dissociate the brain white matter phantom from its DWI
   simulation.
-- The generated geometric shape is unpredictable.
+- The generated geometric shape is unpredictable. See the V-shaped [example](#example-v-shaped-bundle) below.
 
 
 #### Example&ThinSpace;:&emsp13;V-shaped bundle
