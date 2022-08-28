@@ -49,6 +49,25 @@ def generate_voxsim_geom_params(
 
     # TODO : Customise
     bundle_params_builder = _param.builder.StraightBundleParamsBuilder()
+
+    # bundle_params_builder = _param.builder.ManualBundleParamsBuilder()
+    #
+    # # Good V shape
+    # bundle_params_builder.anchors = [
+    #     (0.0, 0.0, 0.0),
+    #     (0.25, 0.15, 0.0),
+    #     (0.5, 0.5, 0.0),
+    #     (0.75, 0.15, 0.0),
+    #     (1.0, 0.0, 0.0),
+    # ]
+    #
+    # # Bad V shape
+    # bundle_params_builder.anchors = [
+    #     (0.0, 0.0, 0.0),
+    #     (0.5, 0.8, 0.0),
+    #     (1.0, 0.0, 0.0),
+    # ]
+
     bundle = _genereate_voxsim_bundle(bundle_params_builder)
 
     # TODO : Customise
