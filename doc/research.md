@@ -34,7 +34,8 @@ network. Thus, Simulation Generator is incompatible with the new sine quibus non
 - The source code of voXSim is inaccessible.
 - Its strong cohesion with [MITK Fiberfox](https://docs.mitk.org/2018.04/org_mitk_views_fiberfoxview.html)
   pertains to its DWI roots. It is impossible to truly dissociate the brain white matter phantom from its DWI
-  simulation.
+  simulation, ergo a considerable amount of computer performance is wasted on this unneeded feature when generating a
+  phantom.
 - The generated geometric shape is unpredictable. See the V-shaped [example](#examplev-shaped-bundle) below.
 - There is a lack of important documented features. Simulation Generator does not offer a possibility to modify the
   tension, bias and continuity of the centroid, contrarily to the description on
