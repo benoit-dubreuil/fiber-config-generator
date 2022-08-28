@@ -37,10 +37,43 @@ network. Thus, Simulation Generator is incompatible with the new sine quibus non
 - The generated geometric shape is unpredictable.
 
 
-TODO : Detailed explications of what is wrong.
+#### Example&ThinSpace;:&emsp13;V shape
 
-TODO, reuse : Its strong cohesion with [MITK Fiberfox](https://docs.mitk.org/2018.04/org_mitk_views_fiberfoxview.html)
-pertains to its DWI roots
+According to
+voXSim "[concepts](https://github.com/AlexVCaron/voxsim/blob/76ca69902459e0d3dc830ea14635dd38e2951dd2/.cache/doc/concepts.rst)"
+documentation page, it should be possible to generate a fiber bundle in a V shape with only three anchors.
+
+```python
+# V shape with 3 anchors
+anchors = [
+    (0.0, 0.0, 0.0),
+    (0.5, 0.8, 0.0),
+    (1.0, 0.0, 0.0),
+]
+```
+
+![Erroneous V shape with 3 anchors](img/sim_gen__v_shape__bad.png)
+
+Unfortunately, through trial and error, generating a simple "V" shaped bundle with three anchors seems impossible. The
+image above is an example of the resulting output.
+
+```python
+# V shape with 5 anchors
+anchors = [
+    (0.0, 0.0, 0.0),
+    (0.25, 0.15, 0.0),
+    (0.5, 0.5, 0.0),
+    (0.75, 0.15, 0.0),
+    (1.0, 0.0, 0.0),
+]
+```
+
+![Satisfactory V shape with 3 anchors](img/sim_gen__v_shape__good.png)
+
+It is possible to generate a simple "V" shaped bundle with more than three anchors. However, as seen in the image above,
+the anchors spatial positions offer next to no control over the actual shape of the resulting bundle.
+
+TODO : Detailed explications of what is wrong.
 
 TODO : The critical bug is due to incertainty and guessing of some variables.
 
