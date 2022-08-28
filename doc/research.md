@@ -32,6 +32,8 @@ network. Thus, Simulation Generator is incompatible with the new sine quibus non
 ### Inadequacies
 
 - The source code of voXSim is inaccessible.
+- A lot of time and efforts must be undertaken to patch, fix and adapt the library.
+- Simulation Generator does not have any feature related to the new requirements of the project.
 - Its strong cohesion with [MITK Fiberfox](https://docs.mitk.org/2018.04/org_mitk_views_fiberfoxview.html)
   pertains to its DWI roots. It is impossible to truly dissociate the brain white matter phantom from its DWI
   simulation, ergo a considerable amount of computer performance is wasted on this unneeded feature when generating a
@@ -43,7 +45,6 @@ network. Thus, Simulation Generator is incompatible with the new sine quibus non
   documentation page. Although there is a piece of code about those crucial features, it is related to the XML
   persistence of the DWI simulation. In that piece of code, the parameters pertaining to the said features are in effect
   never set, and thus there is a possibility that may not be implemented in voXSim.
-- Simulation Generator does not have any feature related to the new requirements of the project.
 
 
 #### Example&ThinSpace;:&emsp13;V-shaped bundle
