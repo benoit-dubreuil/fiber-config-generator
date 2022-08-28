@@ -35,6 +35,12 @@ network. Thus, Simulation Generator is incompatible with the new sine quibus non
   pertains to its DWI roots. It is impossible to truly dissociate the brain white matter phantom from its DWI
   simulation.
 - The generated geometric shape is unpredictable. See the V-shaped [example](#examplev-shaped-bundle) below.
+- There is a lack of important documented features. Simulation Generator does not offer a possibility to modify the
+  tension, bias and continuity of the centroid, contrarily to the description on
+  the "[concepts](https://github.com/AlexVCaron/voxsim/blob/76ca69902459e0d3dc830ea14635dd38e2951dd2/.cache/doc/concepts.rst#centroid)"
+  documentation page. Although there is a piece of code about those crucial features, it is related to the XML
+  persistence of the DWI simulation. In that piece of code, the parameters pertaining to the said features are in effect
+  never set, and thus there is a possibility that may not be implemented in voXSim.
 
 
 #### Example&ThinSpace;:&emsp13;V-shaped bundle
@@ -74,11 +80,6 @@ It is possible to generate a simple V-shaped bundle with more than three anchors
 the anchors spatial positions offer next to no control over the actual shape of the resulting bundle.
 
 TODO : Detailed explications of what is wrong.
-
-TODO : Lack of features : Simulation Generator does not offer a possibility to modify the tension, bias and continuity
-of the centroid, as described in
-its [concepts](https://github.com/AlexVCaron/voxsim/blob/76ca69902459e0d3dc830ea14635dd38e2951dd2/.cache/doc/concepts.rst)
-documentation. Also, it seems it only affects the DWI simulation.
 
 TODO : voXSim is an amelioration of Fiberfox which, contrarily to the latter, allows its users to control the generation
 through the command-line interface (CLI). Also, Simulation Generator offers a high level Python API to voXSim. There are
