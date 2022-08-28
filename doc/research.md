@@ -21,8 +21,15 @@ experience with third-party white matter phantom simulation softwares. However, 
 Simulation Generator through a custom GitHub [fork](https://github.com/benoit-dubreuil/voxsim), the amount of
 complications encountered and the required efforts to mend them increased monumentally. After careful deliberation, it
 was decided to abandon Simulation Generator becaused its utility does not fit with the project's goal, especially since
-the main purpose of that tool is to simulate diffusion MRI signals on generated fiber bundles. WIP
+the main purpose of that tool is to simulate diffusion MRI (DWI) signals on generated fiber bundles. TODO : new
+requirements. TODO : Simulation Generator does not meet the new requirements. WIP
 
+TODO : Detailed explications of what is wrong.
+
+TODO, reuse : Its strong cohesion with [MITK Fiberfox](https://docs.mitk.org/2018.04/org_mitk_views_fiberfoxview.html)
+pertains to its DWI roots
+
+TODO, reuse :
 In
 the [final report](https://github.com/linum-uqam/inf6200-h2022-benoit-dubreuil/blob/main/report/2022_inf6200_benoit_dubreuil.pdf)
 of the course "initation to research" back in the winter 2022 term that preceeded this internship,
@@ -31,10 +38,6 @@ suited our needs of automation capability, ergonomics, functional independence a
 our requirements have become stricter and more specific to the fields of tractography and biomedical microscopy.
 Thenceforth, in order to delegate the white matter phantom generation to an external library, it is imperative that it
 parameterizes and allows its users to control the axon distribution, neural morphology and biological neural network.
-
-TODO : Simulation Generator does not meet the new requirements
-
-TODO : [fork](https://github.com/benoit-dubreuil/voxsim) of Simulation Generator
 
 TODO :
 
