@@ -34,7 +34,7 @@ class GenerateStraightBundle(fcg.app.App):
 
         print(f"Script execution results directory : {out_dir}")
 
-        print("Generating VoxSim geometry parameters ... ", end="")
+        print("Generating voXSim geometry parameters ... ", end="")
         try:
             voxsim_geom_params: GeometryInfos = _geom.generate_voxsim_geom_params(out_dir)
             print(colorama.Style.BRIGHT + colorama.Fore.GREEN + "succeeded")

@@ -21,7 +21,7 @@ def generate_phantom(
     Parameters
     ----------
     voxsim_geom_params
-        The VoxSim-specific geometry parameters.
+        The voXSim-specific geometry parameters.
     simulation_name
         The mnemonic name of the simulation. The generated log file has the same name as the simulation name, excluding
         the file extension. The generated phantom files are prefixed with the simulation name.

@@ -29,7 +29,7 @@ def _genereate_voxsim_bundle(bundle_params_builder: _param.builder.BundleParamsB
 def generate_voxsim_geom_params(
     root_out_dir: pathlib.Path = fcg.voxsim.default.ROOT_OUT_DIR,
 ) -> _sim_geom_handlers.GeometryInfos:
-    """Generates the VoxSim (through Simulation Generator) geometry parameters configuration files.
+    """Generates the voXSim (through Simulation Generator) geometry parameters configuration files.
 
     Parameters
     ----------

@@ -16,6 +16,6 @@ d'Imagerie Numérique, Neurophotonique et Microscopie ([LINUM](https://linum.inf
 
 - [Conception](doc/conception.md)
 - [Development](doc/development.md)
-- [VoxSim](doc/voxsim.md)
+- [voXSim](doc/voxsim.md)
 - [Glossary](doc/glossary.md)
 - [References](doc/references.md)

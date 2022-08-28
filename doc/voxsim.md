@@ -1,4 +1,4 @@
-# VoxSim
+# voXSim
 
 
 ## `.fib` file format
