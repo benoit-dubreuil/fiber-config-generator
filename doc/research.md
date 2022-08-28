@@ -28,6 +28,15 @@ to the preceding general requirements, it is imperative that it is completely ac
 that it parameterizes and allows its users to control the axon distribution, neural morphology and biological neural
 network. Thus, Simulation Generator is incompatible with the new sine quibus non.
 
+
+### Inadequacies
+
+- Its strong cohesion with [MITK Fiberfox](https://docs.mitk.org/2018.04/org_mitk_views_fiberfoxview.html)
+  pertains to its DWI roots. It is impossible to truly dissociate the brain white matter phantom from its DWI
+  simulation.
+- The generated geometric shape is unpredictable.
+
+
 TODO : Detailed explications of what is wrong.
 
 TODO, reuse : Its strong cohesion with [MITK Fiberfox](https://docs.mitk.org/2018.04/org_mitk_views_fiberfoxview.html)
