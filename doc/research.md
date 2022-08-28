@@ -19,13 +19,6 @@ that is best suited for the project's needs of automation capability, ergonomics
 coded in Python. Those requirements sufficed the project's goal at the time, as the LINUM team lacked firsthand
 experience with third-party white matter phantom simulation softwares. WIP
 
-WIP  
-Back in the winter 2022 term, in the course "initation to research" that preceeded this internship as it shares the same
-project,
-the [final report](https://github.com/linum-uqam/inf6200-h2022-benoit-dubreuil/blob/main/report/2022_inf6200_benoit_dubreuil.pdf)
-describes the main goal of creating a 3D white matter fiber crossing simulator to generate synthetic data in order to
-validate our new algorithms for processing of light sheet microscopy data.
-
 In
 the [final report](https://github.com/linum-uqam/inf6200-h2022-benoit-dubreuil/blob/main/report/2022_inf6200_benoit_dubreuil.pdf)
 of the course "initation to research" back in the winter 2022 term that preceeded this internship,
