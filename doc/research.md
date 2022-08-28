@@ -20,11 +20,11 @@ coded in Python. Those requirements sufficed the project's goal at the time, as 
 experience with third-party white matter phantom simulation softwares. However, as we patched, fixed and modernized
 Simulation Generator through a custom GitHub [fork](https://github.com/benoit-dubreuil/voxsim), the amount of
 complications encountered and the required efforts to mend them increased monumentally. After careful deliberation, it
-was decided to abandon Simulation Generator becaused of critical bugs, and its utility does not fit with the project's
+was decided to abandon Simulation Generator because of critical bugs, and its utility does not fit with the project's
 goal, especially since the main purpose of that tool is to simulate diffusion MRI (DWI) signals on generated fiber
 bundles. Simultaneously, stricter requirements and more specific to the fields of tractography and biomedical microscopy
 were defined. Thenceforth, in order to delegate the white matter phantom generation to an external library, in addition
-to the preceeding general requirements, it is imperative that it is completely accessible and open to modifications, and
+to the preceding general requirements, it is imperative that it is completely accessible and open to modifications, and
 that it parameterizes and allows its users to control the axon distribution, neural morphology and biological neural
 network. Thus, Simulation Generator is incompatible with the new sine quibus non.
 
