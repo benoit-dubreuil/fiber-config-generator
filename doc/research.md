@@ -37,8 +37,8 @@ TODO : The critical bug is due to incertainty and guessing of some variables.
 
 TODO : Lack of features : Simulation Generator does not offer a possibility to modify the tension, bias and continuity
 of the centroid, as described in
-its [concepts](https://github.com/AlexVCaron/voxsim/blob/master/.cache/doc/concepts.rst) documentation. Also, it seems
-it only affects the DWI simulation.
+its [concepts](https://github.com/AlexVCaron/voxsim/blob/76ca69902459e0d3dc830ea14635dd38e2951dd2/.cache/doc/concepts.rst)
+documentation. Also, it seems it only affects the DWI simulation.
 
 TODO, reuse :
 In
