@@ -1,8 +1,5 @@
 # Research
 
-
-## Phantom generator
-
 The goal of the project Fiber Config Generator is to create a 3D white matter fiber crossing simulator to generate
 synthetic data in order to validate our new algorithms for processing of light sheet microscopy data. To do so, the
 project was divided into two parts : identify potential software libraries to delegate the white matter phantom
@@ -11,6 +8,9 @@ utilizes the selected software library (2).
 The [first part](https://github.com/linum-uqam/inf6200-h2022-benoit-dubreuil/) was achieved in the course "initation to
 research" that preceeded this internship, back in the winter 2022 academic term. The [second part](/README.md) is the
 objective of this internship, which takes place in the summer 2022 academic term.
+
+
+## Phantom generator
 
 In the first part of the project, as expressed in
 the [final report](https://github.com/linum-uqam/inf6200-h2022-benoit-dubreuil/blob/main/report/2022_inf6200_benoit_dubreuil.pdf)'
