@@ -6,7 +6,7 @@ project was divided into two parts : identify potential software libraries to de
 generation to and single out one according to predefined selection criteria (1), and develop an application program that
 utilizes the selected software library (2).
 The [first part](https://github.com/linum-uqam/inf6200-h2022-benoit-dubreuil/) was achieved in the course "initiation to
-research" that preceeded this internship, back in the winter 2022 academic term. The [second part](/README.md) is the
+research" that preceded this internship, back in the winter 2022 academic term. The [second part](/README.md) is the
 objective of this internship, which takes place in the summer 2022 academic term.
 
 
@@ -43,7 +43,7 @@ documentation. Also, it seems it only affects the DWI simulation.
 TODO, reuse :
 In
 the [final report](https://github.com/linum-uqam/inf6200-h2022-benoit-dubreuil/blob/main/report/2022_inf6200_benoit_dubreuil.pdf)
-of the course "initiation to research" back in the winter 2022 term that preceeded this internship,
+of the course "initiation to research" back in the winter 2022 term that preceded this internship,
 the [Simulation Generator](https://github.com/AlexVCaron/voxsim) Python library was singled out as the software that
 suited our needs of automation capability, ergonomics, functional independence and being coded in Python. Since then,
 our requirements have become stricter and more specific to the fields of tractography and biomedical microscopy.
