@@ -75,7 +75,7 @@ the anchors spatial positions offer next to no control over the actual shape of 
 
 TODO : Detailed explications of what is wrong.
 
-TODO : The critical bug is due to incertainty and guessing of some variables.
+TODO : The critical bug is due to uncertainty and guessing of some variables.
 
 TODO : Lack of features : Simulation Generator does not offer a possibility to modify the tension, bias and continuity
 of the centroid, as described in
