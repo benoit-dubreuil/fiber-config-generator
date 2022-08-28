@@ -33,9 +33,12 @@ TODO : Detailed explications of what is wrong.
 TODO, reuse : Its strong cohesion with [MITK Fiberfox](https://docs.mitk.org/2018.04/org_mitk_views_fiberfoxview.html)
 pertains to its DWI roots
 
-TODO : The critical bug is due to incertainty and guessing of some variables. TODO : Lack of features : Simulation
-Generator does not offer a possibility to modify the tension, bias and continuity of the centroid, as described in
-its [concepts](https://github.com/AlexVCaron/voxsim/blob/master/.cache/doc/concepts.rst) documentation.
+TODO : The critical bug is due to incertainty and guessing of some variables.
+
+TODO : Lack of features : Simulation Generator does not offer a possibility to modify the tension, bias and continuity
+of the centroid, as described in
+its [concepts](https://github.com/AlexVCaron/voxsim/blob/master/.cache/doc/concepts.rst) documentation. Also, it seems
+it only affects the DWI simulation.
 
 TODO, reuse :
 In
