@@ -28,6 +28,9 @@
 - [LiNumPy](https://github.com/linum-uqam/linumpy)
 - MITK Fiberfox
     - [MITK Fiberfox](https://docs.mitk.org/2018.04/org_mitk_views_fiberfoxview.html) documentation
+    - Neher, P. F., Laun, F. B., Stieltjes, B., & Maier-Hein, K. H. (2014). Fiberfox: facilitating the creation of
+      realistic white matter software phantoms. Magnetic resonance in medicine, 72(5),
+      1460-1470. https://doi.org/10.1002/mrm.25045
 - Bear, M. F., Connors, B. W., & Paradiso, M. A. (2016). Neuroscience: Exploring the Brain (4th ed.). Wolters Kluwer.
 - Xu, X. G., & Eckerman, K. F. (Eds.). (2009). Handbook of Anatomical Models for Radiation Dosimetry (1st ed.). CRC
   Press. https://doi.org/https://doi.org/10.1201/EBK1420059793.
