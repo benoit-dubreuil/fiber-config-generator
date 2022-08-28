@@ -17,7 +17,11 @@ the [final report](https://github.com/linum-uqam/inf6200-h2022-benoit-dubreuil/b
 s results, the software library [Simulation Generator](https://github.com/AlexVCaron/voxsim) is singled out as the one
 that is best suited for the project's needs of automation capability, ergonomics, functional independence and being
 coded in Python. Those requirements sufficed the project's goal at the time, as the LINUM team lacked firsthand
-experience with third-party white matter phantom simulation softwares. WIP
+experience with third-party white matter phantom simulation softwares. However, as we patched, fixed and modernized
+Simulation Generator through a custom GitHub [fork](https://github.com/benoit-dubreuil/voxsim), the amount of
+complications encountered and the required efforts to mend them increased monumentally. After careful deliberation, it
+was decided to abandon Simulation Generator becaused its utility does not fit with the project's goal, especially since
+the main purpose of that tool is to simulate diffusion MRI signals on generated fiber bundles. WIP
 
 In
 the [final report](https://github.com/linum-uqam/inf6200-h2022-benoit-dubreuil/blob/main/report/2022_inf6200_benoit_dubreuil.pdf)
