@@ -33,6 +33,10 @@ TODO : Detailed explications of what is wrong.
 TODO, reuse : Its strong cohesion with [MITK Fiberfox](https://docs.mitk.org/2018.04/org_mitk_views_fiberfoxview.html)
 pertains to its DWI roots
 
+TODO : The critical bug is due to incertainty and guessing of some variables. TODO : Lack of features : Simulation
+Generator does not offer a possibility to modify the tension, bias and continuity of the centroid, as described in
+its [concepts](https://github.com/AlexVCaron/voxsim/blob/master/.cache/doc/concepts.rst) documentation.
+
 TODO, reuse :
 In
 the [final report](https://github.com/linum-uqam/inf6200-h2022-benoit-dubreuil/blob/main/report/2022_inf6200_benoit_dubreuil.pdf)
