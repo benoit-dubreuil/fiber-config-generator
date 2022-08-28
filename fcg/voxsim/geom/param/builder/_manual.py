@@ -19,4 +19,4 @@ class ManualBundleParamsBuilder(BundleParamsBuilder):
     anchors: list[fcg.typing.Vec3f] = dataclasses.field(default_factory=lambda: [(0.0, 0.0, 0.0), (1.0, 0.0, 0.0)])
 
     def build(self) -> BundleParams:
-        return self._build_bundle(anchors)
+        return self._build_bundle(self.anchors)
