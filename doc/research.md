@@ -38,3 +38,11 @@ parameterizes and allows its users to control the axon distribution, neural morp
 TODO : Simulation Generator does not meet the new requirements
 
 TODO : [fork](https://github.com/benoit-dubreuil/voxsim) of Simulation Generator
+
+TODO :
+
+- Futur fiberfox/voxsim/simgenerator incertain, bug ou manque de feature, ne supporte pas la division d’axone en
+  sous-axones (1 neurone = 1 chemin), outils pour l’IRM donc calcul des trucs dont on n'a pas besoin
+- Répartition de neurones intra amas avec AI + tracto dans lsm, soct
+- Configuration d’amas avec : bibliothèque de géométrie (e.g. CGAL ou jeux video) inspiré de fiberfox avec les ellipses,
+- Dépôt public, python (avec dépendances bien supportées et documentées)
