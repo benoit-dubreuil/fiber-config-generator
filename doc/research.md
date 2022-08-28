@@ -83,21 +83,9 @@ anchors = [
 It is possible to generate a simple V-shaped bundle with more than three anchors. However, as seen in the image above,
 the anchors spatial positions offer next to no control over the actual shape of the resulting bundle.
 
-TODO : Detailed explications of what is wrong.
-
 TODO : voXSim is an amelioration of Fiberfox which, contrarily to the latter, allows its users to control the generation
 through the command-line interface (CLI). Also, Simulation Generator offers a high level Python API to voXSim. There are
 no equivalents for Fiberfox.
-
-TODO, reuse :
-In
-the [final report](https://github.com/linum-uqam/inf6200-h2022-benoit-dubreuil/blob/main/report/2022_inf6200_benoit_dubreuil.pdf)
-of the course "initiation to research" back in the winter 2022 term that preceded this internship,
-the [Simulation Generator](https://github.com/AlexVCaron/voxsim) Python library was singled out as the software that
-suited our needs of automation capability, ergonomics, functional independence and being coded in Python. Since then,
-our requirements have become stricter and more specific to the fields of tractography and biomedical microscopy.
-Thenceforth, in order to delegate the white matter phantom generation to an external library, it is imperative that it
-parameterizes and allows its users to control the axon distribution, neural morphology and biological neural network.
 
 TODO :
 
