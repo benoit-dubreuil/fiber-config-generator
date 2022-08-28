@@ -82,6 +82,10 @@ of the centroid, as described in
 its [concepts](https://github.com/AlexVCaron/voxsim/blob/76ca69902459e0d3dc830ea14635dd38e2951dd2/.cache/doc/concepts.rst)
 documentation. Also, it seems it only affects the DWI simulation.
 
+TODO : voXSim is an amelioration of Fiberfox which, contrarily to the latter, allows its users to control the generation
+through the command-line interface (CLI). Also, Simulation Generator offers a high level Python API to voXSim. There are
+no equivalents for Fiberfox.
+
 TODO, reuse :
 In
 the [final report](https://github.com/linum-uqam/inf6200-h2022-benoit-dubreuil/blob/main/report/2022_inf6200_benoit_dubreuil.pdf)
