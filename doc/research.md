@@ -26,7 +26,7 @@ bundles. Simultaneously, stricter requirements and more specific to the fields o
 were defined. Thenceforth, in order to delegate the white matter phantom generation to an external library, in addition
 to the preceeding general requirements, it is imperative that it is completely accessible and open to modifications, and
 that it parameterizes and allows its users to control the axon distribution, neural morphology and biological neural
-network. TODO : Simulation Generator does not meet the new requirements. WIP
+network. Those new sine quibus non make Simulation Generator incompliant.
 
 TODO : Detailed explications of what is wrong.
 
