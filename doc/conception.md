@@ -1,5 +1,6 @@
 # Conception
 
+
 ## Simulation Generator parameters
 
 Unimportant or irrelevant Simulation Generator parameters are defined as constants and thus have no value in being
@@ -31,8 +32,8 @@ Name in code : `MRI_RESOLUTION`
 
 Given that computing the MRI voxels ([NRRD File Format specification](http://teem.sourceforge.net/nrrd/format.html),
 [NifTI-2 Data Format specification](https://nifti.nimh.nih.gov/nifti-2/)) require hardware resources (CPU time, RAM,
-...) and that this VoxSim feature cannot be switched off due to fact that it is programmed into the VoxSim singularity,
-the voxel resolution is set to the minimum acceptable value. VoxSim singularity is a private modification of Fiberfox.
+...) and that this voXSim feature cannot be switched off due to fact that it is programmed into the voXSim singularity,
+the voxel resolution is set to the minimum acceptable value. voXSim singularity is a private modification of Fiberfox.
 
 
 ###### The voxel size in millimeters is `(2, 2, 2)`
