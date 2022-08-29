@@ -47,6 +47,9 @@ class GenerateMicroscopeImg(fcg.app.App):
         out_dir.mkdir(parents=True, exist_ok=True)
         out_dir = out_dir.resolve(strict=True)
 
+        # TODO
+        print(colorama.Fore.YELLOW + f"TODO : use the psf ({psf}), fib ({fib}) and out_dir ({out_dir})")
+
 
 if __name__ == "__main__":
     app = GenerateMicroscopeImg()
