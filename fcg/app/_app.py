@@ -24,11 +24,11 @@ class App(metaclass=abc.ABCMeta):
     _has_correctly_shutdown: bool = True
 
     @abc.abstractmethod
-    def _pre_start(self) -> None:
+    def _pre_start(self, **kwargs) -> None:
         colorama.init(autoreset=True)
 
     @typing.final
-    def start(self) -> None:
+    def start(self, **kwargs) -> None:
         """Starts the application.
 
         This method also sets up the signal handlers.
@@ -46,7 +46,7 @@ class App(metaclass=abc.ABCMeta):
         if self.is_running:
             raise AppLifeCycleException("Cannot start an app that is already running.")
 
-        self._pre_start()
+        self._pre_start(**kwargs)
 
         self._is_running = True
         self._exec_logic()
@@ -58,11 +58,11 @@ class App(metaclass=abc.ABCMeta):
         pass
 
     @abc.abstractmethod
-    def _shutting_down(self) -> None:
+    def _shutting_down(self, **kwargs) -> None:
         colorama.deinit()
 
     @typing.final
-    def _shut_down(self) -> None:
+    def _shut_down(self, **kwargs) -> None:
         """Shuts down the application.
 
         This method also unsets the signal handlers. It does not actually shut down the application : it performs the
@@ -84,7 +84,7 @@ class App(metaclass=abc.ABCMeta):
         self._has_correctly_shutdown = False
         self._is_running = False
 
-        self._shutting_down()
+        self._shutting_down(**kwargs)
 
         self._has_correctly_shutdown = True
 
