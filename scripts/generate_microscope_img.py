@@ -2,6 +2,7 @@
 
 import argparse
 import pathlib
+import typing
 
 import colorama
 from simulator.factory.geometry_factory.handlers import GeometryInfos
@@ -11,6 +12,7 @@ import fcg.voxsim
 import fcg.voxsim.geom as _geom
 import fcg.voxsim.phantom as _phantom
 
+_DEFAULT_OUT_PATH: typing.Final[pathlib.Path] = pathlib.Path()
 
 class GenerateStraightBundle(fcg.app.FiberApp):
     """
@@ -19,12 +21,9 @@ class GenerateStraightBundle(fcg.app.FiberApp):
     """
 
     def _exec_logic(self) -> None:
-        # TODO : Supply the singularity (*.sif) path as a program arg. See SingularityConfig.
-        # TODO : Supply the SingularityCE executable path as a program arg. See SingularityConfig.
-
-        parser = argparse.ArgumentParser("Generate a configuration of white matter fibre bundles")
+        parser = argparse.ArgumentParser("Generate a 3D microscope image representation from fiber bundles")
         parser.add_argument(
-            "--out", type=pathlib.Path, default=fcg.voxsim.default.ROOT_OUT_DIR, help="Output directory for the files"
+            "--out", type=pathlib.Path, default=_DEFAULT_OUT_PATH, help="The output path with the complete filename."
         )
 
         args = parser.parse_args()
