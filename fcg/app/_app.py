@@ -20,8 +20,14 @@ class App(metaclass=abc.ABCMeta):
 
     """
 
-    _is_running: bool = False
-    _has_correctly_shutdown: bool = True
+    _is_running: bool
+    _has_correctly_shutdown: bool
+
+    def __init__(self) -> None:
+        super().__init__()
+
+        self._is_running = False
+        self._has_correctly_shutdown = True
 
     def _pre_start(self, **kwargs) -> None:
         colorama.init(autoreset=True)

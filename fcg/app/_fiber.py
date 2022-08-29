@@ -18,8 +18,14 @@ class FiberApp(App, metaclass=abc.ABCMeta):
 
     """
 
-    _preceding_sigterm_handler: _SignalHandler = None
-    _preceding_sigint_handler: _SignalHandler = None
+    _preceding_sigterm_handler: _SignalHandler
+    _preceding_sigint_handler: _SignalHandler
+
+    def __init__(self) -> None:
+        super().__init__()
+
+        _preceding_sigterm_handler = None
+        _preceding_sigint_handler = None
 
     def _pre_start(self, **kwargs) -> None:
         assert self._preceding_sigterm_handler is None
