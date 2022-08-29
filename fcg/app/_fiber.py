@@ -94,39 +94,6 @@ class FiberApp(App, metaclass=abc.ABCMeta):
         if signum is not None:
             sys.exit(self._get_signal_exit_code(signum))
 
-    @typing.final
-    @property
-    def is_running(self) -> bool:
-        """Gets the status that indicates if the application is running or not.
-
-        In order to be running, the method :meth:`fcg.app.App.start` must have been called and the method
-        :meth:`fcg.app.App._shut_down` must not have been called, unless the former was called after the latter.
-
-        Returns
-        -------
-        bool
-            True if the application is running, False otherwise.
-
-        """
-        return self._is_running
-
-    @typing.final
-    @property
-    def has_correctly_shut_down(self) -> bool:
-        """Gets the status that indicates if the application has correctly shut down.
-
-        In order to correctly shut down, the application needs to clean everything it has set up, such as signal
-        handlers. Also, the method :meth:`fcg.app.App._shut_down` must have been called after the method
-        :meth:`fcg.app.App.start` was called.
-
-        Returns
-        -------
-        bool
-            True if the application has correctly shut down, False otherwise.
-
-        """
-        return self._has_correctly_shutdown
-
     def _exit_signal_handler(self) -> _SignalHandlerFunc:
         def handle_exit_signal(signum: _SignalNumber, _: types.FrameType | None) -> None:
             nonlocal self
