@@ -27,9 +27,12 @@ class GenerateMicroscopeImg(fcg.app.App):
             default=_DEFAULT_PSF_PATH,
             help='The input path to the PSF. Ex: "./generate_fiber_config.py psf.tif"',
         )
-        parser.add_argument("fib", type=pathlib.Path, default=_DEFAULT_PSF_PATH,
-                            help="The input path to the generated fiber bundles. The standard file extension is "
-                                 "'.fib'.")
+        parser.add_argument(
+            "fib",
+            type=pathlib.Path,
+            default=_DEFAULT_PSF_PATH,
+            help="The input path to the generated fiber bundles. The standard file extension is " "'.fib'.",
+        )
         parser.add_argument(
             "--out", type=pathlib.Path, default=_DEFAULT_OUT_PATH, help="The output path with the complete filename."
         )
