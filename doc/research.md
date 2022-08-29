@@ -93,10 +93,6 @@ anchors = [
 It is possible to generate a simple V-shaped bundle with more than three anchors. However, as seen in the image above,
 the anchors spatial positions offer next to no control over the actual shape of the resulting bundle.
 
-TODO : voXSim is an amelioration of Fiberfox which, contrarily to the latter, allows its users to control the generation
-through the command-line interface (CLI). Also, Simulation Generator offers a high level Python API to voXSim. There are
-no equivalents for Fiberfox.
-
 TODO :
 
 - Futur fiberfox/voxsim/simgenerator incertain, bug ou manque de feature, ne supporte pas la division d’axone en
