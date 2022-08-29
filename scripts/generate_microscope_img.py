@@ -14,7 +14,8 @@ import fcg.voxsim.phantom as _phantom
 
 _DEFAULT_OUT_PATH: typing.Final[pathlib.Path] = pathlib.Path()
 
-class GenerateStraightBundle(fcg.app.FiberApp):
+
+class GenerateMicroscopeImg(fcg.app.App):
     """
     TODO
 
