@@ -29,6 +29,16 @@ that it parameterizes and allows its users to control the axon distribution, neu
 network. Thus, Simulation Generator is incompatible with the new sine quibus non.
 
 
+### Simulation Generator, voXSim and Fiberfox
+
+voXSim is an amelioration of Fiberfox which, contrarily to the latter, allows its users to control the white matter
+bundle generation through the command-line interface (CLI). Also, Simulation Generator offers a high level Python API to
+voXSim. There are no equivalents for Fiberfox.
+
+voXSim and Simulation Generator are both developed by Alex Valcourt Caron from the Sherbrooke Connectivity Imaging
+Laboratory ([SCIL](https://scil.dinf.usherbrooke.ca/)).
+
+
 ### Inadequacies
 
 - The source code of voXSim is inaccessible.
