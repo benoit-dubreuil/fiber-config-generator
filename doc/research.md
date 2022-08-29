@@ -25,8 +25,8 @@ goal, especially since the main purpose of that tool is to simulate diffusion MR
 bundles. Simultaneously, stricter requirements and more specific to the fields of tractography and biomedical microscopy
 were defined. Thenceforth, in order to delegate the white matter phantom generation to an external library, in addition
 to the preceding general requirements, it is imperative that it is completely accessible and open to modifications, and
-that it parameterizes and allows its users to control the axon distribution, neural morphology and biological neural
-network. Thus, Simulation Generator is incompatible with the new sine quibus non.
+that it parameterizes and allows its users to control the axon distribution and biological neural network. Thus,
+Simulation Generator is incompatible with the new sine quibus non.
 
 
 ### Simulation Generator, voXSim and Fiberfox
