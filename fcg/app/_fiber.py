@@ -21,75 +21,26 @@ class FiberApp(App, metaclass=abc.ABCMeta):
     _preceding_sigterm_handler: _SignalHandler = None
     _preceding_sigint_handler: _SignalHandler = None
 
-    @typing.final
-    def start(self) -> None:
-        """Starts the application.
-
-        This method also sets up the signal handlers.
-
-        Returns
-        -------
-        None
-
-        Raises
-        ------
-        AppLifeCycleException
-            If the application is already running.
-
-        """
+    def _pre_start(self, **kwargs) -> None:
         assert self._preceding_sigterm_handler is None
         assert self._preceding_sigint_handler is None
 
-        if self.is_running:
-            raise AppLifeCycleException("Cannot start an app that is already running.")
+        super()._pre_start(**kwargs)
 
         self._preceding_sigterm_handler = signal.signal(signal.SIGTERM, self._exit_signal_handler())
         self._preceding_sigint_handler = signal.signal(signal.SIGINT, self._exit_signal_handler())
 
-        colorama.init(autoreset=True)
-
-        self._is_running = True
-        self._exec_logic()
-
-        self._shut_down()
-
-    @typing.final
-    def _shut_down(self, signum: _SignalNumber | None = None) -> None:
-        """Shuts down the application.
-
-        This method also unsets the signal handlers. It does not actually shut down the application : it performs the
-        post-execution cleanup.
-
-        Parameters
-        ----------
-        signum
-            The received signal's number which ordered the shutdown of the App.
-
-        Returns
-        -------
-        None
-
-        Raises
-        ------
-        AppLifeCycleException
-            If the application is already shutdown.
-
-        """
-        if not self.is_running:
-            raise AppLifeCycleException("Cannot shut down an app that is already shutdown.")
-
-        self._has_correctly_shutdown = False
-        self._is_running = False
-
-        colorama.deinit()
-
+    def _shutting_down(self, **kwargs) -> dict[str, typing.Any]:
         signal.signal(signal.SIGTERM, self._preceding_sigterm_handler)
         self._preceding_sigterm_handler = None
 
         signal.signal(signal.SIGINT, self._preceding_sigint_handler)
         self._preceding_sigint_handler = None
 
-        self._has_correctly_shutdown = True
+        return super()._shutting_down(**kwargs)
+
+    def _post_shut_down(self, signum: _SignalNumber | None = None, **kwargs) -> None:
+        super()._post_shut_down(**kwargs)
 
         if signum is not None:
             sys.exit(self._get_signal_exit_code(signum))
