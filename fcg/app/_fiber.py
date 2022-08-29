@@ -5,25 +5,17 @@ import types
 import typing
 
 import colorama
+from ._app import App, AppLifeCycleException
 
 _SignalNumber: typing.TypeAlias = int
 _SignalHandlerFunc: typing.TypeAlias = typing.Callable[[_SignalNumber, types.FrameType | None], typing.Any]
 _SignalHandler: typing.TypeAlias = typing.Union[_SignalHandlerFunc, _SignalNumber, signal.Handlers, None]
 
 
-class AppLifeCycleException(RuntimeError):
-    """Raised by an instance of the class :class:`fcg.app.App` when calling one of its methods with an inappropriate
-    state.
-
-    """
-
-
-class App(metaclass=abc.ABCMeta):
+class FiberApp(App):
     """Generic Fiber Config Generator application for quickly coding executable scripts.
 
-    This class is meant to be inherited by a concrete class in order to define the core program logic by implementing
-    the method :meth:`fcg.app.App._exec_logic`. The class :class:`fcg.app.App` wraps the program startup and
-    shutdown, and handles OS signals as well.
+    In addition to what its parent :class:`fcg.app.App` does, this class handles OS signals as well.
 
     """
 
