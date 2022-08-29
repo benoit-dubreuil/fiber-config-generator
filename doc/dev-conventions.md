@@ -16,8 +16,8 @@ See https://peps.python.org/pep-0008
 - `/scripts` — executable scripts from the CLI
 - `/tests`
 - `/fcg` — _Fiber Config Generator_ source files
-- `/doc` — non-generated documation
-- `/apidoc` — generated documation
+- `/doc` — non-generated documentation
+- `/apidoc` — generated documentation
 
 
 ### Python scripts
