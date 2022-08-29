@@ -53,10 +53,6 @@ class FiberApp(App, metaclass=abc.ABCMeta):
 
         self._shut_down()
 
-    @abc.abstractmethod
-    def _exec_logic(self) -> None:
-        pass
-
     @typing.final
     def _shut_down(self, signum: _SignalNumber | None = None) -> None:
         """Shuts down the application.
