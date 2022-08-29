@@ -8,7 +8,7 @@ import colorama
 
 import fcg.app
 
-_DEFAULT_OUT_PATH: typing.Final[pathlib.Path] = pathlib.Path()
+_DEFAULT_OUT_PATH: typing.Final[pathlib.Path] = pathlib.Path("out.tiff")
 
 
 class GenerateMicroscopeImg(fcg.app.App):
