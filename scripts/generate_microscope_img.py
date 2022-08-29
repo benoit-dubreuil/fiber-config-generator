@@ -9,6 +9,7 @@ import colorama
 import fcg.app
 
 _DEFAULT_PSF_PATH: typing.Final[pathlib.Path] = pathlib.Path("psf.tif")
+_DEFAULT_FIB_PATH: typing.Final[pathlib.Path] = pathlib.Path("out/phantom/fcg_phantom_merged_bundles.fib")
 _DEFAULT_OUT_PATH: typing.Final[pathlib.Path] = pathlib.Path("out.tiff")
 
 
@@ -26,6 +27,9 @@ class GenerateMicroscopeImg(fcg.app.App):
             default=_DEFAULT_PSF_PATH,
             help='The input path to the PSF. Ex: "./generate_fiber_config.py psf.tif"',
         )
+        parser.add_argument("fib", type=pathlib.Path, default=_DEFAULT_PSF_PATH,
+                            help="The input path to the generated fiber bundles. The standard file extension is "
+                                 "'.fib'.")
         parser.add_argument(
             "--out", type=pathlib.Path, default=_DEFAULT_OUT_PATH, help="The output path with the complete filename."
         )
@@ -34,6 +38,9 @@ class GenerateMicroscopeImg(fcg.app.App):
 
         psf: pathlib.Path = args.psf
         psf = psf.resolve(strict=True)
+
+        fib: pathlib.Path = args.fib
+        fib = fib.resolve(strict=True)
 
         out: pathlib.Path = args.out
         out_dir = out.parent
