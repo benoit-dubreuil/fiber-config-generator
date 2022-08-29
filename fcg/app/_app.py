@@ -57,6 +57,10 @@ class App(metaclass=abc.ABCMeta):
     def _exec_logic(self) -> None:
         pass
 
+    @abc.abstractmethod
+    def _shutting_down(self) -> None:
+        colorama.deinit()
+
     @typing.final
     def _shut_down(self) -> None:
         """Shuts down the application.
@@ -80,7 +84,7 @@ class App(metaclass=abc.ABCMeta):
         self._has_correctly_shutdown = False
         self._is_running = False
 
-        colorama.deinit()
+        self._shutting_down()
 
         self._has_correctly_shutdown = True
 
