@@ -20,8 +20,12 @@ class GenerateMicroscopeImg(fcg.app.App):
 
     def _exec_logic(self) -> None:
         parser = argparse.ArgumentParser("Generate a 3D microscope image representation from fiber bundles")
-        parser.add_argument("psf", type=pathlib.Path, default=_DEFAULT_PSF_PATH,
-                            help="The input path to the PSF. Ex: \"./generate_fiber_config.py psf.tif\"")
+        parser.add_argument(
+            "psf",
+            type=pathlib.Path,
+            default=_DEFAULT_PSF_PATH,
+            help='The input path to the PSF. Ex: "./generate_fiber_config.py psf.tif"',
+        )
         parser.add_argument(
             "--out", type=pathlib.Path, default=_DEFAULT_OUT_PATH, help="The output path with the complete filename."
         )
