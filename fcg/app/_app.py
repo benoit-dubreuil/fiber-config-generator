@@ -67,6 +67,11 @@ class App(metaclass=abc.ABCMeta):
         This method also unsets the signal handlers. It does not actually shut down the application : it performs the
         post-execution cleanup.
 
+        Parameters
+        ----------
+        kwargs
+            Parameters to pass to the shutting down and post-shutdown logic.
+
         Returns
         -------
         None
