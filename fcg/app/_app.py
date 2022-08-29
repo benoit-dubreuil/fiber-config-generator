@@ -1,14 +1,7 @@
 import abc
-import signal
-import sys
-import types
 import typing
 
 import colorama
-
-_SignalNumber: typing.TypeAlias = int
-_SignalHandlerFunc: typing.TypeAlias = typing.Callable[[_SignalNumber, types.FrameType | None], typing.Any]
-_SignalHandler: typing.TypeAlias = typing.Union[_SignalHandlerFunc, _SignalNumber, signal.Handlers, None]
 
 
 class AppLifeCycleException(RuntimeError):
@@ -29,8 +22,6 @@ class App(metaclass=abc.ABCMeta):
 
     _is_running: bool = False
     _has_correctly_shutdown: bool = True
-    _preceding_sigterm_handler: _SignalHandler = None
-    _preceding_sigint_handler: _SignalHandler = None
 
     @typing.final
     def start(self) -> None:
@@ -48,14 +39,8 @@ class App(metaclass=abc.ABCMeta):
             If the application is already running.
 
         """
-        assert self._preceding_sigterm_handler is None
-        assert self._preceding_sigint_handler is None
-
         if self.is_running:
             raise AppLifeCycleException("Cannot start an app that is already running.")
-
-        self._preceding_sigterm_handler = signal.signal(signal.SIGTERM, self._exit_signal_handler())
-        self._preceding_sigint_handler = signal.signal(signal.SIGINT, self._exit_signal_handler())
 
         colorama.init(autoreset=True)
 
@@ -69,16 +54,11 @@ class App(metaclass=abc.ABCMeta):
         pass
 
     @typing.final
-    def _shut_down(self, signum: _SignalNumber | None = None) -> None:
+    def _shut_down(self) -> None:
         """Shuts down the application.
 
         This method also unsets the signal handlers. It does not actually shut down the application : it performs the
         post-execution cleanup.
-
-        Parameters
-        ----------
-        signum
-            The received signal's number which ordered the shutdown of the App.
 
         Returns
         -------
@@ -98,16 +78,7 @@ class App(metaclass=abc.ABCMeta):
 
         colorama.deinit()
 
-        signal.signal(signal.SIGTERM, self._preceding_sigterm_handler)
-        self._preceding_sigterm_handler = None
-
-        signal.signal(signal.SIGINT, self._preceding_sigint_handler)
-        self._preceding_sigint_handler = None
-
         self._has_correctly_shutdown = True
-
-        if signum is not None:
-            sys.exit(self._get_signal_exit_code(signum))
 
     @typing.final
     @property
@@ -141,17 +112,3 @@ class App(metaclass=abc.ABCMeta):
 
         """
         return self._has_correctly_shutdown
-
-    def _exit_signal_handler(self) -> _SignalHandlerFunc:
-        def handle_exit_signal(signum: _SignalNumber, _: types.FrameType | None) -> None:
-            nonlocal self
-            self._shut_down(signum=signum)
-
-        return handle_exit_signal
-
-    @staticmethod
-    def _get_signal_exit_code(signum: _SignalNumber) -> int:
-        if signum <= 0:
-            raise ValueError("A signal number must strictly positive.")
-
-        return 128 + signum
