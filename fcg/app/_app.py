@@ -56,8 +56,9 @@ class App(metaclass=abc.ABCMeta):
     def _exec_logic(self) -> None:
         pass
 
-    def _shutting_down(self, **kwargs) -> None:
+    def _shutting_down(self, **kwargs) -> dict[str, typing.Any]:
         colorama.deinit()
+        return kwargs
 
     @typing.final
     def _shut_down(self, **kwargs) -> None:
@@ -82,9 +83,14 @@ class App(metaclass=abc.ABCMeta):
         self._has_correctly_shutdown = False
         self._is_running = False
 
-        self._shutting_down(**kwargs)
+        kwargs = self._shutting_down(**kwargs)
 
         self._has_correctly_shutdown = True
+
+        self._post_shut_down(**kwargs)
+
+    def _post_shut_down(self, **kwargs) -> None:
+        pass
 
     @typing.final
     @property
