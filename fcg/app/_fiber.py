@@ -19,8 +19,6 @@ class FiberApp(App):
 
     """
 
-    _is_running: bool = False
-    _has_correctly_shutdown: bool = True
     _preceding_sigterm_handler: _SignalHandler = None
     _preceding_sigint_handler: _SignalHandler = None
 
