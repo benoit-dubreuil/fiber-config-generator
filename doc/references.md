@@ -3,6 +3,7 @@
 - [linum-uqam / inf6200-h2022-benoit-dubreuil / guides / outils.md](https://github.com/linum-uqam/inf6200-h2022-benoit-dubreuil/blob/main/guides/outils.md)
 - [linum-uqam / inf6200-h2022-benoit-dubreuil / report / 2022_inf6200_benoit_dubreuil.pdf](https://github.com/linum-uqam/inf6200-h2022-benoit-dubreuil/blob/main/report/2022_inf6200_benoit_dubreuil.pdf)
 - [Scilpy coding standards](https://scil-documentation.readthedocs.io/en/latest/coding/scilpy.html)
+- Sherbrooke Connectivity Imaging Laboratory ([SCIL](https://scil.dinf.usherbrooke.ca/))
 - [Simulation Generator](https://github.com/AlexVCaron/voxsim)  
   &nbsp;&nbsp; Issues
     - [Module config not found](https://github.com/AlexVCaron/voxsim/issues/5)
