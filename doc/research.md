@@ -39,6 +39,14 @@ voXSim and Simulation Generator are both developed by Alex Valcourt Caron from t
 Laboratory ([SCIL](https://scil.dinf.usherbrooke.ca/)).
 
 
+### New parameters
+
+- **Axon distribution&ThinSpace;:**&emsp13;Be able to define the spatial distribution of the axons within the
+  constrained shape of a bundle. By implementing a simple strategy design pattern, the default programmed distribution
+  procedure could be, per bundle, swapped with an AI algorithm trained for a specific neuronal morphology.
+- **Biological neural network&ThinSpace;:**&emsp13;Be able to subdivide individual axons into multiple paths.
+
+
 ### Inadequacies
 
 - The source code of voXSim is inaccessible.
