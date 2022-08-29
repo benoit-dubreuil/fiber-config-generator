@@ -13,11 +13,12 @@ See https://peps.python.org/pep-0008
 
 ### Project folder structure
 
-- `/scripts` — executable scripts from the CLI
-- `/tests`
+- `/apidoc` — generated documentation
+- `/doc` — non-generated documentation
 - `/fcg` — _Fiber Config Generator_ source files
-- `/doc` — non-generated documation
-- `/apidoc` — generated documation
+- `/resources` — resources useful to the library and/or scripts
+- `/scripts` — executable scripts from the CLI
+- `/tests` — test files, such as unit tests
 
 
 ### Python scripts
