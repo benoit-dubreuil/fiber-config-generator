@@ -23,7 +23,6 @@ class App(metaclass=abc.ABCMeta):
     _is_running: bool = False
     _has_correctly_shutdown: bool = True
 
-    @abc.abstractmethod
     def _pre_start(self, **kwargs) -> None:
         colorama.init(autoreset=True)
 
@@ -57,7 +56,6 @@ class App(metaclass=abc.ABCMeta):
     def _exec_logic(self) -> None:
         pass
 
-    @abc.abstractmethod
     def _shutting_down(self, **kwargs) -> None:
         colorama.deinit()
 
