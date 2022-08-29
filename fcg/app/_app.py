@@ -23,6 +23,10 @@ class App(metaclass=abc.ABCMeta):
     _is_running: bool = False
     _has_correctly_shutdown: bool = True
 
+    @abc.abstractmethod
+    def _pre_start(self) -> None:
+        colorama.init(autoreset=True)
+
     @typing.final
     def start(self) -> None:
         """Starts the application.
@@ -42,7 +46,7 @@ class App(metaclass=abc.ABCMeta):
         if self.is_running:
             raise AppLifeCycleException("Cannot start an app that is already running.")
 
-        colorama.init(autoreset=True)
+        self._pre_start()
 
         self._is_running = True
         self._exec_logic()
