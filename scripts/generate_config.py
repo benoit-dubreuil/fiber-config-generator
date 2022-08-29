@@ -12,7 +12,7 @@ import fcg.voxsim.geom as _geom
 import fcg.voxsim.phantom as _phantom
 
 
-class GenerateStraightBundle(fcg.app.App):
+class GenerateStraightBundle(fcg.app.FiberApp):
     """
     TODO
 
