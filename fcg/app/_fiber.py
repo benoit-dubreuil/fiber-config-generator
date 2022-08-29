@@ -4,8 +4,7 @@ import sys
 import types
 import typing
 
-import colorama
-from ._app import App, AppLifeCycleException
+from ._app import App
 
 _SignalNumber: typing.TypeAlias = int
 _SignalHandlerFunc: typing.TypeAlias = typing.Callable[[_SignalNumber, types.FrameType | None], typing.Any]
