@@ -30,6 +30,7 @@ class App(metaclass=abc.ABCMeta):
         self._has_correctly_shutdown = True
 
     def _pre_start(self, **kwargs) -> None:
+        # pylint: disable=unused-argument
         colorama.init(autoreset=True)
 
     @typing.final
