@@ -56,5 +56,5 @@ class GenerateMicroscopeImg(fcg.app.App):
 
 
 if __name__ == "__main__":
-    app = GenerateStraightBundle()
+    app = GenerateMicroscopeImg()
     app.start()
