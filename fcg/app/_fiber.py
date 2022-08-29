@@ -12,7 +12,7 @@ _SignalHandlerFunc: typing.TypeAlias = typing.Callable[[_SignalNumber, types.Fra
 _SignalHandler: typing.TypeAlias = typing.Union[_SignalHandlerFunc, _SignalNumber, signal.Handlers, None]
 
 
-class FiberApp(App):
+class FiberApp(App, metaclass=abc.ABCMeta):
     """Generic Fiber Config Generator application for quickly coding executable scripts.
 
     In addition to what its parent :class:`fcg.app.App` does, this class handles OS signals as well.
