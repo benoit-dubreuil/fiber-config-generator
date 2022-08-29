@@ -25,6 +25,11 @@ class GenerateMicroscopeImg(fcg.app.App):
 
         args = parser.parse_args()
 
+        out: pathlib.Path = args.out
+        out_dir = out.parent
+        out_dir.mkdir(parents=True, exist_ok=True)
+        out = out.resolve(strict=True)
+
 
 if __name__ == "__main__":
     app = GenerateMicroscopeImg()
