@@ -12,6 +12,7 @@ class Tracts(typing.TypedDict):
     id: list[int]
 
 
+# TODO : Load `.fib`
 def load_tracts(
     filename: pathlib.Path,
     field_x: str = "x",
