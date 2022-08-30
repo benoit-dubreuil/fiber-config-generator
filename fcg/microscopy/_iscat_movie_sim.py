@@ -73,7 +73,7 @@ class Microscope3dAcquisitionSimulator:
     # TODO: Use input size as alternative
     # TODO: link tqdm with logging
     # TODO: Create a python wrapper for the ImageJ plugin 'DeconvolutionLab2' to generate PSF in the script?
-    # TODO: Background noise with different statistics (similar to transcient particles)
+    # TODO: Background noise with different statistics (similar to transient particles)
     def __init__(
         self,
         tracts: Tracts | pathlib.Path = None,
