@@ -251,8 +251,9 @@ class Microscope3dAcquisitionSimulator:
         imageio.volwrite(filename, self.movie.astype(np.float32))
 
     def load_tracts(
-        self, filename: pathlib.Path, field_x="x", field_y="y", field_t="t", field_id="id", file_format=None
-    ):  # TODO: Load other tracts format
+        self, filename: pathlib.Path, field_x: str = "x", field_y: str = "y", field_t: str = "t", field_id: str = "id",
+        file_format: str | None = None
+    ) -> None:  # TODO: Load other tracts format
         """Load the tracts from a `.csv`, `.json` or `.pcl` file.
 
         Parameters
