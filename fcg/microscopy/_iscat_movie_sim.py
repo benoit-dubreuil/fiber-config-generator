@@ -15,13 +15,13 @@ import tqdm
 # Moving Acquisition simulation
 class Microscope3dAcquisitionSimulator:
     """Generate a synthetic [iScat](https://en.wikipedia.org/wiki/Interferometric_scattering_microscopy) movie from a
-    set of tracks.
+    set of tracts.
 
     **Syntax**:
 
     .. code-block:: python
 
-        movie_simulator = iscat_movie(tracks)
+        movie_simulator = iscat_movie(tracts)
         movie_simulator.run()
 
     **Authors**:
@@ -33,8 +33,8 @@ class Microscope3dAcquisitionSimulator:
 
     Parameters
     ----------
-    tracks : dict or CSV filename
-        A dictionary or a CSV filename containing the set of tracks to simulate. The dictionary must include the keys
+    tracts : dict or CSV filename
+        A dictionary or a CSV filename containing the set of tracts to simulate. The dictionary must include the keys
         `x`, `y`, `t` and `id`
     resolution : float
         Spatial resolution [m/px]
@@ -51,7 +51,7 @@ class Microscope3dAcquisitionSimulator:
         If True, Poisson noise will be added.
     ratio : str
         Aspect ratio of the simulated movie. Available ("square"). If none is given,
-        the aspect ratio will be inferred from the tracks position.
+        the aspect ratio will be inferred from the tracts position.
 
     """
 
@@ -65,7 +65,7 @@ class Microscope3dAcquisitionSimulator:
     # TODO: Background noise with different statistics (similar to transcient particles)
     def __init__(
         self,
-        tracks=None,
+        tracts=None,
         resolution=1.0,
         dt=1,
         contrast=5,
@@ -84,26 +84,26 @@ class Microscope3dAcquisitionSimulator:
         self.ratio = ratio
         self.initialized = False
 
-        if isinstance(tracks, dict):
-            self.tracks = tracks
-        elif isinstance(tracks, str) or isinstance(tracks, pathlib.Path):
-            self.load_tracks(tracks)
+        if isinstance(tracts, dict):
+            self.tracts = tracts
+        elif isinstance(tracts, str) or isinstance(tracts, pathlib.Path):
+            self.load_tracts(tracts)
 
     def initialize(self):
         """Initialize the simulator"""
-        assert hasattr(self, "tracks"), "You must load a tracks file or set a tracks dict first"
-        self.n_spots = len(self.tracks["x"])
+        assert hasattr(self, "tracts"), "You must load a tracts file or set a tracts dict first"
+        self.n_spots = len(self.tracts["x"])
 
         # Get the number of frames
         self.tmin = 0
-        self.tmax = np.max(self.tracks["t"])
+        self.tmax = np.max(self.tracts["t"])
         self.n_frames = int((self.tmax - self.tmin) / self.dt) + 1
 
         # Get the movie shape
-        self.xmin = np.min(self.tracks["x"])
-        self.ymin = np.min(self.tracks["y"])
-        self.xmax = np.max(self.tracks["x"])
-        self.ymax = np.max(self.tracks["y"])
+        self.xmin = np.min(self.tracts["x"])
+        self.ymin = np.min(self.tracts["y"])
+        self.xmax = np.max(self.tracts["x"])
+        self.ymax = np.max(self.tracts["y"])
         if self.ratio == "square":
             self.xmin = min(self.xmin, self.ymin)
             self.ymin = min(self.xmin, self.ymin)
@@ -152,11 +152,11 @@ class Microscope3dAcquisitionSimulator:
             print("Adding gaussian noise to the background")
             movie = skimage.util.random_noise(movie, mode="gaussian", var=self.noise_gaussian)
 
-        # Populate the tracks
-        for this_spot in tqdm.tqdm(range(self.n_spots), "Adding tracks"):
-            mx = int(np.round((self.tracks["x"][this_spot] - self.xmin) / self.resolution))
-            my = int(np.round((self.tracks["y"][this_spot] - self.ymin) / self.resolution))
-            mt = int(self.tracks["t"][this_spot] / self.dt)
+        # Populate the tracts
+        for this_spot in tqdm.tqdm(range(self.n_spots), "Adding tracts"):
+            mx = int(np.round((self.tracts["x"][this_spot] - self.xmin) / self.resolution))
+            my = int(np.round((self.tracts["y"][this_spot] - self.ymin) / self.resolution))
+            mt = int(self.tracts["t"][this_spot] / self.dt)
             if isinstance(mx, list):
                 for x, y, t in zip(mx, my, mt):
                     if (0 <= mx < self.nx) and (0 <= my < self.ny):
@@ -199,28 +199,28 @@ class Microscope3dAcquisitionSimulator:
         assert hasattr(self, "movie"), "You must first run the simulation"
         imageio.volwrite(filename, self.movie.astype(np.float32))
 
-    def load_tracks(
+    def load_tracts(
         self, filename, field_x="x", field_y="y", field_t="t", field_id="id", file_format=None
-    ):  # TODO: Load other tracks format
-        """Load the tracks from a csv file.
+    ):  # TODO: Load other tracts format
+        """Load the tracts from a csv file.
 
         Parameters
         ----------
         filename : str
             Path to a csv filename
         field_x : str
-            Column name in the CSV corresponding to the tracks X positions.
+            Column name in the CSV corresponding to the tracts X positions.
         field_y : str
-            Column name in the CSV corresponding to the tracks Y positions.
+            Column name in the CSV corresponding to the tracts Y positions.
         field_t : str
-            Column name in the CSV corresponding to the tracks time.
+            Column name in the CSV corresponding to the tracts time.
         field_id : str
-            Column name in the CSV corresponding to the tracks ID.
+            Column name in the CSV corresponding to the tracts ID.
         file_format : str
             Specify the file format (available are cvs, json, pcl). If none is given, it will be inferred from the
             filename
         """
-        tracks = {"x": [], "y": [], "t": [], "id": []}
+        tracts = {"x": [], "y": [], "t": [], "id": []}
         if pathlib.Path(filename).suffix == ".csv" or file_format == "csv":
             # Load the csv file
             with open(filename) as csvfile:
@@ -235,27 +235,27 @@ class Microscope3dAcquisitionSimulator:
                     if i == 0:
                         column_names = row
                     else:
-                        tracks["x"].append(float(row[column_names.index(field_x)]))
-                        tracks["y"].append(float(row[column_names.index(field_y)]))
-                        tracks["t"].append(float(row[column_names.index(field_t)]))
-                        tracks["id"].append(int(row[column_names.index(field_id)]))
+                        tracts["x"].append(float(row[column_names.index(field_x)]))
+                        tracts["y"].append(float(row[column_names.index(field_y)]))
+                        tracts["t"].append(float(row[column_names.index(field_t)]))
+                        tracts["id"].append(int(row[column_names.index(field_id)]))
         elif pathlib.Path(filename).suffix == ".json" or file_format == "json":
             with open(filename) as f:
                 content = json.load(f)
-            tracks["x"] = content[field_x]
-            tracks["y"] = content[field_y]
-            tracks["t"] = content[field_t]
-            tracks["id"] = content[field_id]
+            tracts["x"] = content[field_x]
+            tracts["y"] = content[field_y]
+            tracts["t"] = content[field_t]
+            tracts["id"] = content[field_id]
 
         elif pathlib.Path(filename).suffix == ".pcl" or file_format == "pcl":
             with open(filename, "rb") as f:
                 content = pickle.load(f)
-            tracks["x"] = content[field_x]
-            tracks["y"] = content[field_y]
-            tracks["t"] = content[field_t]
-            tracks["id"] = content[field_id]
+            tracts["x"] = content[field_x]
+            tracts["y"] = content[field_y]
+            tracts["t"] = content[field_t]
+            tracts["id"] = content[field_id]
 
-        self.tracks = tracks
+        self.tracts = tracts
 
     def load_psf(self, filename):
         """Load a Point-Spread Function (PSF) from a file
