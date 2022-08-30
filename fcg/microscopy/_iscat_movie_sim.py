@@ -137,7 +137,7 @@ class MovieAcquisitionSimulator:
         self.ratio = ratio
         self.initialized = False
 
-        if isinstance(tracts, dict):
+        if isinstance(tracts, Tracts):
             self.tracts = tracts
         elif isinstance(tracts, pathlib.Path):
             self.tracts = load_tracts(tracts)
