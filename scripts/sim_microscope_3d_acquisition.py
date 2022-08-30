@@ -30,7 +30,7 @@ class SimulateMicroscope3dAcquisition(fcg.app.App):
             help="Input path to the generated fiber bundles. The standard file extension is " "'.fib'.",
         )
         parser.add_argument(
-            "--out", type=pathlib.Path, default=_DEFAULT_OUT_PATH, help="The output path with the complete filename."
+            "--out", type=pathlib.Path, default=_DEFAULT_OUT_PATH, help="Output movie file"
         )
 
         args = parser.parse_args()
