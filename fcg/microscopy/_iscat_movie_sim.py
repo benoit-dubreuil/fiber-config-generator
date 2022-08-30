@@ -229,7 +229,9 @@ class Microscope3dAcquisitionSimulator:
                 movie[i, ...] = scipy.signal.fftconvolve(movie[i, ...], self.psf_2d, mode="same")
 
             # Unpad
+            # @formatter:off  # TODO : Remove this comment when PyCharm allows a whitespace before ':' in certain cases
             movie = movie[:, px // 2 : px // 2 + self.nx, py // 2 : py // 2 + self.ny]
+            # @formatter:on
 
         # Add Poisson noise
         if self.noise_poisson:
