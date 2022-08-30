@@ -50,9 +50,6 @@ class SimulateMicroscope3dAcquisition(fcg.app.App):
         psf: pathlib.Path = args.psf
         psf = psf.resolve(strict=True)
 
-        fib: pathlib.Path = args.fib
-        fib = fib.resolve(strict=True)
-
         simulator = Microscope3dAcquisitionSimulator(
             args.tracks,
             resolution=args.resolution,
@@ -61,6 +58,17 @@ class SimulateMicroscope3dAcquisition(fcg.app.App):
             background=args.background_intensity,
             noise_poisson=args.poisson_noise,
         )
+
+        print("Loading the tracts ... ", end="")
+        try:
+            fib: pathlib.Path = args.fib
+            fib = fib.resolve(strict=True)
+
+            simulator.load_tracts(fib)
+            print(colorama.Style.BRIGHT + colorama.Fore.GREEN + "succeeded")
+        except Exception as exception:
+            print(colorama.Style.BRIGHT + colorama.Fore.RED + "failed")
+            raise exception
 
         print("Simulating the microscopy movie acquisition ... ", end="")
         try:
