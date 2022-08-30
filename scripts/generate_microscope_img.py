@@ -15,7 +15,7 @@ _DEFAULT_OUT_PATH: typing.Final[pathlib.Path] = pathlib.Path("out.tiff")
 
 class GenerateMicroscopeImg(fcg.app.App):
     """
-    TODO
+    An application to generate 3D microscopy data from pregenerated fiber bundles.
 
     """
 
