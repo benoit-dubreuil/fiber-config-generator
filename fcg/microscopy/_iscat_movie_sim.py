@@ -1,14 +1,13 @@
 import csv
 import json
-import pickle
 import pathlib
+import pickle
 
 import imageio
 import numpy as np
-import tqdm
 import scipy.signal
 import skimage.util
-
+import tqdm
 
 # TODO : Migrate imageio v2 API to v3 API :
 #  See https://imageio.readthedocs.io/en/stable/reference/userapi.html#migrating-to-the-v3-api
