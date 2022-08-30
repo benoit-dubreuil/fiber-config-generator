@@ -7,7 +7,7 @@ import imageio as io
 import numpy as np
 import tqdm
 from scipy.signal import fftconvolve
-from skimage import util as sk_util
+import skimage.util
 
 
 # TODO : Migrate imageio v2 API to v3 API :
@@ -151,7 +151,7 @@ class Microscope3dAcquisitionSimulator:
         # Add Gaussian noise to the background
         if self.noise_gaussian is not None:
             print("Adding gaussian noise to the background")
-            movie = sk_util.random_noise(movie, mode="gaussian", var=self.noise_gaussian)
+            movie = skimage.util.random_noise(movie, mode="gaussian", var=self.noise_gaussian)
 
         # Populate the tracks
         for this_spot in tqdm.tqdm(range(self.n_spots), "Adding tracks"):
@@ -181,7 +181,7 @@ class Microscope3dAcquisitionSimulator:
         # Add Poisson noise
         if self.noise_poisson:
             print("Adding Poisson noise")
-            movie = sk_util.random_noise(movie, mode="poisson", clip=False)
+            movie = skimage.util.random_noise(movie, mode="poisson", clip=False)
             movie[movie < 0] = 0
 
         self.movie = movie
