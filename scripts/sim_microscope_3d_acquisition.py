@@ -54,13 +54,13 @@ class SimulateMicroscope3dAcquisition(fcg.app.App):
         fib = fib.resolve(strict=True)
 
         out: pathlib.Path = args.out
-        out_dir = out.parent
-        out_dir.mkdir(parents=True, exist_ok=True)
+
+
 
         simulator = Microscope3dAcquisitionSimulator()
 
         # TODO
-        print(colorama.Fore.YELLOW + f"TODO : use the psf ({psf}), fib ({fib}) and out_dir ({out_dir})")
+        print(colorama.Fore.YELLOW + f"TODO : use the psf ({psf}), fib ({fib}) and out ({out})")
 
 
 if __name__ == "__main__":
