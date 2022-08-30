@@ -37,7 +37,6 @@ class SimulateMicroscope3dAcquisition(fcg.app.App):
                             help="Reconstruction resolution in px (default=%(default)s)")
         parser.add_argument("-tr", "--time_resolution", default=1, type=float,
                             help="Reconstruction resolution in frame/seconds (default=%(default)s)")
-        parser.add_argument("--square", action="store_true", help="Make the simulated movie square")
         parser.add_argument("--background_intensity", default=0.3, type=float, help="Background intensity %(default)s")
         parser.add_argument("--gaussian_noise_variance", default=0.15, type=typing.Union[float, None],
                             help="Gaussian noise variance (default=%(default)s)")
