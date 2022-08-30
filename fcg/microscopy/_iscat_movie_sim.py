@@ -32,7 +32,7 @@ class Microscope3dAcquisitionSimulator:
 
     .. code-block:: python
 
-        movie_simulator = iscat_movie(tracts)
+        movie_simulator = Microscope3dAcquisitionSimulator(args...)
         movie_simulator.run()
 
     **Authors**:
