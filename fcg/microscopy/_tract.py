@@ -55,7 +55,6 @@ def _load_fib_tracts(filename: pathlib.Path) -> Tracts:
     pass
 
 
-# TODO : Load `.fib`
 def load_tracts(
     filename: pathlib.Path,
     field_x: str = "x",
