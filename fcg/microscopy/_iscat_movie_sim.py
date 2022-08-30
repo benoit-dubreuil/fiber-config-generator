@@ -244,6 +244,10 @@ class Microscope3dAcquisitionSimulator:
         The volume will be converted to single precision float (`numpy.float32`)
         """
         assert hasattr(self, "movie"), "You must first run the simulation"
+
+        out_dir = filename.parent
+        out_dir.mkdir(parents=True, exist_ok=True)
+
         imageio.volwrite(filename, self.movie.astype(np.float32))
 
     def load_tracts(
