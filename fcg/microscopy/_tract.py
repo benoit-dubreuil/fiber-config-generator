@@ -60,6 +60,8 @@ def _load_fib_tracts(filename: pathlib.Path) -> Tracts:
         if not line.lower().startswith("# vtk datafile version"):
             raise ValueError("The supplied `.fib` tract file has the wrong format.")
 
+        fib.readline()  # Line content: "vtk output"
+
     pass
 
 
