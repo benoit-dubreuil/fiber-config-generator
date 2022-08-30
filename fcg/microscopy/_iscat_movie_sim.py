@@ -206,7 +206,7 @@ class Microscope3dAcquisitionSimulator:
                 movie[i, ...] = scipy.signal.fftconvolve(movie[i, ...], self.psf_2d, mode="same")
 
             # Unpad
-            movie = movie[:, px // 2: px // 2 + self.nx, py // 2: py // 2 + self.ny]
+            movie = movie[:, px // 2 : px // 2 + self.nx, py // 2 : py // 2 + self.ny]
 
         # Add Poisson noise
         if self.noise_poisson:
