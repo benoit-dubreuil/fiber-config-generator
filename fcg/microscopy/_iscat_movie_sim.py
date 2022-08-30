@@ -11,12 +11,7 @@ import scipy.signal
 import skimage.util
 import tqdm
 
-
-class Tracts(typing.TypedDict):
-    x: list[float]
-    y: list[float]
-    t: list[float]
-    id: list[int]
+from ._tract import Tracts, load_tracts
 
 
 # TODO : Migrate imageio v2 API to v3 API :
@@ -137,7 +132,7 @@ class MovieAcquisitionSimulator:
         if isinstance(tracts, dict):
             self.tracts = tracts
         elif isinstance(tracts, pathlib.Path):
-            self.load_tracts(tracts)
+            self.tracts = load_tracts(tracts)
         else:
             raise TypeError("The passed argument to the `tracts` parameter is of the wrong type.")
 
@@ -257,71 +252,6 @@ class MovieAcquisitionSimulator:
         out_dir.mkdir(parents=True, exist_ok=True)
 
         imageio.volwrite(filename, self.movie.astype(np.float32))
-
-    def load_tracts(
-        self,
-        filename: pathlib.Path,
-        field_x: str = "x",
-        field_y: str = "y",
-        field_t: str = "t",
-        field_id: str = "id",
-        file_format: str | None = None,
-    ) -> None:  # TODO: Load other tracts format
-        """Load the tracts from a `.csv`, `.json` or `.pcl` file.
-
-        Parameters
-        ----------
-        filename
-            Path to a `.csv`, `.json` or `.pcl` filename
-        field_x
-            Column name in the file corresponding to the tracts X positions.
-        field_y
-            Column name in the file corresponding to the tracts Y positions.
-        field_t
-            Column name in the file corresponding to the tracts time.
-        field_id
-            Column name in the file corresponding to the tracts ID.
-        file_format
-            Specify the file format (available are cvs, json, pcl). If none is given, it will be inferred from the
-            filename
-        """
-        tracts: Tracts = {"x": [], "y": [], "t": [], "id": []}
-        if pathlib.Path(filename).suffix == ".csv" or file_format == "csv":
-            # Load the csv file
-            with open(filename) as csvfile:
-                #  Detect the csv format
-                dialect = csv.Sniffer().sniff(csvfile.read())
-
-                #  Create a reader
-                csvfile.seek(0)
-                reader = csv.reader(csvfile, dialect)
-
-                for i, row in enumerate(reader):
-                    if i == 0:
-                        column_names = row
-                    else:
-                        tracts["x"].append(float(row[column_names.index(field_x)]))
-                        tracts["y"].append(float(row[column_names.index(field_y)]))
-                        tracts["t"].append(float(row[column_names.index(field_t)]))
-                        tracts["id"].append(int(row[column_names.index(field_id)]))
-
-        elif pathlib.Path(filename).suffix == ".json" or file_format == "json":
-            with open(filename) as f:
-                content = json.load(f)
-            tracts["x"] = content[field_x]
-            tracts["y"] = content[field_y]
-            tracts["t"] = content[field_t]
-            tracts["id"] = content[field_id]
-
-        elif pathlib.Path(filename).suffix == ".pcl" or file_format == "pcl":
-            with open(filename, "rb") as f:
-                content = pickle.load(f)
-            tracts["x"] = content[field_x]
-            tracts["y"] = content[field_y]
-            tracts["t"] = content[field_t]
-            tracts["id"] = content[field_id]
-
-        self.tracts = tracts
 
     def load_psf(self, filename: pathlib.Path) -> None:
         """Load a Point-Spread Function (PSF) from a file
