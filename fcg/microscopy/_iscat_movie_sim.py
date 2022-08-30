@@ -126,11 +126,11 @@ class Microscope3dAcquisitionSimulator:
 
         # Prepare the simulator
         self.resolution = resolution
+        self.dt = dt  # Temporal resolution
         self.contrast = contrast  # Contrast between the simulated particle and the background
         self.background = background  # Background intensity
         self.noise_gaussian = noise_gaussian  # Gaussian noise variance
         self.noise_poisson = noise_poisson  # Poisson noise variance
-        self.dt = dt  # Temporal resolution
         self.ratio = ratio
         self.initialized = False
 
