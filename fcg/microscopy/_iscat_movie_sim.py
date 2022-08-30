@@ -84,29 +84,39 @@ class Microscope3dAcquisitionSimulator:
     def __init__(
         self,
         tracts: Tracts | pathlib.Path = None,
-        resolution=1.0,
-        dt=1,
-        contrast=5,
-        background=0.3,
-        noise_gaussian=0.15,
-        noise_poisson=True,
-        ratio="square",
+        resolution: float = 1.0,
+        dt: float = 1,
+        contrast: float = 5,
+        background: float = 0.3,
+        noise_gaussian: float = 0.15,
+        noise_poisson: bool = True,
+        ratio: str = "square",
     ):
         """
 
         Parameters
         ----------
-        tracts :
+        tracts
             Tracts or filename with the extension `.csv`, `.json` or `.pcl`.
             A dictionary or a `.csv`, `.json` or `.pcl` filename containing the set of tracts to simulate. The
             dictionary must include the keys `x`, `y`, `t` and `id`.
-        resolution :
-        dt :
-        contrast :
-        background :
-        noise_gaussian :
-        noise_poisson :
-        ratio :
+        resolution
+            Spatial resolution [m/px]
+        dt
+            Temporal resolution  [frame/sec]
+        contrast
+            Contrast between the simulated particle and the background (Contrast = particle intensity - background
+            intensity)
+        background
+            Background intensity between 0 and 1
+        noise_gaussian
+            Gaussian noise variance
+        noise_poisson
+            If True, Poisson noise will be added.
+        ratio
+            Aspect ratio of the simulated movie. Available ("square"). If none is given, the aspect ratio will be
+            inferred from the tracts position.
+
         """
 
         # Prepare the simulator
