@@ -47,9 +47,6 @@ class SimulateMicroscope3dAcquisition(fcg.app.App):
 
         args = parser.parse_args()
 
-        psf: pathlib.Path = args.psf
-        psf = psf.resolve(strict=True)
-
         simulator = Microscope3dAcquisitionSimulator(
             args.tracks,
             resolution=args.resolution,
@@ -70,6 +67,17 @@ class SimulateMicroscope3dAcquisition(fcg.app.App):
             print(colorama.Style.BRIGHT + colorama.Fore.RED + "failed")
             raise exception
 
+        print("Loading the PSF ... ", end="")
+        try:
+            psf: pathlib.Path = args.psf
+            psf = psf.resolve(strict=True)
+
+            simulator.load_psf(psf)
+            print(colorama.Style.BRIGHT + colorama.Fore.GREEN + "succeeded")
+        except Exception as exception:
+            print(colorama.Style.BRIGHT + colorama.Fore.RED + "failed")
+            raise exception
+
         print("Simulating the microscopy movie acquisition ... ", end="")
         try:
             simulator.run()
@@ -79,9 +87,6 @@ class SimulateMicroscope3dAcquisition(fcg.app.App):
             raise exception
 
         simulator.save(args.out)
-
-        # TODO
-        print(colorama.Fore.YELLOW + f"TODO : use the psf ({psf}), fib ({fib}) and out ({out})")
 
 
 if __name__ == "__main__":
