@@ -6,7 +6,7 @@ import pathlib
 import imageio as io
 import numpy as np
 import tqdm
-from scipy.signal import fftconvolve
+import scipy.signal
 import skimage.util
 
 
@@ -173,7 +173,7 @@ class Microscope3dAcquisitionSimulator:
 
             # Apply convolution
             for i in tqdm.tqdm(range(self.n_frames), desc="Convolving with PSF"):
-                movie[i, ...] = fftconvolve(movie[i, ...], self.psf_2d, mode="same")
+                movie[i, ...] = scipy.signal.fftconvolve(movie[i, ...], self.psf_2d, mode="same")
 
             # Unpad
             movie = movie[:, px // 2: px // 2 + self.nx, py // 2: py // 2 + self.ny]
