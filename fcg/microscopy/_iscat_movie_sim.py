@@ -216,6 +216,7 @@ class MovieAcquisitionSimulator:
                 if (0 <= mx < self.nx) and (0 <= my < self.ny):
                     movie[mt, mx, my] += self.contrast
 
+        # TODO : 2D -> 3D
         # Convolve by PSF if provided
         if hasattr(self, "psf_2d"):
             px, py = self.psf_2d.shape
