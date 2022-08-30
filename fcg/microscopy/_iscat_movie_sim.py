@@ -224,7 +224,7 @@ class Microscope3dAcquisitionSimulator:
                 movie[i, ...] = scipy.signal.fftconvolve(movie[i, ...], self.psf_2d, mode="same")
 
             # Unpad
-            movie = movie[:, px // 2: px // 2 + self.nx, py // 2: py // 2 + self.ny]
+            movie = movie[:, px // 2 : px // 2 + self.nx, py // 2 : py // 2 + self.ny]
 
         # Add Poisson noise
         if self.noise_poisson:
@@ -252,8 +252,13 @@ class Microscope3dAcquisitionSimulator:
         imageio.volwrite(filename, self.movie.astype(np.float32))
 
     def load_tracts(
-        self, filename: pathlib.Path, field_x: str = "x", field_y: str = "y", field_t: str = "t", field_id: str = "id",
-        file_format: str | None = None
+        self,
+        filename: pathlib.Path,
+        field_x: str = "x",
+        field_y: str = "y",
+        field_t: str = "t",
+        field_id: str = "id",
+        file_format: str | None = None,
     ) -> None:  # TODO: Load other tracts format
         """Load the tracts from a `.csv`, `.json` or `.pcl` file.
 
