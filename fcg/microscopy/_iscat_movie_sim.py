@@ -23,7 +23,10 @@ class Tracts(typing.TypedDict):
 #  See https://imageio.readthedocs.io/en/stable/reference/userapi.html#migrating-to-the-v3-api
 
 # Moving Acquisition simulation
-# Adapted from https://github.com/Eggeling-Lab-Microscope-Software/TRAIT2D/blob/c0e78a61f58bd12f5e2b63e99dbc5a130ef740bb/trait2d/simulators.py#L412
+#
+# @formatter:off
+# noqa Adapted from https://github.com/Eggeling-Lab-Microscope-Software/TRAIT2D/blob/c0e78a61f58bd12f5e2b63e99dbc5a130ef740bb/trait2d/simulators.py#L412
+# @formatter:on
 class Microscope3dAcquisitionSimulator:
     """Generate a synthetic iScat_ movie from a set of tracts.
 
