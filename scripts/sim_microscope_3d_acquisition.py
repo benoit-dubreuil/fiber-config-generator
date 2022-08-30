@@ -53,11 +53,15 @@ class SimulateMicroscope3dAcquisition(fcg.app.App):
         fib: pathlib.Path = args.fib
         fib = fib.resolve(strict=True)
 
+        simulator = Microscope3dAcquisitionSimulator(
+            args.tracks,
+            resolution=args.resolution,
+            dt=args.time_resolution,
+            contrast=args.contrast,
+            background=args.background_intensity,
+            noise_poisson=args.poisson_noise,
+        )
 
-
-
-
-        simulator = Microscope3dAcquisitionSimulator()
         simulator.save(args.out)
 
         # TODO
