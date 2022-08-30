@@ -52,11 +52,12 @@ class SimulateMicroscope3dAcquisition(fcg.app.App):
         fib: pathlib.Path = args.fib
         fib = fib.resolve(strict=True)
 
-        out: pathlib.Path = args.out
+
 
 
 
         simulator = Microscope3dAcquisitionSimulator()
+        simulator.save(args.out)
 
         # TODO
         print(colorama.Fore.YELLOW + f"TODO : use the psf ({psf}), fib ({fib}) and out ({out})")
