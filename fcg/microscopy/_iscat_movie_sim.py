@@ -13,10 +13,10 @@ import tqdm
 
 
 class Tracts(typing.TypedDict):
-    x: float
-    y: float
-    t: float
-    id: int
+    x: list[float]
+    y: list[float]
+    t: list[float]
+    id: list[int]
 
 
 # TODO : Migrate imageio v2 API to v3 API :
