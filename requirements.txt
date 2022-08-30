@@ -4,7 +4,7 @@ wheel ~= 0.37.0
 # Shared dependencies between Simulation Generator and LiNumPy
 numpy ~= 1.23.0
 scipy ~= 1.9.0
-nibabel ~= 3.2.0
+nibabel ~= 4.0.0
 
 # Transitive dependecies of Simulation Generator
 # which aren't installed automatically (bug?)
