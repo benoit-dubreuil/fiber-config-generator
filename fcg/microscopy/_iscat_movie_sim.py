@@ -63,8 +63,17 @@ class Microscope3dAcquisitionSimulator:
     # TODO: link tqdm with logging
     # TODO: Create a python wrapper for the ImageJ plugin 'DeconvolutionLab2' to generate PSF in the script?
     # TODO: Background noise with different statistics (similar to transcient particles)
-    def __init__(self, tracks=None, resolution=1.0, dt=1, contrast=5, background=0.3,
-                 noise_gaussian=0.15, noise_poisson=True, ratio="square"):
+    def __init__(
+        self,
+        tracks=None,
+        resolution=1.0,
+        dt=1,
+        contrast=5,
+        background=0.3,
+        noise_gaussian=0.15,
+        noise_poisson=True,
+        ratio="square",
+    ):
         # Prepare the simulator
         self.resolution = resolution
         self.contrast = contrast  # Contrast between the simulated particle and the background
@@ -82,7 +91,7 @@ class Microscope3dAcquisitionSimulator:
 
     def initialize(self):
         """Initialize the simulator"""
-        assert hasattr(self, 'tracks'), "You must load a tracks file or set a tracks dict first"
+        assert hasattr(self, "tracks"), "You must load a tracks file or set a tracks dict first"
         self.n_spots = len(self.tracks["x"])
 
         # Get the number of frames
@@ -145,8 +154,8 @@ class Microscope3dAcquisitionSimulator:
 
         # Populate the tracks
         for this_spot in tqdm.tqdm(range(self.n_spots), "Adding tracks"):
-            mx = int(np.round((self.tracks['x'][this_spot] - self.xmin) / self.resolution))
-            my = int(np.round((self.tracks['y'][this_spot] - self.ymin) / self.resolution))
+            mx = int(np.round((self.tracks["x"][this_spot] - self.xmin) / self.resolution))
+            my = int(np.round((self.tracks["y"][this_spot] - self.ymin) / self.resolution))
             mt = int(self.tracks["t"][this_spot] / self.dt)
             if isinstance(mx, list):
                 for x, y, t in zip(mx, my, mt):
@@ -163,10 +172,10 @@ class Microscope3dAcquisitionSimulator:
 
             # Apply convolution
             for i in tqdm.tqdm(range(self.n_frames), desc="Convolving with PSF"):
-                movie[i, ...] = fftconvolve(movie[i, ...], self.psf_2d, mode='same')
+                movie[i, ...] = fftconvolve(movie[i, ...], self.psf_2d, mode="same")
 
             # Unpad
-            movie = movie[:, px // 2:px // 2 + self.nx, py // 2:py // 2 + self.ny]
+            movie = movie[:, px // 2 : px // 2 + self.nx, py // 2 : py // 2 + self.ny]
 
         # Add Poisson noise
         if self.noise_poisson:
@@ -190,8 +199,9 @@ class Microscope3dAcquisitionSimulator:
         assert hasattr(self, "movie"), "You must first run the simulation"
         io.volwrite(filename, self.movie.astype(np.float32))
 
-    def load_tracks(self, filename, field_x="x", field_y="y", field_t="t", field_id="id",
-                    file_format=None):  # TODO: Load other tracks format
+    def load_tracks(
+        self, filename, field_x="x", field_y="y", field_t="t", field_id="id", file_format=None
+    ):  # TODO: Load other tracks format
         """Load the tracks from a csv file.
 
         Parameters
