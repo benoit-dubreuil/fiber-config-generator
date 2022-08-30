@@ -15,6 +15,8 @@ import imageio as io
 from pathlib import Path
 
 
+# TODO : Migrate imageio v2 API to v3 API
+
 # Moving Acquisition simulation
 class Microscope3dAcquisitionSimulator:
     """Generate a synthetic [iScat](https://en.wikipedia.org/wiki/Interferometric_scattering_microscopy) movie from a
