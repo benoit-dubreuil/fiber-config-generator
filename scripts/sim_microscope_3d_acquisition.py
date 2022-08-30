@@ -7,7 +7,7 @@ import typing
 import colorama
 
 import fcg.app
-from fcg.microscopy import MovieAcquisitionSimulator, load_tracts
+from fcg.microscopy import MovieAcquisitionSimulator, load_tracts, load_psf
 
 _DEFAULT_OUT_PATH: typing.Final[pathlib.Path] = pathlib.Path("out.tiff")
 
@@ -45,7 +45,7 @@ class SimulateMicroscope3dAcquisition(fcg.app.App):
             "--contrast",
             default=5,
             type=float,
-            help=" Contrast between the simulated particle and the background (Contrast = particle "
+            help="Contrast between the simulated particle and the background (Contrast = particle "
             "intensity - background intensity) %(default)s",
         )
         parser.add_argument("--background_intensity", default=0.3, type=float, help="Background intensity %(default)s")
@@ -69,8 +69,19 @@ class SimulateMicroscope3dAcquisition(fcg.app.App):
             print(colorama.Style.BRIGHT + colorama.Fore.RED + "failed")
             raise exception
 
+        print("Loading the PSF ... ", end="")
+        try:
+            psf_file: pathlib.Path = args.psf
+            psf_file = psf_file.resolve(strict=True)
+            psf = load_psf(psf_file)
+            print(colorama.Style.BRIGHT + colorama.Fore.GREEN + "succeeded")
+        except Exception as exception:
+            print(colorama.Style.BRIGHT + colorama.Fore.RED + "failed")
+            raise exception
+
         simulator = MovieAcquisitionSimulator(
             tracts=tracts,
+            psf_2d=psf,
             resolution=args.resolution,
             dt=args.time_resolution,
             contrast=args.contrast,
@@ -78,17 +89,6 @@ class SimulateMicroscope3dAcquisition(fcg.app.App):
             noise_gaussian=args.gaussian_noise_variance,
             noise_poisson=args.poisson_noise,
         )
-
-        print("Loading the PSF ... ", end="")
-        try:
-            psf: pathlib.Path = args.psf
-            psf = psf.resolve(strict=True)
-
-            simulator.load_psf(psf)
-            print(colorama.Style.BRIGHT + colorama.Fore.GREEN + "succeeded")
-        except Exception as exception:
-            print(colorama.Style.BRIGHT + colorama.Fore.RED + "failed")
-            raise exception
 
         print("Simulating the microscopy movie acquisition ... ", end="")
         try:
