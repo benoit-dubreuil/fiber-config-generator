@@ -16,7 +16,7 @@ from pathlib import Path
 
 
 # Moving Acquisition simulation
-class movie_simulator(object):
+class movie_simulator:
     """Generate a syntetic iscat movie from a set of tracks.
 
     **Syntax**:
