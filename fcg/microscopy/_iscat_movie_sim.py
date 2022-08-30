@@ -298,6 +298,7 @@ class Microscope3dAcquisitionSimulator:
                         tracts["y"].append(float(row[column_names.index(field_y)]))
                         tracts["t"].append(float(row[column_names.index(field_t)]))
                         tracts["id"].append(int(row[column_names.index(field_id)]))
+
         elif pathlib.Path(filename).suffix == ".json" or file_format == "json":
             with open(filename) as f:
                 content = json.load(f)
