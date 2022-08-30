@@ -180,12 +180,14 @@ class Microscope3dAcquisitionSimulator:
         """Return the estimated movie size in MB"""
         return self.nx * self.ny * self.n_frames * 8 / 1000 ** 2  # Using double precision float (float64)
 
-    def run(self, reinitialize=False):
+    def run(self, reinitialize: bool = False) -> None:
         """Run the movie simulation
+
         Parameters
         ----------
-        reinitialize: bool
+        reinitialize
             If `True`, the simulator will be reinitialized.
+
         """
         if reinitialize or not self.initialized:
             self.initialize()
