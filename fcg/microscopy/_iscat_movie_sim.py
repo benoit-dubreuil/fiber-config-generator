@@ -33,9 +33,9 @@ class Microscope3dAcquisitionSimulator:
 
     Parameters
     ----------
-    tracts : dict or CSV filename
-        A dictionary or a CSV filename containing the set of tracts to simulate. The dictionary must include the keys
-        `x`, `y`, `t` and `id`
+    tracts : dict or filename with the extension `.csv`, `.json` or `.pcl`
+        A dictionary or a `.csv`, `.json` or `.pcl` filename containing the set of tracts to simulate. The dictionary 
+        must include the keys `x`, `y`, `t` and `id`
     resolution : float
         Spatial resolution [m/px]
     dt : float
@@ -175,7 +175,7 @@ class Microscope3dAcquisitionSimulator:
                 movie[i, ...] = scipy.signal.fftconvolve(movie[i, ...], self.psf_2d, mode="same")
 
             # Unpad
-            movie = movie[:, px // 2 : px // 2 + self.nx, py // 2 : py // 2 + self.ny]
+            movie = movie[:, px // 2: px // 2 + self.nx, py // 2: py // 2 + self.ny]
 
         # Add Poisson noise
         if self.noise_poisson:
@@ -202,20 +202,20 @@ class Microscope3dAcquisitionSimulator:
     def load_tracts(
         self, filename, field_x="x", field_y="y", field_t="t", field_id="id", file_format=None
     ):  # TODO: Load other tracts format
-        """Load the tracts from a csv file.
+        """Load the tracts from a `.csv`, `.json` or `.pcl` file.
 
         Parameters
         ----------
         filename : str
-            Path to a csv filename
+            Path to a `.csv`, `.json` or `.pcl` filename
         field_x : str
-            Column name in the CSV corresponding to the tracts X positions.
+            Column name in the file corresponding to the tracts X positions.
         field_y : str
-            Column name in the CSV corresponding to the tracts Y positions.
+            Column name in the file corresponding to the tracts Y positions.
         field_t : str
-            Column name in the CSV corresponding to the tracts time.
+            Column name in the file corresponding to the tracts time.
         field_id : str
-            Column name in the CSV corresponding to the tracts ID.
+            Column name in the file corresponding to the tracts ID.
         file_format : str
             Specify the file format (available are cvs, json, pcl). If none is given, it will be inferred from the
             filename
