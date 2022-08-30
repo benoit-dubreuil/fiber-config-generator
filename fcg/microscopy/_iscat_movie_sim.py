@@ -15,7 +15,7 @@ import tqdm
 class Tracts(typing.TypedDict):
     x: float
     y: float
-    z: float
+    t: float
     id: int
 
 
@@ -279,7 +279,7 @@ class Microscope3dAcquisitionSimulator:
             Specify the file format (available are cvs, json, pcl). If none is given, it will be inferred from the
             filename
         """
-        tracts = {"x": [], "y": [], "t": [], "id": []}
+        tracts: Tracts = {"x": [], "y": [], "t": [], "id": []}
         if pathlib.Path(filename).suffix == ".csv" or file_format == "csv":
             # Load the csv file
             with open(filename) as csvfile:
