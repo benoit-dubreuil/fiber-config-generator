@@ -62,6 +62,14 @@ class SimulateMicroscope3dAcquisition(fcg.app.App):
             noise_poisson=args.poisson_noise,
         )
 
+        print("Simulating the microscopy movie acquisition ... ", end="")
+        try:
+            simulator.run()
+            print(colorama.Style.BRIGHT + colorama.Fore.GREEN + "succeeded")
+        except Exception as exception:
+            print(colorama.Style.BRIGHT + colorama.Fore.RED + "failed")
+            raise exception
+
         simulator.save(args.out)
 
         # TODO
