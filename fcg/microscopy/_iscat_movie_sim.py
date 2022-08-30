@@ -43,6 +43,8 @@ class MovieAcquisitionSimulator:
     ----------
     tracts
         Tracts to simulate.
+    psf_2d
+        Point-Spread Function (PSF)
     resolution
         Spatial resolution [m/px]
     dt
@@ -65,6 +67,7 @@ class MovieAcquisitionSimulator:
     """
 
     tracts: Tracts
+    psf_2d: npt.NDArray | None
     resolution: float
     dt: float
     contrast: float
@@ -73,6 +76,7 @@ class MovieAcquisitionSimulator:
     noise_poisson: bool
     ratio: str
 
+    # TODO : Specialize PSF NDArray type
     # Old TODOs
     # - Add PSF & Object shape inputs (instead of only psf)
     # - Add z-phase jitter for the PSF instead of using a fixed plane
@@ -84,6 +88,7 @@ class MovieAcquisitionSimulator:
     def __init__(
         self,
         tracts: Tracts | pathlib.Path = None,
+        psf_2d: npt.NDArray | None = None,
         resolution: float = 1.0,
         dt: float = 1,
         contrast: float = 5,
@@ -100,6 +105,8 @@ class MovieAcquisitionSimulator:
             Tracts or filename with the extension `.csv`, `.json` or `.pcl`.
             A dictionary or a `.csv`, `.json` or `.pcl` filename containing the set of tracts to simulate. The
             dictionary must include the keys `x`, `y`, `t` and `id`.
+        psf_2d
+            Point-Spread Function (PSF)
         resolution
             Spatial resolution [m/px]
         dt
@@ -120,6 +127,7 @@ class MovieAcquisitionSimulator:
         """
 
         # Prepare the simulator
+        self.psf_2d = psf_2d
         self.resolution = resolution
         self.dt = dt  # Temporal resolution
         self.contrast = contrast  # Contrast between the simulated particle and the background
@@ -218,7 +226,7 @@ class MovieAcquisitionSimulator:
 
         # TODO : 2D -> 3D
         # Convolve by PSF if provided
-        if hasattr(self, "psf_2d"):
+        if self.psf_2d is not None:
             px, py = self.psf_2d.shape
             movie = np.pad(movie, ((0, 0), (px // 2, px // 2), (py // 2, py // 2)), mode="reflect")
 
@@ -255,24 +263,3 @@ class MovieAcquisitionSimulator:
         out_dir.mkdir(parents=True, exist_ok=True)
 
         imageio.volwrite(filename, self.movie.astype(np.float32))
-
-    def load_psf(self, filename: pathlib.Path) -> None:
-        """Load a Point-Spread Function (PSF) from a file
-
-        Parameters
-        ----------
-        filename
-            Input volume filename. Must be a volume format supported by `imageio.volwrite`
-
-        Note
-        ----
-        Only the middle slice along the first dimension will be used
-        .. code-block:: python
-            psf = psf[int(psf.shape[0]/2), ...]
-
-        """
-        psf = imageio.volread(filename).squeeze()
-        psf_2d = psf[int(psf.shape[0] / 2), ...].squeeze()
-        psf_2d = psf_2d / psf_2d.sum()
-
-        self.psf_2d = psf_2d

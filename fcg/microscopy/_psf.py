@@ -5,7 +5,7 @@ import numpy as np
 import numpy.typing as npt
 
 
-# TODO : Specialize return type
+# TODO : Specialize PSF NDArray type
 # TODO : Migrate imageio v2 API to v3 API :
 #  See https://imageio.readthedocs.io/en/stable/reference/userapi.html#migrating-to-the-v3-api
 # TODO : Load PSF 3D
