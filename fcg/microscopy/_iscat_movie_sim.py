@@ -12,6 +12,7 @@ import skimage.util
 import tqdm
 
 from ._tract import Tracts, load_tracts
+from ._psf import load_psf
 
 
 # TODO : Migrate imageio v2 API to v3 API :
@@ -88,7 +89,7 @@ class MovieAcquisitionSimulator:
     def __init__(
         self,
         tracts: Tracts | pathlib.Path = None,
-        psf_2d: npt.NDArray | None = None,
+        psf_2d: npt.NDArray | pathlib.Path | None = None,
         resolution: float = 1.0,
         dt: float = 1,
         contrast: float = 5,
@@ -106,7 +107,8 @@ class MovieAcquisitionSimulator:
             A dictionary or a `.csv`, `.json` or `.pcl` filename containing the set of tracts to simulate. The
             dictionary must include the keys `x`, `y`, `t` and `id`.
         psf_2d
-            Point-Spread Function (PSF)
+            Point-Spread Function (PSF) or a volume filename. If it is a filename, it must be a volume format
+            supported by `imageio.volwrite`. Example : `.tif` and `.tiff`.
         resolution
             Spatial resolution [m/px]
         dt
@@ -127,7 +129,6 @@ class MovieAcquisitionSimulator:
         """
 
         # Prepare the simulator
-        self.psf_2d = psf_2d
         self.resolution = resolution
         self.dt = dt  # Temporal resolution
         self.contrast = contrast  # Contrast between the simulated particle and the background
@@ -145,6 +146,13 @@ class MovieAcquisitionSimulator:
             self.tracts = Tracts(x=[], y=[], t=[], id=[])
         else:
             raise TypeError("The passed argument to the `tracts` parameter is of the wrong type.")
+
+        if isinstance(psf_2d, np.ndarray) or psf_2d is None:
+            self.psf_2d = psf_2d
+        elif isinstance(psf_2d, pathlib.Path):
+            self.psf_2d = load_psf(psf_2d)
+        else:
+            raise TypeError("The passed argument to the `psf_2d` parameter is of the wrong type.")
 
     def _initialize(self) -> None:
         """Initialize the simulator"""
