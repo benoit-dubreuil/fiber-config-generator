@@ -15,7 +15,8 @@ import imageio as io
 from pathlib import Path
 
 
-# TODO : Migrate imageio v2 API to v3 API
+# TODO : Migrate imageio v2 API to v3 API :
+#  See https://imageio.readthedocs.io/en/stable/reference/userapi.html#migrating-to-the-v3-api
 
 # Moving Acquisition simulation
 class Microscope3dAcquisitionSimulator:
