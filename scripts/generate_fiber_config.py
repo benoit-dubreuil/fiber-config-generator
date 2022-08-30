@@ -14,7 +14,7 @@ import fcg.voxsim.phantom as _phantom
 
 class GenerateStraightBundle(fcg.app.FiberApp):
     """
-    TODO
+    An application to generate white matter fiber bundles configurations.
 
     """
 
