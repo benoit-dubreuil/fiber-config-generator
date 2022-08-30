@@ -13,6 +13,7 @@ import tqdm
 
 from ._tract import Tracts, load_tracts
 
+
 # TODO : Migrate imageio v2 API to v3 API :
 #  See https://imageio.readthedocs.io/en/stable/reference/userapi.html#migrating-to-the-v3-api
 
@@ -41,11 +42,11 @@ class MovieAcquisitionSimulator:
     Parameters
     ----------
     tracts
-        The tracts to simulate.
+        Tracts to simulate.
     resolution
         Spatial resolution [m/px]
     dt
-        Temporal resolution  [frame/sec]
+        Temporal resolution [frame/sec]
     contrast
         Contrast between the simulated particle and the background (Contrast = particle intensity - background
         intensity)
