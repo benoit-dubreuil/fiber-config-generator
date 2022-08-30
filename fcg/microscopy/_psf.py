@@ -26,8 +26,11 @@ def load_psf(filename: pathlib.Path) -> npt.NDArray:
         psf = psf[int(psf.shape[0]/2), ...]
 
     """
-    psf = imageio.volread(filename).squeeze()
-    psf_2d = psf[int(psf.shape[0] / 2), ...].squeeze()
+    psf: npt.NDArray = imageio.volread(filename)
+    psf = np.squeeze(psf)
+
+    psf_2d = psf[int(psf.shape[0] / 2), ...]
+    psf_2d = np.squeeze(psf_2d)
     psf_2d = psf_2d / psf_2d.sum()
 
     return psf_2d
