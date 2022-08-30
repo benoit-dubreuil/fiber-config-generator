@@ -30,19 +30,31 @@ class SimulateMicroscope3dAcquisition(fcg.app.App):
             type=pathlib.Path,
             help="Input path to the generated fiber bundles. The standard file extension is " "'.fib'.",
         )
+        parser.add_argument("--out", type=pathlib.Path, default=_DEFAULT_OUT_PATH, help="Output movie file")
         parser.add_argument(
-            "--out", type=pathlib.Path, default=_DEFAULT_OUT_PATH, help="Output movie file"
+            "-r", "--resolution", default=1, type=float, help="Reconstruction resolution in px (default=%(default)s)"
         )
-        parser.add_argument("-r", "--resolution", default=1, type=float,
-                            help="Reconstruction resolution in px (default=%(default)s)")
-        parser.add_argument("-tr", "--time_resolution", default=1, type=float,
-                            help="Reconstruction resolution in frame/seconds (default=%(default)s)")
-        parser.add_argument("--contrast", default=5, type=float,
-                            help=" Contrast between the simulated particle and the background (Contrast = particle "
-                                 "intensity - background intensity) %(default)s")
+        parser.add_argument(
+            "-tr",
+            "--time_resolution",
+            default=1,
+            type=float,
+            help="Reconstruction resolution in frame/seconds (default=%(default)s)",
+        )
+        parser.add_argument(
+            "--contrast",
+            default=5,
+            type=float,
+            help=" Contrast between the simulated particle and the background (Contrast = particle "
+            "intensity - background intensity) %(default)s",
+        )
         parser.add_argument("--background_intensity", default=0.3, type=float, help="Background intensity %(default)s")
-        parser.add_argument("--gaussian_noise_variance", default=0.15, type=typing.Union[float, None],
-                            help="Gaussian noise variance (default=%(default)s)")
+        parser.add_argument(
+            "--gaussian_noise_variance",
+            default=0.15,
+            type=typing.Union[float, None],
+            help="Gaussian noise variance (default=%(default)s)",
+        )
         parser.add_argument("--poisson_noise", action="store_true", help="Add poisson noise after PSF convolution")
 
         args = parser.parse_args()
