@@ -27,7 +27,7 @@ class FiberApp(App, metaclass=abc.ABCMeta):
         self._preceding_sigterm_handler = None
         self._preceding_sigint_handler = None
 
-    def _pre_start(self, **kwargs: dict[str, typing.Any]) -> None:
+    def _pre_start(self, **kwargs) -> None:
         assert self._preceding_sigterm_handler is None
         assert self._preceding_sigint_handler is None
 
@@ -36,7 +36,7 @@ class FiberApp(App, metaclass=abc.ABCMeta):
         self._preceding_sigterm_handler = signal.signal(signal.SIGTERM, self._exit_signal_handler())
         self._preceding_sigint_handler = signal.signal(signal.SIGINT, self._exit_signal_handler())
 
-    def _shutting_down(self, **kwargs: dict[str, typing.Any]) -> dict[str, typing.Any]:
+    def _shutting_down(self, **kwargs) -> dict[str, typing.Any]:
         signal.signal(signal.SIGTERM, self._preceding_sigterm_handler)
         self._preceding_sigterm_handler = None
 
@@ -45,7 +45,7 @@ class FiberApp(App, metaclass=abc.ABCMeta):
 
         return super()._shutting_down(**kwargs)
 
-    def _post_shut_down(self, signum: _SignalNumber | None = None, **kwargs: dict[str, typing.Any]) -> None:
+    def _post_shut_down(self, signum: _SignalNumber | None = None, **kwargs) -> None:
         super()._post_shut_down(**kwargs)
 
         if signum is not None:

@@ -29,12 +29,12 @@ class App(metaclass=abc.ABCMeta):
         self._is_running = False
         self._has_correctly_shutdown = True
 
-    def _pre_start(self, **kwargs: dict[str, typing.Any]) -> None:
+    def _pre_start(self, **kwargs) -> None:
         # pylint: disable=unused-argument
         colorama.init(autoreset=True)
 
     @typing.final
-    def start(self, **kwargs: dict[str, typing.Any]) -> None:
+    def start(self, **kwargs) -> None:
         """Starts the application.
 
         This method also sets up the signal handlers.
@@ -63,12 +63,12 @@ class App(metaclass=abc.ABCMeta):
     def _exec_logic(self) -> None:
         pass
 
-    def _shutting_down(self, **kwargs: dict[str, typing.Any]) -> dict[str, typing.Any]:
+    def _shutting_down(self, **kwargs) -> dict[str, typing.Any]:
         colorama.deinit()
         return kwargs
 
     @typing.final
-    def _shut_down(self, **kwargs: dict[str, typing.Any]) -> None:
+    def _shut_down(self, **kwargs) -> None:
         """Shuts down the application.
 
         This method also unsets the signal handlers. It does not actually shut down the application : it performs the
@@ -101,7 +101,7 @@ class App(metaclass=abc.ABCMeta):
 
         self._post_shut_down(**kwargs)
 
-    def _post_shut_down(self, **kwargs: dict[str, typing.Any]) -> None:
+    def _post_shut_down(self, **kwargs) -> None:
         pass
 
     @typing.final
