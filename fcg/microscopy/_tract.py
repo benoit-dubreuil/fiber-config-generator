@@ -4,6 +4,8 @@ import pathlib
 import pickle
 import typing
 
+_FIB_FILE_ENCODING: typing.Final[str] = "ascii"
+
 
 class Tracts(typing.TypedDict):
     x: list[float]
@@ -54,8 +56,9 @@ def _load_fib_tracts(filename: pathlib.Path) -> Tracts:
     """
     with open(filename, "rb") as fib:
         line = fib.readline()
+        decoded_line = line.decode(_FIB_FILE_ENCODING)
 
-        if not line.lower().startswith(b"# vtk datafile version"):
+        if not decoded_line.lower().startswith("# vtk datafile version"):
             raise ValueError("The supplied `.fib` tract file has the wrong format.")
 
     pass
