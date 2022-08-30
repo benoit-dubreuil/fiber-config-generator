@@ -273,15 +273,15 @@ class Microscope3dAcquisitionSimulator:
         ----------
         filename
             Path to a `.csv`, `.json` or `.pcl` filename
-        field_x : str
+        field_x
             Column name in the file corresponding to the tracts X positions.
-        field_y : str
+        field_y
             Column name in the file corresponding to the tracts Y positions.
-        field_t : str
+        field_t
             Column name in the file corresponding to the tracts time.
-        field_id : str
+        field_id
             Column name in the file corresponding to the tracts ID.
-        file_format : str
+        file_format
             Specify the file format (available are cvs, json, pcl). If none is given, it will be inferred from the
             filename
         """
