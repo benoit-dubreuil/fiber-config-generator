@@ -22,12 +22,12 @@ class SimulateMicroscope3dAcquisition(fcg.app.App):
         parser.add_argument(
             "psf",
             type=pathlib.Path,
-            help='The input path to the PSF. Ex: "./sim_microscope_3d_acquisition.py psf.tif"',
+            help='Input path to the PSF. Ex: "./sim_microscope_3d_acquisition.py psf.tif"',
         )
         parser.add_argument(
             "fib",
             type=pathlib.Path,
-            help="The input path to the generated fiber bundles. The standard file extension is " "'.fib'.",
+            help="Input path to the generated fiber bundles. The standard file extension is " "'.fib'.",
         )
         parser.add_argument(
             "--out", type=pathlib.Path, default=_DEFAULT_OUT_PATH, help="The output path with the complete filename."
