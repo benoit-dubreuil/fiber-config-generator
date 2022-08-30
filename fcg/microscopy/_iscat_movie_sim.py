@@ -233,7 +233,6 @@ class Microscope3dAcquisitionSimulator:
             movie[movie < 0] = 0
 
         self.movie = movie
-        print("Movie generation is done.")
 
     def save(self, filename: pathlib.Path) -> None:
         """Save the simulated movie.
