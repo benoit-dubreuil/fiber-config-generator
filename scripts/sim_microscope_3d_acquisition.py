@@ -7,6 +7,7 @@ import typing
 import colorama
 
 import fcg.app
+from fcg.microscopy import Microscope3dAcquisitionSimulator
 
 _DEFAULT_OUT_PATH: typing.Final[pathlib.Path] = pathlib.Path("out.tiff")
 
@@ -55,7 +56,8 @@ class SimulateMicroscope3dAcquisition(fcg.app.App):
         out: pathlib.Path = args.out
         out_dir = out.parent
         out_dir.mkdir(parents=True, exist_ok=True)
-        out_dir = out_dir.resolve(strict=True)
+
+        simulator = Microscope3dAcquisitionSimulator()
 
         # TODO
         print(colorama.Fore.YELLOW + f"TODO : use the psf ({psf}), fib ({fib}) and out_dir ({out_dir})")
