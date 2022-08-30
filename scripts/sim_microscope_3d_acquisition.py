@@ -11,7 +11,7 @@ import fcg.app
 _DEFAULT_OUT_PATH: typing.Final[pathlib.Path] = pathlib.Path("out.tiff")
 
 
-class Microscope3dAcquisitionSimulator(fcg.app.App):
+class SimulateMicroscope3dAcquisition(fcg.app.App):
     """
     An application to simulate microscopy movie acquisition (3D) from pregenerated fiber bundles.
 
@@ -51,5 +51,5 @@ class Microscope3dAcquisitionSimulator(fcg.app.App):
 
 
 if __name__ == "__main__":
-    app = Microscope3dAcquisitionSimulator()
+    app = SimulateMicroscope3dAcquisition()
     app.start()
