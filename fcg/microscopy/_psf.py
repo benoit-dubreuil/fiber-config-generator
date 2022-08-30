@@ -10,12 +10,12 @@ import numpy.typing as npt
 #  See https://imageio.readthedocs.io/en/stable/reference/userapi.html#migrating-to-the-v3-api
 # TODO : Load PSF 3D
 def load_psf(filename: pathlib.Path) -> npt.NDArray:
-    """Load a Point-Spread Function (PSF) from a file
+    """Load a Point-Spread Function (PSF) from a file.
 
     Parameters
     ----------
     filename
-        Input volume filename. Must be a volume format supported by `imageio.volwrite`
+        Input volume filename. Must be a volume format supported by `imageio.volwrite`. Example : `.tif` and `.tiff`.
 
     Note
     ----
