@@ -25,8 +25,7 @@ class Tracts(typing.TypedDict):
 # Moving Acquisition simulation
 # Adapted from https://github.com/Eggeling-Lab-Microscope-Software/TRAIT2D/blob/c0e78a61f58bd12f5e2b63e99dbc5a130ef740bb/trait2d/simulators.py#L412
 class Microscope3dAcquisitionSimulator:
-    """Generate a synthetic [iScat](https://en.wikipedia.org/wiki/Interferometric_scattering_microscopy) movie from a
-    set of tracts.
+    """Generate a synthetic iScat_ movie from a set of tracts.
 
     **Syntax**:
 
@@ -62,6 +61,8 @@ class Microscope3dAcquisitionSimulator:
     ratio
         Aspect ratio of the simulated movie. Available ("square"). If none is given,
         the aspect ratio will be inferred from the tracts position.
+
+    .. _iScat: https://en.wikipedia.org/wiki/Interferometric_scattering_microscopy
 
     """
 
