@@ -44,9 +44,8 @@ class Microscope3dAcquisitionSimulator:
 
     Parameters
     ----------
-    tracts : dict or filename with the extension `.csv`, `.json` or `.pcl`
-        A dictionary or a `.csv`, `.json` or `.pcl` filename containing the set of tracts to simulate. The dictionary 
-        must include the keys `x`, `y`, `t` and `id`
+    tracts
+        The tracts to simulate.
     resolution : float
         Spatial resolution [m/px]
     dt : float
@@ -87,6 +86,23 @@ class Microscope3dAcquisitionSimulator:
         noise_poisson=True,
         ratio="square",
     ):
+        """
+
+        Parameters
+        ----------
+        tracts :
+            Tracts or filename with the extension `.csv`, `.json` or `.pcl`.
+            A dictionary or a `.csv`, `.json` or `.pcl` filename containing the set of tracts to simulate. The
+            dictionary must include the keys `x`, `y`, `t` and `id`.
+        resolution :
+        dt :
+        contrast :
+        background :
+        noise_gaussian :
+        noise_poisson :
+        ratio :
+        """
+
         # Prepare the simulator
         self.resolution = resolution
         self.contrast = contrast  # Contrast between the simulated particle and the background
@@ -215,13 +231,13 @@ class Microscope3dAcquisitionSimulator:
         imageio.volwrite(filename, self.movie.astype(np.float32))
 
     def load_tracts(
-        self, filename, field_x="x", field_y="y", field_t="t", field_id="id", file_format=None
+        self, filename: pathlib.Path, field_x="x", field_y="y", field_t="t", field_id="id", file_format=None
     ):  # TODO: Load other tracts format
         """Load the tracts from a `.csv`, `.json` or `.pcl` file.
 
         Parameters
         ----------
-        filename : str
+        filename
             Path to a `.csv`, `.json` or `.pcl` filename
         field_x : str
             Column name in the file corresponding to the tracts X positions.
