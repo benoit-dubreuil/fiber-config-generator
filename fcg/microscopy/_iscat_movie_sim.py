@@ -176,7 +176,7 @@ class Microscope3dAcquisitionSimulator:
 
         print(f"Movie shape will be: ({self.nx}, {self.ny}) with ({self.n_frames}) frames")
 
-    def get_estimated_size(self):
+    def get_estimated_size(self) -> int:
         """Return the estimated movie size in MB"""
         return int(self.nx * self.ny * self.n_frames * 8 / 1000 ** 2)  # Using double precision float (float64)
 
