@@ -16,7 +16,7 @@ from pathlib import Path
 
 
 # Moving Acquisition simulation
-class movie_simulator:
+class Microscope3dAcquisitionSimulator:
     """Generate a synthetic iScat movie from a set of tracks.
 
     **Syntax**:
