@@ -45,8 +45,8 @@ class SimulateMicroscope3dAcquisition(fcg.app.App):
             "--contrast",
             default=5,
             type=float,
-            help=" Contrast between the simulated particle and the background (Contrast = particle "
-            "intensity - background intensity) %(default)s",
+            help="Contrast between the simulated particle and the background (Contrast = particle "
+                 "intensity - background intensity) %(default)s",
         )
         parser.add_argument("--background_intensity", default=0.3, type=float, help="Background intensity %(default)s")
         parser.add_argument(
