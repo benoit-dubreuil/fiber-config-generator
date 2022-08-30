@@ -39,7 +39,6 @@ class SimulateMicroscope3dAcquisition(fcg.app.App):
                             help="Reconstruction resolution in frame/seconds (default=%(default)s)")
         parser.add_argument("--square", action="store_true", help="Make the simulated movie square")
         parser.add_argument("--background_intensity", default=0.1, type=float, help="Background intensity %(default)s")
-        parser.add_argument("--gaussian_noise", action="store_true", help="Add gaussian noise before PSF convolution")
         parser.add_argument("--gaussian_noise_variance", default=1e-3, type=float,
                             help="Gaussian noise variance (default=%(default)s)")
         parser.add_argument("--poisson_noise", action="store_true", help="Add poisson noise after PSF convolution")
