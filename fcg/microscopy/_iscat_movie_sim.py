@@ -27,14 +27,14 @@ class Tracts(typing.TypedDict):
 # @formatter:off
 # noqa Adapted from https://github.com/Eggeling-Lab-Microscope-Software/TRAIT2D/blob/c0e78a61f58bd12f5e2b63e99dbc5a130ef740bb/trait2d/simulators.py#L412
 # @formatter:on
-class Microscope3dAcquisitionSimulator:
+class MovieAcquisitionSimulator:
     """Generate a synthetic iScat_ movie from a set of tracts.
 
     **Syntax**:
 
     .. code-block:: python
 
-        movie_simulator = Microscope3dAcquisitionSimulator(args...)
+        movie_simulator = MovieAcquisitionSimulator(args...)
         movie_simulator.run()
 
     **Authors**:

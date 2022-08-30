@@ -7,7 +7,7 @@ import typing
 import colorama
 
 import fcg.app
-from fcg.microscopy import Microscope3dAcquisitionSimulator
+from fcg.microscopy import MovieAcquisitionSimulator
 
 _DEFAULT_OUT_PATH: typing.Final[pathlib.Path] = pathlib.Path("out.tiff")
 
@@ -59,7 +59,7 @@ class SimulateMicroscope3dAcquisition(fcg.app.App):
 
         args = parser.parse_args()
 
-        simulator = Microscope3dAcquisitionSimulator(
+        simulator = MovieAcquisitionSimulator(
             args.tracks,
             resolution=args.resolution,
             dt=args.time_resolution,
