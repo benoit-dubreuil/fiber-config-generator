@@ -8,8 +8,6 @@ import colorama
 
 import fcg.app
 
-_DEFAULT_PSF_PATH: typing.Final[pathlib.Path] = pathlib.Path("psf.tif")
-_DEFAULT_FIB_PATH: typing.Final[pathlib.Path] = pathlib.Path("out/phantom/fcg_phantom_merged_bundles.fib")
 _DEFAULT_OUT_PATH: typing.Final[pathlib.Path] = pathlib.Path("out.tiff")
 
 
@@ -24,13 +22,11 @@ class Microscope3dAcquisitionSimulator(fcg.app.App):
         parser.add_argument(
             "psf",
             type=pathlib.Path,
-            default=_DEFAULT_PSF_PATH,
             help='The input path to the PSF. Ex: "./sim_microscope_3d_acquisition.py psf.tif"',
         )
         parser.add_argument(
             "fib",
             type=pathlib.Path,
-            default=_DEFAULT_PSF_PATH,
             help="The input path to the generated fiber bundles. The standard file extension is " "'.fib'.",
         )
         parser.add_argument(
