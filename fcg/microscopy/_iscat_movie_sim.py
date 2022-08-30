@@ -132,6 +132,8 @@ class MovieAcquisitionSimulator:
             self.tracts = tracts
         elif isinstance(tracts, pathlib.Path):
             self.tracts = load_tracts(tracts)
+        elif tracts is None:
+            self.tracts = Tracts(x=[], y=[], t=[], id=[])
         else:
             raise TypeError("The passed argument to the `tracts` parameter is of the wrong type.")
 
