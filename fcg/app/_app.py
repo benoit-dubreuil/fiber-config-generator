@@ -1,14 +1,7 @@
 import abc
-import signal
-import sys
-import types
 import typing
 
 import colorama
-
-_SignalNumber: typing.TypeAlias = int
-_SignalHandlerFunc: typing.TypeAlias = typing.Callable[[_SignalNumber, types.FrameType | None], typing.Any]
-_SignalHandler: typing.TypeAlias = typing.Union[_SignalHandlerFunc, _SignalNumber, signal.Handlers, None]
 
 
 class AppLifeCycleException(RuntimeError):
@@ -19,21 +12,29 @@ class AppLifeCycleException(RuntimeError):
 
 
 class App(metaclass=abc.ABCMeta):
-    """Generic Fiber Config Generator application for quickly coding executable scripts.
+    """General application for quickly coding executable scripts.
 
     This class is meant to be inherited by a concrete class in order to define the core program logic by implementing
     the method :meth:`fcg.app.App._exec_logic`. The class :class:`fcg.app.App` wraps the program startup and
-    shutdown, and handles OS signals as well.
+    shutdown.
 
     """
 
-    _is_running: bool = False
-    _has_correctly_shutdown: bool = True
-    _preceding_sigterm_handler: _SignalHandler = None
-    _preceding_sigint_handler: _SignalHandler = None
+    _is_running: bool
+    _has_correctly_shutdown: bool
+
+    def __init__(self) -> None:
+        super().__init__()
+
+        self._is_running = False
+        self._has_correctly_shutdown = True
+
+    def _pre_start(self, **kwargs: typing.Any) -> None:
+        # pylint: disable=unused-argument
+        colorama.init(autoreset=True)
 
     @typing.final
-    def start(self) -> None:
+    def start(self, **kwargs: typing.Any) -> None:
         """Starts the application.
 
         This method also sets up the signal handlers.
@@ -48,16 +49,10 @@ class App(metaclass=abc.ABCMeta):
             If the application is already running.
 
         """
-        assert self._preceding_sigterm_handler is None
-        assert self._preceding_sigint_handler is None
-
         if self.is_running:
             raise AppLifeCycleException("Cannot start an app that is already running.")
 
-        self._preceding_sigterm_handler = signal.signal(signal.SIGTERM, self._exit_signal_handler())
-        self._preceding_sigint_handler = signal.signal(signal.SIGINT, self._exit_signal_handler())
-
-        colorama.init(autoreset=True)
+        self._pre_start(**kwargs)
 
         self._is_running = True
         self._exec_logic()
@@ -68,8 +63,12 @@ class App(metaclass=abc.ABCMeta):
     def _exec_logic(self) -> None:
         pass
 
+    def _shutting_down(self, **kwargs: typing.Any) -> dict[str, typing.Any]:
+        colorama.deinit()
+        return kwargs
+
     @typing.final
-    def _shut_down(self, signum: _SignalNumber | None = None) -> None:
+    def _shut_down(self, **kwargs: typing.Any) -> None:
         """Shuts down the application.
 
         This method also unsets the signal handlers. It does not actually shut down the application : it performs the
@@ -77,8 +76,8 @@ class App(metaclass=abc.ABCMeta):
 
         Parameters
         ----------
-        signum
-            The received signal's number which ordered the shutdown of the App.
+        kwargs
+            Parameters to pass to the shutting down and post-shutdown logic.
 
         Returns
         -------
@@ -96,18 +95,14 @@ class App(metaclass=abc.ABCMeta):
         self._has_correctly_shutdown = False
         self._is_running = False
 
-        colorama.deinit()
-
-        signal.signal(signal.SIGTERM, self._preceding_sigterm_handler)
-        self._preceding_sigterm_handler = None
-
-        signal.signal(signal.SIGINT, self._preceding_sigint_handler)
-        self._preceding_sigint_handler = None
+        kwargs = self._shutting_down(**kwargs)
 
         self._has_correctly_shutdown = True
 
-        if signum is not None:
-            sys.exit(self._get_signal_exit_code(signum))
+        self._post_shut_down(**kwargs)
+
+    def _post_shut_down(self, **kwargs: typing.Any) -> None:
+        pass
 
     @typing.final
     @property
@@ -141,17 +136,3 @@ class App(metaclass=abc.ABCMeta):
 
         """
         return self._has_correctly_shutdown
-
-    def _exit_signal_handler(self) -> _SignalHandlerFunc:
-        def handle_exit_signal(signum: _SignalNumber, _: types.FrameType | None) -> None:
-            nonlocal self
-            self._shut_down(signum=signum)
-
-        return handle_exit_signal
-
-    @staticmethod
-    def _get_signal_exit_code(signum: _SignalNumber) -> int:
-        if signum <= 0:
-            raise ValueError("A signal number must strictly positive.")
-
-        return 128 + signum
