@@ -61,9 +61,9 @@ class SimulateMicroscope3dAcquisition(fcg.app.App):
 
         print("Loading the tracts ... ", end="")
         try:
-            fib: pathlib.Path = args.fib
-            fib = fib.resolve(strict=True)
-            tracts = load_tracts(fib)
+            tract_file: pathlib.Path = args.fib
+            tract_file = tract_file.resolve(strict=True)
+            tracts = load_tracts(tract_file)
             print(colorama.Style.BRIGHT + colorama.Fore.GREEN + "succeeded")
         except Exception as exception:
             print(colorama.Style.BRIGHT + colorama.Fore.RED + "failed")
