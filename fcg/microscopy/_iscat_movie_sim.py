@@ -9,6 +9,17 @@ import scipy.signal
 import skimage.util
 import tqdm
 
+import typing
+import numpy.typing as npt
+
+
+class Tracts(typing.TypedDict):
+    x: float
+    y: float
+    z: float
+    id: int
+
+
 # TODO : Migrate imageio v2 API to v3 API :
 #  See https://imageio.readthedocs.io/en/stable/reference/userapi.html#migrating-to-the-v3-api
 
@@ -55,6 +66,8 @@ class Microscope3dAcquisitionSimulator:
 
     """
 
+    tracts: Tracts
+
     # Notes
     # TODO: Add PSF & Object shape inputs (instead of only psf)
     # TODO: Add z-phase jitter for the PSF instead of using a fixed plane
@@ -65,7 +78,7 @@ class Microscope3dAcquisitionSimulator:
     # TODO: Background noise with different statistics (similar to transcient particles)
     def __init__(
         self,
-        tracts=None,
+        tracts: Tracts | pathlib.Path = None,
         resolution=1.0,
         dt=1,
         contrast=5,
@@ -86,8 +99,10 @@ class Microscope3dAcquisitionSimulator:
 
         if isinstance(tracts, dict):
             self.tracts = tracts
-        elif isinstance(tracts, str) or isinstance(tracts, pathlib.Path):
+        elif isinstance(tracts, pathlib.Path):
             self.load_tracts(tracts)
+        else:
+            raise TypeError("The passed argument to the `tracts` parameter is of the wrong type.")
 
     def initialize(self):
         """Initialize the simulator"""
