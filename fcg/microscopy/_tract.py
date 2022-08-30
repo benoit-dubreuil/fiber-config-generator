@@ -41,7 +41,8 @@ def load_tracts(
     field_id
         Column name in the file corresponding to the tracts ID.
     file_format
-        Specify the file format (available are fib, cvs, json, pcl). If none is given, it will be inferred from the filename.
+        Specify the file format (available are fib, cvs, json, pcl). If none is given, it will be inferred from the
+        filename.
 
     """
     tracts: Tracts = {"x": [], "y": [], "t": [], "id": []}
