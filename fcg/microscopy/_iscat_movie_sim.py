@@ -2,15 +2,14 @@ import csv
 import json
 import pathlib
 import pickle
+import typing
 
 import imageio
 import numpy as np
+import numpy.typing as npt
 import scipy.signal
 import skimage.util
 import tqdm
-
-import typing
-import numpy.typing as npt
 
 
 class Tracts(typing.TypedDict):
