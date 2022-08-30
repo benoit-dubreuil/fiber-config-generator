@@ -222,7 +222,7 @@ class Microscope3dAcquisitionSimulator:
                 movie[i, ...] = scipy.signal.fftconvolve(movie[i, ...], self.psf_2d, mode="same")
 
             # Unpad
-            movie = movie[:, px // 2 : px // 2 + self.nx, py // 2 : py // 2 + self.ny]
+            movie = movie[:, px // 2: px // 2 + self.nx, py // 2: py // 2 + self.ny]
 
         # Add Poisson noise
         if self.noise_poisson:
@@ -308,19 +308,23 @@ class Microscope3dAcquisitionSimulator:
 
         self.tracts = tracts
 
-    def load_psf(self, filename):
+    def load_psf(self, filename: pathlib.Path) -> None:
         """Load a Point-Spread Function (PSF) from a file
+
         Parameters
         ----------
-        filename: str
+        filename
             Input volume filename. Must be a volume format supported by `imageio.volwrite`
+
         Note
         ----
         Only the middle slice along the first dimension will be used
         .. code-block:: python
             psf = psf[int(psf.shape[0]/2), ...]
+
         """
         psf = imageio.volread(filename).squeeze()
         psf_2d = psf[int(psf.shape[0] / 2), ...].squeeze()
         psf_2d = psf_2d / psf_2d.sum()
+
         self.psf_2d = psf_2d
