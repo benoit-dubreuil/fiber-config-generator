@@ -6,7 +6,13 @@ numpy ~= 1.23.0
 scipy ~= 1.9.0
 nibabel ~= 4.0.0
 
-# Transitive dependecies of Simulation Generator
+
+# Microscopy
+imageio ~= 2.21.0
+tqdm ~= 4.64.0
+scikit-image ~= 0.19.0
+
+
 # Transitive dependencies of Simulation Generator
 # which aren't installed automatically (bug?)
 -r voxsim_requirements.txt
