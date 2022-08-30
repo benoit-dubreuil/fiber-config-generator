@@ -3,7 +3,7 @@ import json
 import pickle
 import pathlib
 
-import imageio as io
+import imageio
 import numpy as np
 import tqdm
 import scipy.signal
@@ -198,7 +198,7 @@ class Microscope3dAcquisitionSimulator:
         The volume will be converted to single precision float (`numpy.float32`)
         """
         assert hasattr(self, "movie"), "You must first run the simulation"
-        io.volwrite(filename, self.movie.astype(np.float32))
+        imageio.volwrite(filename, self.movie.astype(np.float32))
 
     def load_tracks(
         self, filename, field_x="x", field_y="y", field_t="t", field_id="id", file_format=None
@@ -270,7 +270,7 @@ class Microscope3dAcquisitionSimulator:
         .. code-block:: python
             psf = psf[int(psf.shape[0]/2), ...]
         """
-        psf = io.volread(filename).squeeze()
+        psf = imageio.volread(filename).squeeze()
         psf_2d = psf[int(psf.shape[0] / 2), ...].squeeze()
         psf_2d = psf_2d / psf_2d.sum()
         self.psf_2d = psf_2d
