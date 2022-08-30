@@ -1,7 +1,7 @@
 import csv
 import json
 import pickle
-from pathlib import Path
+import pathlib
 
 import imageio as io
 import numpy as np
@@ -87,7 +87,7 @@ class Microscope3dAcquisitionSimulator:
 
         if isinstance(tracks, dict):
             self.tracks = tracks
-        elif isinstance(tracks, str) or isinstance(tracks, Path):
+        elif isinstance(tracks, str) or isinstance(tracks, pathlib.Path):
             self.load_tracks(tracks)
 
     def initialize(self):
@@ -222,7 +222,7 @@ class Microscope3dAcquisitionSimulator:
             filename
         """
         tracks = {"x": [], "y": [], "t": [], "id": []}
-        if Path(filename).suffix == ".csv" or file_format == "csv":
+        if pathlib.Path(filename).suffix == ".csv" or file_format == "csv":
             # Load the csv file
             with open(filename) as csvfile:
                 #  Detect the csv format
@@ -240,7 +240,7 @@ class Microscope3dAcquisitionSimulator:
                         tracks["y"].append(float(row[column_names.index(field_y)]))
                         tracks["t"].append(float(row[column_names.index(field_t)]))
                         tracks["id"].append(int(row[column_names.index(field_id)]))
-        elif Path(filename).suffix == ".json" or file_format == "json":
+        elif pathlib.Path(filename).suffix == ".json" or file_format == "json":
             with open(filename) as f:
                 content = json.load(f)
             tracks["x"] = content[field_x]
@@ -248,7 +248,7 @@ class Microscope3dAcquisitionSimulator:
             tracks["t"] = content[field_t]
             tracks["id"] = content[field_id]
 
-        elif Path(filename).suffix == ".pcl" or file_format == "pcl":
+        elif pathlib.Path(filename).suffix == ".pcl" or file_format == "pcl":
             with open(filename, "rb") as f:
                 content = pickle.load(f)
             tracks["x"] = content[field_x]
