@@ -233,11 +233,11 @@ class Microscope3dAcquisitionSimulator:
         self.movie = movie
         print("Movie generation is done.")
 
-    def save(self, filename):
+    def save(self, filename: pathlib.Path) -> None:
         """Save the simulated movie.
         Parameters
         ----------
-        filename : str
+        filename
             Output volume filename. Must be a volume format supported by `imageio.volwrite`
         Note
         ----
