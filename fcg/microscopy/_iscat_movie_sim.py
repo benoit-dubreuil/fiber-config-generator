@@ -72,14 +72,14 @@ class MovieAcquisitionSimulator:
     noise_poisson: bool
     ratio: str
 
-    # Notes
-    # TODO: Add PSF & Object shape inputs (instead of only psf)
-    # TODO: Add z-phase jitter for the PSF instead of using a fixed plane
-    # TODO: Load a simulation parameters file instead of passing everything in the command line
-    # TODO: Use input size as alternative
-    # TODO: link tqdm with logging
-    # TODO: Create a python wrapper for the ImageJ plugin 'DeconvolutionLab2' to generate PSF in the script?
-    # TODO: Background noise with different statistics (similar to transient particles)
+    # Old TODOs
+    # - Add PSF & Object shape inputs (instead of only psf)
+    # - Add z-phase jitter for the PSF instead of using a fixed plane
+    # - Load a simulation parameters file instead of passing everything in the command line
+    # - Use input size as alternative
+    # - link tqdm with logging
+    # - Create a python wrapper for the ImageJ plugin 'DeconvolutionLab2' to generate PSF in the script?
+    # - Background noise with different statistics (similar to transient particles)
     def __init__(
         self,
         tracts: Tracts | pathlib.Path = None,
