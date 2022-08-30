@@ -7,7 +7,7 @@ import typing
 import colorama
 
 import fcg.app
-from fcg.microscopy import MovieAcquisitionSimulator, load_tracts, load_psf
+from fcg.microscopy import MovieAcquisitionSimulator, load_psf, load_tracts
 
 _DEFAULT_OUT_PATH: typing.Final[pathlib.Path] = pathlib.Path("out.tiff")
 
