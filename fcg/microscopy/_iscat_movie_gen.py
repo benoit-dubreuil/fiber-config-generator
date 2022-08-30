@@ -22,6 +22,7 @@ class movie_simulator(object):
     **Syntax**:
 
     .. code-block:: python
+
         movie_simulator = iscat_movie(tracks)
         movie_simulator.run()
 
