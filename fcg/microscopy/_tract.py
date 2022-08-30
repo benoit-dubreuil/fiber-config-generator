@@ -12,6 +12,11 @@ class Tracts(typing.TypedDict):
     id: list[int]
 
 
+# TODO
+def _load_fib_tracts(filename: pathlib.Path) -> Tracts:
+    pass
+
+
 # TODO : Load `.fib`
 def load_tracts(
     filename: pathlib.Path,
@@ -21,12 +26,12 @@ def load_tracts(
     field_id: str = "id",
     file_format: str | None = None,
 ) -> Tracts:
-    """Load the tracts from a `.csv`, `.json` or `.pcl` file.
+    """Load the tracts from a `.fib`, `.csv`, `.json` or `.pcl` file.
 
     Parameters
     ----------
     filename
-        Path to a `.csv`, `.json` or `.pcl` filename
+        Path to a `.fib`, `.csv`, `.json` or `.pcl` filename
     field_x
         Column name in the file corresponding to the tracts X positions.
     field_y
@@ -36,12 +41,14 @@ def load_tracts(
     field_id
         Column name in the file corresponding to the tracts ID.
     file_format
-        Specify the file format (available are cvs, json, pcl). If none is given, it will be inferred from the
-        filename
+        Specify the file format (available are fib, cvs, json, pcl). If none is given, it will be inferred from the filename.
+
     """
     tracts: Tracts = {"x": [], "y": [], "t": [], "id": []}
 
-    if pathlib.Path(filename).suffix == ".csv" or file_format == "csv":
+    if pathlib.Path(filename).suffix == ".fib" or file_format == "fib":
+        tracts = _load_fib_tracts(filename)
+    elif pathlib.Path(filename).suffix == ".csv" or file_format == "csv":
         # Load the csv file
         with open(filename) as csvfile:
             #  Detect the csv format
