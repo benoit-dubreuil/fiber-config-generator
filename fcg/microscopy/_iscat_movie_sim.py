@@ -136,7 +136,7 @@ class Microscope3dAcquisitionSimulator:
         else:
             raise TypeError("The passed argument to the `tracts` parameter is of the wrong type.")
 
-    def initialize(self):
+    def _initialize(self):
         """Initialize the simulator"""
         assert hasattr(self, "tracts"), "You must load a tracts file or set a tracts dict first"
         self.n_spots = len(self.tracts["x"])
@@ -190,7 +190,7 @@ class Microscope3dAcquisitionSimulator:
 
         """
         if reinitialize or not self.initialized:
-            self.initialize()
+            self._initialize()
 
         # Create the movie array
         print("Creating an empty movie")
