@@ -224,7 +224,7 @@ class Microscope3dAcquisitionSimulator:
         tracks = {"x": [], "y": [], "t": [], "id": []}
         if Path(filename).suffix == ".csv" or file_format == "csv":
             # Load the csv file
-            with open(filename, "r") as csvfile:
+            with open(filename) as csvfile:
                 #  Detect the csv format
                 dialect = csv.Sniffer().sniff(csvfile.read())
 
@@ -241,7 +241,7 @@ class Microscope3dAcquisitionSimulator:
                         tracks["t"].append(float(row[column_names.index(field_t)]))
                         tracks["id"].append(int(row[column_names.index(field_id)]))
         elif Path(filename).suffix == ".json" or file_format == "json":
-            with open(filename, "r") as f:
+            with open(filename) as f:
                 content = json.load(f)
             tracks["x"] = content[field_x]
             tracks["y"] = content[field_y]
