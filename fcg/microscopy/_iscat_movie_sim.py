@@ -187,7 +187,7 @@ class Microscope3dAcquisitionSimulator:
         reinitialize: bool
             If `True`, the simulator will be reinitialized.
         """
-        if reinitialize or not (self.initialized):
+        if reinitialize or not self.initialized:
             self.initialize()
 
         # Create the movie array
