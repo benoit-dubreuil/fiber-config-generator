@@ -45,26 +45,33 @@ class Microscope3dAcquisitionSimulator:
     ----------
     tracts
         The tracts to simulate.
-    resolution : float
+    resolution
         Spatial resolution [m/px]
-    dt : float
+    dt
         Temporal resolution  [frame/sec]
-    contrast : float
+    contrast
         Contrast between the simulated particle and the background (Contrast = particle intensity - background
         intensity)
-    background : float
+    background
         Background intensity between 0 and 1
-    noise_gaussian : float
+    noise_gaussian
         Gaussian noise variance
-    noise_poisson : bool
+    noise_poisson
         If True, Poisson noise will be added.
-    ratio : str
+    ratio
         Aspect ratio of the simulated movie. Available ("square"). If none is given,
         the aspect ratio will be inferred from the tracts position.
 
     """
 
     tracts: Tracts
+    resolution: float
+    dt: float
+    contrast: float
+    background: float
+    noise_gaussian: float
+    noise_poisson: bool
+    ratio: str
 
     # Notes
     # TODO: Add PSF & Object shape inputs (instead of only psf)
