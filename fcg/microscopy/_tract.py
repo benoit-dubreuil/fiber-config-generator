@@ -3,6 +3,7 @@ import json
 import pathlib
 import pickle
 import typing
+import struct
 
 _FIB_FILE_ENCODING: typing.Final[str] = "ascii"
 
@@ -71,6 +72,11 @@ def _load_fib_tracts(filename: pathlib.Path) -> Tracts:
         if not line.endswith("float") or not line.endswith("double"):
             raise ValueError("The supplied `.fib` tract file has the wrong format.")
 
+        quantity, size = line.split()[-2:]
+        quantity = int(quantity)
+        data_format: str = size[0] * 3  # 3 elements per point
+        size = struct.calcsize(data_format)
+        data = fib.read(quantity * size)
         
     pass
 
