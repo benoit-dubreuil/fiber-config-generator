@@ -42,6 +42,12 @@ def _load_fib_tracts(filename: pathlib.Path) -> Tracts:
 
     Only the points and lines are important.
 
+    If the `.fib` was generated directly or indirectly with Simulation Generator and voXSim, the spatial positions
+    representing the fibers will be extremely small. It is normal, as the software tools used to generate them are
+    calibrated for MRI. There are quite a few geometric transformations applied to the original spatial positions.
+    Also, a bug might exist either in this project related to the generation of fiber bundles, or in Simulation
+    Generator or voXSim. Adjusting the spatial parameters of the generation might improve this oddity.
+
     Parameters
     ----------
     filename
