@@ -99,12 +99,13 @@ def _load_fib_tracts(filename: pathlib.Path) -> Tracts:
         if not line.startswith("lines"):
             raise ValueError("The supplied `.fib` tract file has the wrong format.")
 
-        element_quantity, element_size = line.split()[-2:]
+        # For lines, the total size is given instead of the element size.
+        element_quantity, total_size = line.split()[-2:]
         element_quantity = int(element_quantity)
-        element_size = int(element_size)
+        total_size = int(total_size)
+        element_size = total_size // element_quantity
         data_format = "c" * element_size  # Indices are of C-family type `int`
 
-        total_size = element_quantity * element_size
         data = fib.read(total_size)
 
         lines = []
