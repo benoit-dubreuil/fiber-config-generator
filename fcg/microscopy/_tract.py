@@ -55,6 +55,8 @@ def _load_fib_tracts(filename: pathlib.Path) -> Tracts:
     .. _format: https://kitware.github.io/vtk-examples/site/VTKFileFormats/#binary-files
 
     """
+    tracts: Tracts = {"x": [], "y": [], "t": [], "id": []}
+
     with open(filename, 'rb') as fib:
         line = fib.readline().decode(_FIB_FILE_ENCODING).lower()
         if not line.startswith("# vtk datafile version"):
