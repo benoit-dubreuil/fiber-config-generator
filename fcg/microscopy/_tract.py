@@ -55,18 +55,18 @@ def _load_fib_tracts(filename: pathlib.Path) -> Tracts:
 
     """
     with open(filename, 'rb') as fib:
-        line = fib.readline().decode(_FIB_FILE_ENCODING)
-        if not line.lower().startswith("# vtk datafile version"):
+        line = fib.readline().decode(_FIB_FILE_ENCODING).lower()
+        if not line.startswith("# vtk datafile version"):
             raise ValueError("The supplied `.fib` tract file has the wrong format.")
 
         fib.readline()  # Line content: "vtk output"
 
-        line = fib.readline().decode(_FIB_FILE_ENCODING)
-        if not line.lower().startswith("dataset polydata"):
+        line = fib.readline().decode(_FIB_FILE_ENCODING).lower()
+        if not line.startswith("dataset polydata"):
             raise ValueError("The supplied `.fib` tract file has the wrong format.")
 
-        line = fib.readline().decode(_FIB_FILE_ENCODING)
-        if not line.lower().startswith("points"):
+        line = fib.readline().decode(_FIB_FILE_ENCODING).lower()
+        if not line.startswith("points"):
             raise ValueError("The supplied `.fib` tract file has the wrong format.")
         
     pass
