@@ -94,9 +94,9 @@ def _load_fib_tracts(filename: pathlib.Path) -> Tracts:
         total_size = element_quantity * element_size
         data = fib.read(total_size)
 
-        points = []
+        geom_points = []
         for offset in range(0, len(data), element_size):
-            points.append(struct.unpack_from(data_format, data, offset))
+            geom_points.append(struct.unpack_from(data_format, data, offset))
 
         fib.readline()  # End of points data line
 
@@ -114,9 +114,9 @@ def _load_fib_tracts(filename: pathlib.Path) -> Tracts:
 
         data = fib.read(total_size)
 
-        lines = []
+        geom_lines = []
         for offset in range(0, len(data), element_size):
-            lines.append(struct.unpack_from(data_format, data, offset))
+            geom_lines.append(struct.unpack_from(data_format, data, offset))
 
     pass
 
