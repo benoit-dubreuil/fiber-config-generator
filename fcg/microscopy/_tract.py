@@ -94,6 +94,23 @@ def _load_fib_tracts(filename: pathlib.Path) -> Tracts:
 
         fib.readline()  # End of points data line
 
+        # LINES
+        line = fib.readline().decode(_FIB_FILE_ENCODING).lower()
+        if not line.startswith("lines"):
+            raise ValueError("The supplied `.fib` tract file has the wrong format.")
+
+        element_quantity, element_size = line.split()[-2:]
+        element_quantity = int(element_quantity)
+        element_size = int(element_size)
+        data_format = "c" * element_size  # Indices are of C-family type `int`
+
+        total_size = element_quantity * element_size
+        data = fib.read(total_size)
+
+        lines = []
+        for offset in range(0, len(data), element_size):
+            lines.append(struct.unpack_from(data_format, data, offset))
+
     pass
 
 
