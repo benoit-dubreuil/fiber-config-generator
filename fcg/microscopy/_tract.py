@@ -2,8 +2,8 @@ import csv
 import json
 import pathlib
 import pickle
-import typing
 import struct
+import typing
 
 _FIB_FILE_ENCODING: typing.Final[str] = "ascii"
 
