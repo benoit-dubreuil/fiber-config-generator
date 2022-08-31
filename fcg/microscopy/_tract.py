@@ -78,14 +78,17 @@ def _load_fib_tracts(filename: pathlib.Path) -> Tracts:
         if "float" != line.split()[-1] != "double":
             raise ValueError("The supplied `.fib` tract file has the wrong format.")
 
-        quantity, size = line.split()[-2:]
-        quantity = int(quantity)
-        data_format: str = size[0] * 3  # 3 elements per point
-        size = struct.calcsize(data_format)
-        data = fib.read(quantity * size)
+        element_quantity, element_size = line.split()[-2:]
+        element_quantity = int(element_quantity)
+
+        data_format: str = element_size[0] * 3  # 3 elements per point
+        element_size = struct.calcsize(data_format)
+
+        total_size = element_quantity * element_size
+        data = fib.read(total_size)
 
         points: [(float, float, float)] = []
-        for offset in range(0, quantity, size):
+        for offset in range(0, len(data), element_size):
             points.append(struct.unpack_from(data_format, data, offset))
 
     pass
