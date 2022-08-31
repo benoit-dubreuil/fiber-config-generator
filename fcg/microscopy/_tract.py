@@ -88,7 +88,7 @@ def _load_fib_tracts(filename: pathlib.Path) -> Tracts:
         total_size = element_quantity * element_size
         data = fib.read(total_size)
 
-        points: [(float, float, float)] = []
+        points = []
         for offset in range(0, len(data), element_size):
             points.append(struct.unpack_from(data_format, data, offset))
 
