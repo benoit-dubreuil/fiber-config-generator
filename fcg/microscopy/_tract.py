@@ -91,6 +91,8 @@ def _load_fib_tracts(filename: pathlib.Path) -> Tracts:
         for offset in range(0, len(data), element_size):
             points.append(struct.unpack_from(data_format, data, offset))
 
+        fib.readline()  # End of points data line
+
     pass
 
 
