@@ -72,6 +72,7 @@ def _load_fib_tracts(filename: pathlib.Path) -> Tracts:
         if not line.startswith("dataset polydata"):
             raise ValueError("The supplied `.fib` tract file has the wrong format.")
 
+        # POINTS
         line = fib.readline().decode(_FIB_FILE_ENCODING).lower()
         if not line.startswith("points"):
             raise ValueError("The supplied `.fib` tract file has the wrong format.")
