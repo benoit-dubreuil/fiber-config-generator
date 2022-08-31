@@ -68,6 +68,9 @@ def _load_fib_tracts(filename: pathlib.Path) -> Tracts:
         line = fib.readline().decode(_FIB_FILE_ENCODING).lower()
         if not line.startswith("points"):
             raise ValueError("The supplied `.fib` tract file has the wrong format.")
+        if not line.endswith("float") or not line.endswith("double"):
+            raise ValueError("The supplied `.fib` tract file has the wrong format.")
+
         
     pass
 
