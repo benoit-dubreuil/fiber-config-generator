@@ -118,6 +118,9 @@ def _load_fib_tracts(filename: pathlib.Path) -> Tracts:
         for offset in range(0, len(data), element_size):
             geom_lines.append(struct.unpack_from(data_format, data, offset))
 
+        # TODO : Interpret lines
+        # TODO : Transform the points and lines into tracts
+
     pass
 
 
