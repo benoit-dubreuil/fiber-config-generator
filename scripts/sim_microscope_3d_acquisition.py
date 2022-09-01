@@ -8,29 +8,25 @@ import colorama
 
 import fcg.app
 
-_DEFAULT_PSF_PATH: typing.Final[pathlib.Path] = pathlib.Path("psf.tif")
-_DEFAULT_FIB_PATH: typing.Final[pathlib.Path] = pathlib.Path("out/phantom/fcg_phantom_merged_bundles.fib")
 _DEFAULT_OUT_PATH: typing.Final[pathlib.Path] = pathlib.Path("out.tiff")
 
 
-class GenerateMicroscopeImg(fcg.app.App):
+class SimulateMicroscope3dAcquisition(fcg.app.App):
     """
-    TODO
+    An application to simulate microscopy movie acquisition (3D) from pregenerated fiber bundles.
 
     """
 
     def _exec_logic(self) -> None:
-        parser = argparse.ArgumentParser("Generate a 3D microscope image representation from fiber bundles")
+        parser = argparse.ArgumentParser("Simulate microscopy movie acquisition (3D) from fiber bundles")
         parser.add_argument(
             "psf",
             type=pathlib.Path,
-            default=_DEFAULT_PSF_PATH,
-            help='The input path to the PSF. Ex: "./generate_fiber_config.py psf.tif"',
+            help='The input path to the PSF. Ex: "./sim_microscope_3d_acquisition.py psf.tif"',
         )
         parser.add_argument(
             "fib",
             type=pathlib.Path,
-            default=_DEFAULT_PSF_PATH,
             help="The input path to the generated fiber bundles. The standard file extension is " "'.fib'.",
         )
         parser.add_argument(
@@ -55,5 +51,5 @@ class GenerateMicroscopeImg(fcg.app.App):
 
 
 if __name__ == "__main__":
-    app = GenerateMicroscopeImg()
+    app = SimulateMicroscope3dAcquisition()
     app.start()

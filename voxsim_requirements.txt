@@ -13,13 +13,13 @@ idna==2.8
 imagesize==1.1.0
 Jinja2==2.10.3
 kiwisolver==1.1.0
-lxml==4.7.*  # Bumpeded version: incompatibility with the binaries' versions
+lxml==4.7.*  # Bumped version: incompatibility with the binaries' versions
 MarkupSafe==1.1.1
 mpi4py==3.1.*  # Bumped version: deprecated code caused build errors
-packaging==19.2
+# packaging==19.2  # Already a transitive dependency of the main project
 Pygments==2.4.2
 pynrrd==0.4.0
-pyparsing==2.4.2
+# pyparsing==2.4.2   # Already a transitive dependency of the main project
 python-dateutil==2.8.0
 pytz==2019.3
 requests==2.22.0

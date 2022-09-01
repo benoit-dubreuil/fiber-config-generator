@@ -2,11 +2,18 @@ wheel ~= 0.37.0
 
 
 # Shared dependencies between Simulation Generator and LiNumPy
-numpy ~= 1.21.0
-scipy ~= 1.8.0
-nibabel ~= 3.2.0
+numpy ~= 1.23.0
+scipy ~= 1.9.0
+nibabel ~= 4.0.0
 
-# Transitive dependecies of Simulation Generator
+
+# Microscopy
+imageio ~= 2.21.0
+tqdm ~= 4.64.0
+scikit-image ~= 0.19.0
+
+
+# Transitive dependencies of Simulation Generator
 # which aren't installed automatically (bug?)
 -r voxsim_requirements.txt
 
@@ -21,4 +28,4 @@ git+https://git@github.com/python/mypy@d9bdd6d96b778388b6aa9d1405bd7a987889f6c2#
 pytest ~= 7.1.0
 brunette ~= 0.2.0
 isort ~= 5.10.0
-pyupgrade ~= 2.37
+pyupgrade ~= 2.37.0

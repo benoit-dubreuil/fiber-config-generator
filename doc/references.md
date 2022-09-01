@@ -37,3 +37,5 @@
   Press. https://doi.org/https://doi.org/10.1201/EBK1420059793.
 - [Fiji](https://fiji.sc/) — an ImageJ distribution
 - [PSF generator](http://bigwww.epfl.ch/algorithms/psfgenerator/) — a PSF generator plugin for ImageJ
+- [TRAIT2D](https://github.com/Eggeling-Lab-Microscope-Software/TRAIT2D)
+    - [`movie_simulator`](https://github.com/Eggeling-Lab-Microscope-Software/TRAIT2D/blob/c0e78a61f58bd12f5e2b63e99dbc5a130ef740bb/trait2d/simulators.py#L412)
