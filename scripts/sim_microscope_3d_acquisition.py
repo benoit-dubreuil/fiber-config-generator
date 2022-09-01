@@ -7,7 +7,7 @@ import typing
 import colorama
 
 import fcg.app
-from fcg.microscopy import Microscope3dAcquisitionSimulator
+from fcg.microscopy import MovieAcquisitionSimulator, load_psf, load_tracts
 
 _DEFAULT_OUT_PATH: typing.Final[pathlib.Path] = pathlib.Path("out.tiff")
 
@@ -52,29 +52,18 @@ class SimulateMicroscope3dAcquisition(fcg.app.App):
         parser.add_argument(
             "--gaussian_noise_variance",
             default=0.15,
-            type=float,
+            type=typing.Union[float, None],
             help="Gaussian noise variance (default=%(default)s)",
         )
         parser.add_argument("--poisson_noise", action="store_true", help="Add poisson noise after PSF convolution")
 
         args = parser.parse_args()
 
-        simulator = Microscope3dAcquisitionSimulator(
-            args.tracks,
-            resolution=args.resolution,
-            dt=args.time_resolution,
-            contrast=args.contrast,
-            background=args.background_intensity,
-            noise_gaussian=args.gaussian_noise_variance,
-            noise_poisson=args.poisson_noise,
-        )
-
         print("Loading the tracts ... ", end="")
         try:
-            fib: pathlib.Path = args.fib
-            fib = fib.resolve(strict=True)
-
-            simulator.load_tracts(fib)
+            tract_file: pathlib.Path = args.fib
+            tract_file = tract_file.resolve(strict=True)
+            tracts = load_tracts(tract_file)
             print(colorama.Style.BRIGHT + colorama.Fore.GREEN + "succeeded")
         except Exception as exception:
             print(colorama.Style.BRIGHT + colorama.Fore.RED + "failed")
@@ -82,14 +71,24 @@ class SimulateMicroscope3dAcquisition(fcg.app.App):
 
         print("Loading the PSF ... ", end="")
         try:
-            psf: pathlib.Path = args.psf
-            psf = psf.resolve(strict=True)
-
-            simulator.load_psf(psf)
+            psf_file: pathlib.Path = args.psf
+            psf_file = psf_file.resolve(strict=True)
+            psf = load_psf(psf_file)
             print(colorama.Style.BRIGHT + colorama.Fore.GREEN + "succeeded")
         except Exception as exception:
             print(colorama.Style.BRIGHT + colorama.Fore.RED + "failed")
             raise exception
+
+        simulator = MovieAcquisitionSimulator(
+            tracts=tracts,
+            psf_2d=psf,
+            resolution=args.resolution,
+            dt=args.time_resolution,
+            contrast=args.contrast,
+            background=args.background_intensity,
+            noise_gaussian=args.gaussian_noise_variance,
+            noise_poisson=args.poisson_noise,
+        )
 
         print("Simulating the microscopy movie acquisition ... ", end="")
         try:
