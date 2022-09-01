@@ -63,7 +63,7 @@ def _load_fib_tracts(filename: pathlib.Path) -> Tracts:
     """
     tracts: Tracts = {"x": [], "y": [], "t": [], "id": []}
 
-    with open(filename, 'rb') as fib:
+    with open(filename, "rb") as fib:
         line = fib.readline().decode(_FIB_FILE_ENCODING).lower()
         if not line.startswith("# vtk datafile version"):
             raise ValueError("The supplied `.fib` tract file has the wrong format.")
