@@ -52,7 +52,7 @@ class SimulateMicroscope3dAcquisition(fcg.app.App):
         parser.add_argument(
             "--gaussian_noise_variance",
             default=0.15,
-            type=typing.Union[float, None],
+            type=float,
             help="Gaussian noise variance (default=%(default)s)",
         )
         parser.add_argument("--poisson_noise", action="store_true", help="Add poisson noise after PSF convolution")
@@ -65,6 +65,7 @@ class SimulateMicroscope3dAcquisition(fcg.app.App):
             dt=args.time_resolution,
             contrast=args.contrast,
             background=args.background_intensity,
+            noise_gaussian=args.gaussian_noise_variance,
             noise_poisson=args.poisson_noise,
         )
 
