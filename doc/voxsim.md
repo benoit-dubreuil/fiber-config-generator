@@ -7,7 +7,7 @@ voXSim is an amelioration of Fiberfox which, contrarily to the latter, allows it
 bundle generation through the command-line interface (CLI). Also, Simulation Generator offers a high level Python API to
 voXSim. There are no equivalents for Fiberfox.
 
-![](img/sim_gen__default_bundles.png)
+![](../img/sim_gen__default_bundles.png)
 
 voXSim and Simulation Generator are both developed by Alex Valcourt Caron from the Sherbrooke Connectivity Imaging
 Laboratory ([SCIL](https://scil.dinf.usherbrooke.ca/)).
