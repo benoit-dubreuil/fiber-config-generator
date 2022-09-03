@@ -81,7 +81,7 @@ anchors = [
 ]
 ```
 
-![Erroneous V shape with 3 anchors](../img/sim_gen__v_shape__bad.png)
+![Erroneous V shape with 3 anchors](/img/sim_gen__v_shape__bad.png)
 
 Unfortunately, through trial and error, generating a simple V-shaped bundle with three anchors seems impossible. The
 image above is an example of the resulting output.
@@ -97,7 +97,7 @@ anchors = [
 ]
 ```
 
-![Satisfactory V shape with 3 anchors](../img/sim_gen__v_shape__good.png)
+![Satisfactory V shape with 3 anchors](/img/sim_gen__v_shape__good.png)
 
 It is possible to generate a simple V-shaped bundle with more than three anchors. However, as seen in the image above,
 the anchors spatial positions offer next to no control over the actual shape of the resulting bundle.
