@@ -14,7 +14,7 @@ objective of this internship, which takes place in the summer 2022 academic term
 
 In the first part of the project, as expressed in
 the [final report](https://github.com/linum-uqam/inf6200-h2022-benoit-dubreuil/blob/main/report/2022_inf6200_benoit_dubreuil.pdf)'
-s results, the software library [Simulation Generator](https://github.com/AlexVCaron/voxsim) is singled out as the one
+s results, the software library [Simulation Generator](https://github.com/AlexVCaron/voxsim) was singled out as the one
 that is best suited for the project's needs of automation capability, ergonomics, functional independence, and being
 coded in Python for simplicity due to the fact that it is the main programming language used within the LINUM. Those
 requirements sufficed the project's goal at the time, as the LINUM team lacked firsthand experience with third-party
