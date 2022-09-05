@@ -6,6 +6,20 @@ import typing
 
 
 class Tracts(typing.TypedDict):
+    """White fiber tracts encoded in the format required by the class :class:`fcg.microscopy.MovieAcquisitionSimulator`.
+
+    Attributes
+    ----------
+    x
+        The spatial X coordinate of ???
+    y
+        The spatial Y coordinate of ???
+    t
+        The spatial Z coordinate of ???
+    id
+        The identifier of ???
+    """
+
     x: list[float]
     y: list[float]
     t: list[float]
@@ -43,13 +57,13 @@ def load_tracts(
 
     if pathlib.Path(filename).suffix == ".csv" or file_format == "csv":
         # Load the csv file
-        with open(filename) as csvfile:
+        with open(filename, encoding="ASCII") as tract_file:
             #  Detect the csv format
-            dialect = csv.Sniffer().sniff(csvfile.read())
+            dialect = csv.Sniffer().sniff(tract_file.read())
 
             #  Create a reader
-            csvfile.seek(0)
-            reader = csv.reader(csvfile, dialect)
+            tract_file.seek(0)
+            reader = csv.reader(tract_file, dialect)
 
             for i, row in enumerate(reader):
                 if i == 0:
@@ -61,16 +75,16 @@ def load_tracts(
                     tracts["id"].append(int(row[column_names.index(field_id)]))
 
     elif pathlib.Path(filename).suffix == ".json" or file_format == "json":
-        with open(filename) as f:
-            content = json.load(f)
+        with open(filename, encoding="ASCII") as tract_file:
+            content = json.load(tract_file)
         tracts["x"] = content[field_x]
         tracts["y"] = content[field_y]
         tracts["t"] = content[field_t]
         tracts["id"] = content[field_id]
 
     elif pathlib.Path(filename).suffix == ".pcl" or file_format == "pcl":
-        with open(filename, "rb") as f:
-            content = pickle.load(f)
+        with open(filename, "rb", encoding="ASCII") as tract_file:
+            content = pickle.load(tract_file)
         tracts["x"] = content[field_x]
         tracts["y"] = content[field_y]
         tracts["t"] = content[field_t]

@@ -10,13 +10,14 @@ import tqdm
 from ._psf import load_psf
 from ._tract import Tracts, load_tracts
 
-# TODO : Migrate imageio v2 API to v3 API :
-#  See https://imageio.readthedocs.io/en/stable/reference/userapi.html#migrating-to-the-v3-api
 
+# TODO: Migrate imageio v2 API to v3 API :
+#  See https://imageio.readthedocs.io/en/stable/reference/userapi.html#migrating-to-the-v3-api
+# TODO: Ensure that the changes made don't break the code.
 # Moving Acquisition simulation
 #
 # @formatter:off
-# noqa Adapted from https://github.com/Eggeling-Lab-Microscope-Software/TRAIT2D/blob/c0e78a61f58bd12f5e2b63e99dbc5a130ef740bb/trait2d/simulators.py#L412
+# Adapted from https://github.com/Eggeling-Lab-Microscope-Software/TRAIT2D/blob/c0e78a61f58bd12f5e2b63e99dbc5a130ef740bb/trait2d/simulators.py#L412  # noqa: E501 # pylint: disable=line-too-long
 # @formatter:on
 class MovieAcquisitionSimulator:
     """Generate a synthetic iScat_ movie from a set of tracts.
@@ -35,7 +36,7 @@ class MovieAcquisitionSimulator:
     | Université du Québec a Montréal (UQAM)
     | 201, Av. du Président-Kennedy, Montréal (Qc), Canada (H3C 3P8)
 
-    Parameters
+    Attributes
     ----------
     tracts
         Tracts to simulate.
