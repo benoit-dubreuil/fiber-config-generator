@@ -6,6 +6,20 @@ import typing
 
 
 class Tracts(typing.TypedDict):
+    """White fiber tracts encoded in the format required by the class :class:`fcg.microscopy.MovieAcquisitionSimulator`.
+
+    Attributes
+    ----------
+    x
+        The spatial X coordinate of ???
+    y
+        The spatial Y coordinate of ???
+    t
+        The spatial Z coordinate of ???
+    id
+        The identifier of ???
+    """
+
     x: list[float]
     y: list[float]
     t: list[float]
