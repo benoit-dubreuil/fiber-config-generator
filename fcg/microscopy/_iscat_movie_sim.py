@@ -11,8 +11,9 @@ from ._psf import load_psf
 from ._tract import Tracts, load_tracts
 
 
-# TODO : Migrate imageio v2 API to v3 API :
+# TODO: Migrate imageio v2 API to v3 API :
 #  See https://imageio.readthedocs.io/en/stable/reference/userapi.html#migrating-to-the-v3-api
+# TODO: Ensure that the changes made don't break the code.
 # Moving Acquisition simulation
 #
 # @formatter:off
