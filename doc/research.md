@@ -14,19 +14,20 @@ objective of this internship, which takes place in the summer 2022 academic term
 
 In the first part of the project, as expressed in
 the [final report](https://github.com/linum-uqam/inf6200-h2022-benoit-dubreuil/blob/main/report/2022_inf6200_benoit_dubreuil.pdf)'
-s results, the software library [Simulation Generator](https://github.com/AlexVCaron/voxsim) is singled out as the one
-that is best suited for the project's needs of automation capability, ergonomics, functional independence and being
-coded in Python. Those requirements sufficed the project's goal at the time, as the LINUM team lacked firsthand
-experience with third-party white matter phantom simulation softwares. However, as we patched, fixed and modernized
-Simulation Generator through a custom GitHub [fork](https://github.com/benoit-dubreuil/voxsim), the amount of
-complications encountered and the required efforts to mend them increased monumentally. After careful deliberation, it
-was decided to abandon Simulation Generator because of critical bugs, and its utility does not fit with the project's
-goal, especially since the main purpose of that tool is to simulate diffusion MRI (DWI) signals on generated fiber
-bundles. Simultaneously, stricter requirements and more specific to the fields of tractography and biomedical microscopy
-were defined. Thenceforth, in order to delegate the white matter phantom generation to an external library, in addition
-to the preceding general requirements, it is imperative that it is completely accessible and open to modifications, and
-that it parameterizes and allows its users to control the axon distribution and biological neural network. Thus,
-Simulation Generator is incompatible with the new sine quibus non.
+s results, the software library [Simulation Generator](https://github.com/AlexVCaron/voxsim) was singled out as the one
+that is best suited for the project's needs of automation capability, ergonomics, functional independence, and being
+coded in Python for simplicity due to the fact that it is the main programming language used within the LINUM. Those
+requirements sufficed the project's goal at the time, as the LINUM team lacked firsthand experience with third-party
+white matter phantom simulation softwares. However, as we patched, fixed and modernized Simulation Generator through a
+custom GitHub [fork](https://github.com/linum-uqam/voxsim), the amount of complications encountered and the required
+efforts to mend them increased monumentally. After careful deliberation, it was decided to abandon Simulation Generator
+because of critical bugs, and its utility does not fit with the project's goal, especially since the main purpose of
+that tool is to simulate diffusion MRI (DWI) signals on generated fiber bundles. Simultaneously, stricter requirements
+and more specific to the fields of tractography and biomedical microscopy were defined. Thenceforth, in order to
+delegate the white matter phantom generation to an external library, in addition to the preceding general requirements,
+it is imperative that it is completely accessible and open to modifications, and that it parameterizes and allows its
+users to control the axon distribution and biological neural network. Thus, Simulation Generator is incompatible with
+the new sine quibus non.
 
 
 ### Simulation Generator, voXSim and Fiberfox
