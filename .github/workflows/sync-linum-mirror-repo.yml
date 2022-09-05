@@ -21,11 +21,6 @@ jobs:
           ref: 'prod'
           fetch-depth: 0
 
-      - name: Load GitHub SSH known host
-        id: load_known_hosts
-        run: |
-          echo "::set-output name=known_hosts::$(cat "${GITHUB_WORKSPACE}/.github/workflows/config/.ssh/known_hosts.d/github.txt")"
-
       - uses: yesolutions/mirror-action@master
         with:
           REMOTE: 'git@github.com:linum-uqam/inm5803-ete2022-benoit-dubreuil.git'
