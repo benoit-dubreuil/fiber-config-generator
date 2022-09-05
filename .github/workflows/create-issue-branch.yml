@@ -1,0 +1,20 @@
+name: 'Create Issue Branch'
+
+# GitHub App/Action Create Issue Branch: https://github.com/robvanderleek/create-issue-branch
+
+on:
+  # The issues event below is only needed for the default (auto) mode, you can remove it otherwise.
+  issues:
+    types: [ assigned ]
+  pull_request:
+    types: [ closed ]
+
+jobs:
+  create_issue_branch:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: 'Create Issue Branch'
+        uses: robvanderleek/create-issue-branch@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

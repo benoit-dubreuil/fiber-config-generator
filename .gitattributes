@@ -1,0 +1,93 @@
+###############################
+# Git Line Endings            #
+###############################
+
+# Set default behaviour to normalize line endings.
+# Use test=auto to automatically normalize line endings.
+* text eol=auto
+
+# Force batch scripts to always use CRLF line endings so that if a repo is accessed
+# in Windows via a file share from Linux, the scripts will work.
+*.{cmd,[cC][mM][dD]} text eol=crlf
+*.{bat,[bB][aA][tT]} text eol=crlf
+
+# Force bash scripts to always use LF line endings so that if a repo is accessed
+# in Unix via a file share from Windows, the scripts will work.
+*.sh text eol=lf
+
+# Code files
+*.sh text eol=lf
+*.py text eol=lf
+*.pyc text eol=lf
+*.python-version text eol=lf
+*.c text eol=lf
+*.h text eol=lf
+*.cpp text eol=lf
+*.hpp text eol=lf
+*.d text eol=lf
+*.java text eol=lf
+*.cs text eol=lf
+
+# Configuration files
+*.yml text eol=lf
+*.xml text eol=lf
+*.toml text eol=lf
+*.json text eol=lf
+*.properties text eol=lf
+*.cfg text eol=lf
+*.mk text eol=lf
+Makefile text eol=lf
+*.clang* text eol=lf
+*.gitignore text eol=lf
+*.gitattributes text eol=lf
+CODEOWNERS text eol=lf
+
+# Text files
+*.md text eol=lf
+*.rst text eol=lf
+*.txt text eol=lf
+LICENSE text eol=lf
+README text eol=lf
+
+# MITK Diffusion, Simulation Generator
+*.bvecs text eol=lf
+*.bvals text eol=lf
+*.fib text eol=lf
+*.vtk text eol=lf
+*.ffp text eol=lf
+
+
+###############################
+# Git Large File System (LFS) #
+###############################
+
+# Use filter=lfs diff=lfs merge=lfs for LFS
+
+# LFS is disabled for the following files, as LFS is slow and unfortunately costly.
+
+# Archives
+*.7z -text
+*.br -text
+*.gz -text
+*.tar -text
+*.zip -text
+
+# Documents
+*.pdf -text
+*.PDF -text
+
+# Images
+*.gif -text
+*.ico -text
+*.jpg -text
+*.png -text
+*.tif -text
+*.tiff -text
+*.psd -text
+*.webp -text
+
+# Fonts
+*.woff2 -text
+
+# Other
+*.exe -text

@@ -1,0 +1,91 @@
+name: 'CI'
+
+# See `setup.cfg` for the configuration of a few tools used here.
+
+on: [ push ]
+
+jobs:
+  clean_code:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: 'Setup the project'
+        id: setup-project
+        uses: ./.github/actions/setup-project
+
+      - name: 'Format Python code with `brunette` and `black`'
+        if: steps.setup-project.outputs.fcg != '' || steps.setup-project.outputs.scripts != '' || steps.setup-project.outputs.tests != ''
+        run: |
+          brunette setup.py ${{ steps.setup-project.outputs.fcg }} ${{ steps.setup-project.outputs.scripts }} ${{ steps.setup-project.outputs.tests }}
+
+      - name: 'Commit changes made by `brunette` and `black` formatters'
+        uses: EndBug/add-and-commit@v9
+        with:
+          default_author: github_actions
+          message: "`${{ github.workflow }}.${{ github.job }}`: Formatted Python code with `brunette` and `black`"
+
+      - name: 'Sort Python imports with `isort`'
+        if: steps.setup-project.outputs.fcg != '' || steps.setup-project.outputs.scripts != '' || steps.setup-project.outputs.tests != ''
+        run: |
+          isort --jobs 0 setup.py ${{ steps.setup-project.outputs.fcg }} ${{ steps.setup-project.outputs.scripts }} ${{ steps.setup-project.outputs.tests }}
+
+      - name: 'Commit changes made by `isort`'
+        uses: EndBug/add-and-commit@v9
+        with:
+          default_author: github_actions
+          message: "`${{ github.workflow }}.${{ github.job }}`: Sorted Python code with `isort`"
+
+      - name: 'Upgrade Python syntax with `pyupgrade`'
+        if: steps.setup-project.outputs.fcg != '' || steps.setup-project.outputs.scripts != '' || steps.setup-project.outputs.tests != ''
+        # The `--py310-plus` harcoded option must match the Python version defined in the file `.python-version`.
+        run: |
+          pyupgrade --py310-plus --exit-zero-even-if-changed \
+            setup.py ${{ steps.setup-project.outputs.fcg }} ${{ steps.setup-project.outputs.scripts }} ${{ steps.setup-project.outputs.tests }}
+
+      - name: 'Commit changes made by `pyupgrade`'
+        uses: EndBug/add-and-commit@v9
+        with:
+          default_author: github_actions
+          message: "`${{ github.workflow }}.${{ github.job }}`: Upgraded Python syntax with `pyupgrade`"
+
+  static_analysis:
+    runs-on: ubuntu-22.04
+    needs: clean_code
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: 'Setup the project'
+        id: setup-project
+        uses: ./.github/actions/setup-project
+
+      - name: 'Linting with `pylint`'
+        if: steps.setup-project.outputs.fcg != '' || steps.setup-project.outputs.scripts != '' || steps.setup-project.outputs.tests != ''
+        run: |
+          if [[ "${{ steps.setup-project.outputs.fcg }}" != '' ]] && [[ "${{ steps.setup-project.outputs.scripts }}" != '' ]]; then
+            pylint --jobs 0 ${{ steps.setup-project.outputs.fcg }} ${{ steps.setup-project.outputs.scripts }}
+          fi
+
+          if [[ "${{ steps.setup-project.outputs.tests }}" != '' ]]; then
+            pylint --jobs 0 --disable=missing-docstring,protected-access ${{ steps.setup-project.outputs.tests }}
+          fi
+
+          pylint --disable=missing-docstring setup.py
+
+      - name: 'Linting with `flake8`'
+        if: steps.setup-project.outputs.fcg != '' || steps.setup-project.outputs.scripts != '' || steps.setup-project.outputs.tests != ''
+        run: |
+          flake8 --show-source --statistics \
+            setup.py ${{ steps.setup-project.outputs.fcg }} ${{ steps.setup-project.outputs.scripts }} ${{ steps.setup-project.outputs.tests }}
+
+      - name: 'Check static types with `mypy`'
+        if: steps.setup-project.outputs.fcg != '' || steps.setup-project.outputs.scripts != '' || steps.setup-project.outputs.tests != ''
+        run: |
+          mypy --warn-unused-configs ${{ steps.setup-project.outputs.fcg }} ${{ steps.setup-project.outputs.scripts }} ${{ steps.setup-project.outputs.tests }}
+
+      - name: 'Test with `pytest`'
+        if: steps.setup-project.outputs.tests != ''
+        run: |
+          pytest ${{ steps.setup-project.outputs.tests }}
