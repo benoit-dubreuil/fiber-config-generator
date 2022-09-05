@@ -57,7 +57,7 @@ def load_tracts(
 
     if pathlib.Path(filename).suffix == ".csv" or file_format == "csv":
         # Load the csv file
-        with open(filename, encoding='ASCII') as tract_file:
+        with open(filename, encoding="ASCII") as tract_file:
             #  Detect the csv format
             dialect = csv.Sniffer().sniff(tract_file.read())
 
@@ -75,7 +75,7 @@ def load_tracts(
                     tracts["id"].append(int(row[column_names.index(field_id)]))
 
     elif pathlib.Path(filename).suffix == ".json" or file_format == "json":
-        with open(filename, encoding='ASCII') as tract_file:
+        with open(filename, encoding="ASCII") as tract_file:
             content = json.load(tract_file)
         tracts["x"] = content[field_x]
         tracts["y"] = content[field_y]
@@ -83,7 +83,7 @@ def load_tracts(
         tracts["id"] = content[field_id]
 
     elif pathlib.Path(filename).suffix == ".pcl" or file_format == "pcl":
-        with open(filename, "rb", encoding='ASCII') as tract_file:
+        with open(filename, "rb", encoding="ASCII") as tract_file:
             content = pickle.load(tract_file)
         tracts["x"] = content[field_x]
         tracts["y"] = content[field_y]
