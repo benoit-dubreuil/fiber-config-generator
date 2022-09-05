@@ -36,7 +36,7 @@ class MovieAcquisitionSimulator:
     | Université du Québec a Montréal (UQAM)
     | 201, Av. du Président-Kennedy, Montréal (Qc), Canada (H3C 3P8)
 
-    Parameters
+    Attributes
     ----------
     tracts
         Tracts to simulate.
