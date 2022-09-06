@@ -112,13 +112,16 @@
     \label{fig:f1}
   \end{figure}
 
+  % @formatter:off
   \begin{lstlisting}[language=Python,caption={Centroid anchors of the Figure~\ref{fig:f1-a}},label={lst:f1-a}]
 anchors = [
     (0.0, 0.0, 0.0),
     (0.5, 0.8, 0.0),
     (1.0, 0.0, 0.0),
 ]\end{lstlisting}
+  % @formatter:on
 
+  % @formatter:off
   \begin{lstlisting}[language=Python,caption={Centroid anchors of the Figure~\ref{fig:f1-b}},label={lst:f1-b}]
 anchors = [
     (0.0, 0.0, 0.0),
@@ -127,6 +130,7 @@ anchors = [
     (0.75, 0.15, 0.0),
     (1.0, 0.0, 0.0),
 ]\end{lstlisting}
+  % @formatter:on
 
   After careful deliberation, it was decided to abandon Simulation Generator because of critical bugs, and its utility does not fit with the project's goal, especially since the main purpose of that tool is to simulate diffusion MRI (DWI) signals on generated fiber bundles.
   Simultaneously, stricter requirements and more specific to the fields of tractography and biomedical microscopy were defined.
