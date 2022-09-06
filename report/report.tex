@@ -82,6 +82,22 @@
   In the first part of the project, the software library Simulation Generator was singled out as the one that is best suited for the project's needs of automation capability, ergonomics, functional independence, and being coded in Python for simplicity due to the fact that it is the main programming language used within the LINUM~\cite{dubreuil2022inf6200}.
   These requirements sufficed the project's goal at the time, as the LINUM team lacked firsthand experience with third-party white matter phantom simulation software.
   However, as we patched, fixed and modernized Simulation Generator through a custom GitHub fork~\cite{dubreuil2022inm5803fiberconfiggen, valcourtcaron2022simulationgenerator}, the amount of complications encountered and the required efforts to mend them increased monumentally.
+
+  The following inadequacies were discerned:
+  \begin{itemize}
+    \item The source code of voXSim is inaccessible.
+    \item A lot of time and efforts must be undertaken to patch, fix and adapt the library.
+    \item Simulation Generator does not have any feature related to the new requirements of the project.
+    \item Its strong cohesion with MITK Diffusion Fiberfox pertains to its diffusion MRI (DWI) roots.
+    It is impossible to truly dissociate the brain white matter phantom from its DWI simulation, ergo a considerable amount of computer performance is wasted on this unneeded feature when generating a phantom.
+    \item The generated geometric shape is unpredictable.
+    See the V-shaped [example](#examplev-shaped-bundle) below. TODO
+    \item There is a lack of important documented features.
+    Simulation Generator does not offer a possibility to modify the tension, bias and continuity of the centroid, contrarily to the description on the concepts documentation page~\cite{valcourtcaron2022simulationgenerator}.
+    Although there is a piece of code about those crucial features, it is related to the XML persistence of the DWI simulation.
+    In that piece of code, the parameters pertaining to the said features are in effect never set, and thus there is a possibility that may not be implemented in voXSim.
+  \end{itemize}
+
   After careful deliberation, it was decided to abandon Simulation Generator because of critical bugs, and its utility does not fit with the project's goal, especially since the main purpose of that tool is to simulate diffusion MRI (DWI) signals on generated fiber bundles.
   Simultaneously, stricter requirements and more specific to the fields of tractography and biomedical microscopy were defined.
   Thenceforth, in order to delegate the white matter phantom generation to an external library, in addition to the preceding general requirements, it is imperative that it's completely accessible and open to modifications, and that it parameterizes and allows its users to control the axon distribution and biological neural network.
