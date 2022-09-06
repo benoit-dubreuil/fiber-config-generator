@@ -118,7 +118,10 @@
     \item Its strong cohesion with MITK Diffusion Fiberfox pertains to its diffusion MRI (DWI) roots.
     It is impossible to truly dissociate the brain white matter phantom from its DWI simulation, ergo a considerable amount of computer performance is wasted on this unneeded feature when generating a phantom.
     \item The generated geometric shape is unpredictable.
-    See Figure~\ref{fig:f1}.
+    Unfortunately, through trial and error, generating a simple V-shaped bundle with three anchors seems impossible.
+    See the Figure~\ref{fig:f1-a} and its code Listing~\ref{lst:l1-a}.
+    It is possible to generate a simple V-shaped bundle with more than three anchors.
+    However, as seen in Figure~\ref{fig:f1-b} and its code Listing~\ref{lst:l1-b}, the anchors spatial positions offer next to no control over the actual shape of the resulting bundle.
     \item There is a lack of important documented features.
     Simulation Generator does not offer a possibility to modify the tension, bias and continuity of the centroid, contrarily to the description on the concepts documentation page~\cite{valcourtcaron2022simulationgenerator}.
     Although there is a piece of code about those crucial features, it is related to the XML persistence of the DWI simulation.
