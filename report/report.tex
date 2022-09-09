@@ -106,6 +106,10 @@
   To do so, a continuous integration (CI) workflow was set up.
   This workflow begins with cleaning the code, then proceeds to perform a static analysis on it.
 
+  In the static analysis workflow, a type checking pass is run.
+  In order to work with external dependencies, their code must be url[type hinted]{https://docs.python.org/3/library/typing.html}.
+  Therefore, Simulation Generator was type hinted via a custom GitHub fork~\cite{dubreuil2022inm5803fiberconfiggen, valcourtcaron2022simulationgenerator}.
+
   TODO
 
 
