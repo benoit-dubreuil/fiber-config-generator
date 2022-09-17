@@ -18,5 +18,6 @@ d'été 2022 à l'UQAM pour un stage COOP ([INM5803](https://etudier.uqam.ca/cou
 - [Development](doc/development.md)
 - [Glossary](doc/glossary.md)
 - [References](doc/references.md)
+- [report](report/2022_inm5803_benoit_dubreuil.pdf)
 - [Research](doc/research.md)
 - [voXSim](doc/voxsim.md)
