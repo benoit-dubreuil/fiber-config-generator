@@ -18,7 +18,7 @@ s results, the software library [Simulation Generator](https://github.com/AlexVC
 that is best suited for the project's needs of automation capability, ergonomics, functional independence, and being
 coded in Python for simplicity due to the fact that it is the main programming language used within the LINUM. Those
 requirements sufficed the project's goal at the time, as the LINUM team lacked firsthand experience with third-party
-white matter phantom simulation softwares. However, as we patched, fixed and modernized Simulation Generator through a
+white matter phantom simulation software. However, as we patched, fixed and modernized Simulation Generator through a
 custom GitHub [fork](https://github.com/linum-uqam/voxsim), the amount of complications encountered and the required
 efforts to mend them increased monumentally. After careful deliberation, it was decided to abandon Simulation Generator
 because of critical bugs, and its utility does not fit with the project's goal, especially since the main purpose of
@@ -53,7 +53,7 @@ Laboratory ([SCIL](https://scil.dinf.usherbrooke.ca/)).
 - The source code of voXSim is inaccessible.
 - A lot of time and efforts must be undertaken to patch, fix and adapt the library.
 - Simulation Generator does not have any feature related to the new requirements of the project.
-- Its strong cohesion with [MITK Fiberfox](https://docs.mitk.org/2018.04/org_mitk_views_fiberfoxview.html)
+- Its strong cohesion with [MITK Diffusion Fiberfox](https://docs.mitk.org/2018.04/org_mitk_views_fiberfoxview.html)
   pertains to its DWI roots. It is impossible to truly dissociate the brain white matter phantom from its DWI
   simulation, ergo a considerable amount of computer performance is wasted on this unneeded feature when generating a
   phantom.
@@ -81,7 +81,7 @@ anchors = [
 ]
 ```
 
-![Erroneous V shape with 3 anchors](img/sim_gen__v_shape__bad.png)
+![Erroneous V shape with 3 anchors](/img/sim_gen__v_shape__bad.png)
 
 Unfortunately, through trial and error, generating a simple V-shaped bundle with three anchors seems impossible. The
 image above is an example of the resulting output.
@@ -97,7 +97,7 @@ anchors = [
 ]
 ```
 
-![Satisfactory V shape with 3 anchors](img/sim_gen__v_shape__good.png)
+![Satisfactory V shape with 3 anchors](/img/sim_gen__v_shape__good.png)
 
 It is possible to generate a simple V-shaped bundle with more than three anchors. However, as seen in the image above,
 the anchors spatial positions offer next to no control over the actual shape of the resulting bundle.
